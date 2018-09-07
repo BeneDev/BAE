@@ -80,6 +80,10 @@ public class BaseHandController : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
+        if(OnHandSmashDown != null)
+        {
+            OnHandSmashDown(transform.position);
+        }
         Invoke("ResetAfterSmash", resetTime);
         yield return new WaitForSeconds(0.2f);
         canKill = false;
