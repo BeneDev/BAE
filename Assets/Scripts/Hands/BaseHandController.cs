@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class BaseHandController : MonoBehaviour {
 
@@ -23,8 +24,9 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float smashDownDuration = 0.2f;
     [SerializeField] protected float smashCamShakeAmount = 0.3f;
     [SerializeField] protected float smashCamShakeDuration = 0.15f;
+    [SerializeField] protected float smashGamePadRumbleDuration = 0.2f;
 
-    [SerializeField] ParticleSystem smokeImpact;
+    [SerializeField] ParticleSystem smashImpact;
     
     protected float t1;
     protected float t2;
@@ -45,6 +47,8 @@ public class BaseHandController : MonoBehaviour {
 
     CameraShake camShake;
 
+    GamePadState padState;
+
     protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody>();
@@ -55,26 +59,8 @@ public class BaseHandController : MonoBehaviour {
     protected virtual void smash()
     {
         canSmash = false;
-
-        // freeze Hand position
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-
-        //smashPositionStart = transform.position;
-        //smashPositionEnd = smashPositionStart;
-        //smashPositionEnd.y = 0.5f;
-
         StartCoroutine(SmashDown());
-
-        //Debug.Log("Current Position is " + smashPositionStart + "Smash Position is " + smashPositionEnd);
-
-        //t1 += Time.deltaTime / smashSpeed;
-        //transform.position = Vector3.Lerp(smashPositionStart, smashPositionEnd, t1);
-
-        //transform.position = Vector3.Lerp(smashPositionStart, smashPositionEnd, smashSpeed * Time.deltaTime);
-
-        //transform.position = smashPositionEnd;
-
-        //Invoke("ResetAfterSmash", resetTime);
     }
 
     IEnumerator SmashDown()
@@ -92,28 +78,34 @@ public class BaseHandController : MonoBehaviour {
             OnHandSmashDown(transform.position);
         }
         Invoke("ResetAfterSmash", resetTime);
-        if(smokeImpact)
+        if(smashImpact)
         {
-            smokeImpact.Play();
+            smashImpact.Play();
         }
+        StartCoroutine(VibrateController(smashGamePadRumbleDuration));
         camShake.shakeAmount = smashCamShakeAmount;
         camShake.shakeDuration = smashCamShakeDuration;
         yield return new WaitForSeconds(0.2f);
         canKill = false;
     }
 
+    //IEnumerator SpezialSmash()
+    //{
+
+    //}
+
+    IEnumerator VibrateController(float duration)
+    {
+        padState = GamePad.GetState(PlayerIndex.One);
+        GamePad.SetVibration(PlayerIndex.One, padState.Triggers.Left, padState.Triggers.Right);
+        yield return new WaitForSeconds(duration);
+        GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+
+    }
+
     //Reset after Smash (gets invoked after resetTime seconds)
     protected virtual void ResetAfterSmash()
     {
-        //Debug.Log("Reset Time is Over");
-
-        //smashPositionEnd = transform.position;
-        //smashPositionReset = smashPositionEnd;
-        //smashPositionReset.y = 3f;
-
-        //t2 += Time.deltaTime / resetSpeed;
-        //transform.position = Vector3.Lerp(smashPositionEnd, smashPositionReset, t2);
-
         transform.position = smashPositionStart;
 
         // un-freeze Hand position but keep rotation frozen
