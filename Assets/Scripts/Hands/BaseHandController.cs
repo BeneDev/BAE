@@ -29,7 +29,8 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float resetDistance = 0.01f;
     [SerializeField] protected float resetTime = 2f;
     [SerializeField] protected float resetSpeed = 1f;
-    [SerializeField] protected float smashTravelDistanceY = 0.5f;
+    protected float smashTravelDistanceY;
+    protected const float normalSmashTravelDistanceY = 2.5f;
     [SerializeField] protected float smashDownDuration = 0.2f;
     [SerializeField] protected float smashCamShakeAmount = 0.3f;
     [SerializeField] protected float smashCamShakeDuration = 0.15f;
@@ -107,6 +108,7 @@ public class BaseHandController : MonoBehaviour {
     {
         canSmash = false;
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        smashTravelDistanceY = transform.position.y - 0.5f;
         StartCoroutine(SmashDown());
     }
 
@@ -118,6 +120,10 @@ public class BaseHandController : MonoBehaviour {
         {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
+        }
+        if (smashPositionStart.y > 3f)
+        {
+            smashPositionStart.y = 3f;
         }
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if(OnHandSmashDown != null)
@@ -146,11 +152,16 @@ public class BaseHandController : MonoBehaviour {
         for (int i = 0; i < timesHittingWithSpecialSmash; i++)
         {
             canKill = true;
+            smashTravelDistanceY = transform.position.y - 0.5f;
             smashPositionStart = transform.position;
             for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
             {
                 transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
                 yield return new WaitForEndOfFrame();
+            }
+            if (smashPositionStart.y > 3f)
+            {
+                smashPositionStart.y = 3f;
             }
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY, transform.position.z);
             if (OnHandSmashDown != null)
@@ -166,7 +177,7 @@ public class BaseHandController : MonoBehaviour {
             yield return new WaitForSeconds(resetTime * 0.1f);
             for (float t = 0f; t < resetTransformDuration * 0.3f; t += Time.deltaTime)
             {
-                transform.position = new Vector3(transform.position.x, (smashPositionStart.y - smashTravelDistanceY) + smashTravelDistanceY * (t / (resetTransformDuration * 0.3f)), transform.position.z);
+                transform.position = new Vector3(transform.position.x, (smashPositionStart.y - normalSmashTravelDistanceY) + normalSmashTravelDistanceY * (t / (resetTransformDuration * 0.3f)), transform.position.z);
                 yield return new WaitForEndOfFrame();
             }
             transform.position = new Vector3(transform.position.x, smashPositionStart.y, transform.position.z);
@@ -177,10 +188,15 @@ public class BaseHandController : MonoBehaviour {
         canKill = true;
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         smashPositionStart = transform.position;
+        smashTravelDistanceY = transform.position.y - 0.5f;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
         {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
+        }
+        if (smashPositionStart.y > 3f)
+        {
+            smashPositionStart.y = 3f;
         }
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if (OnHandSmashDown != null)
@@ -214,7 +230,7 @@ public class BaseHandController : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         for (float t = 0f; t < resetTransformDuration; t += Time.deltaTime)
         {
-            transform.position = new Vector3(transform.position.x, (smashPositionStart.y - smashTravelDistanceY) + smashTravelDistanceY * (t / resetTransformDuration), transform.position.z);
+            transform.position = new Vector3(transform.position.x, (smashPositionStart.y - normalSmashTravelDistanceY) + normalSmashTravelDistanceY * (t / resetTransformDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
         }
         transform.position = smashPositionStart;
