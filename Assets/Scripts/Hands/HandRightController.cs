@@ -5,6 +5,14 @@ using XInputDotNetPure;
 
 public class HandRightController : BaseHandController
 {
+    HandLeftController handLeft;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
+    }
+
     protected override void Update()
     {
         //movement and controller stick deadzone
@@ -18,5 +26,11 @@ public class HandRightController : BaseHandController
         //smash ground using trigger
         triggerInput = new Vector3(0f, Input.GetAxis("TriggerRight"), 0f);
         base.Update();
+        if (isLeftStickDown && isRightStickDown && canSmash && handLeft.CanSmash)
+        {
+            SpecialSmash();
+            isLeftStickDown = false;
+            isRightStickDown = false;
+        }
     }
 }

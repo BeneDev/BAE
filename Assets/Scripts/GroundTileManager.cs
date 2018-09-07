@@ -8,6 +8,7 @@ public class GroundTileManager : MonoBehaviour {
     BaseHandController handRight;
 
     Vector3 startPos;
+    Vector3 normalPos;
     Vector3 toImpact;
 
     [SerializeField] float goDownThreshold = 1f;
@@ -16,6 +17,7 @@ public class GroundTileManager : MonoBehaviour {
     [SerializeField] float driveAmount = 0.2f;
     [SerializeField] float driveFirstDuration = 0.1f;
     [SerializeField] float driveBackDuration = 0.5f;
+    [SerializeField] float resetTime = 1f;
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class GroundTileManager : MonoBehaviour {
         handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<BaseHandController>();
         handLeft.OnHandSmashDown += Go;
         handRight.OnHandSmashDown += Go;
+        handRight.OnSpecialSmashEnd += Reset;
+        normalPos = transform.position;
     }
 
     void Go(Vector3 impactPos)
@@ -37,6 +41,23 @@ public class GroundTileManager : MonoBehaviour {
         {
             StartCoroutine(DriveUp(impactPos));
         }
+    }
+
+    void Reset()
+    {
+        StartCoroutine(BackToNormal());
+    }
+
+    IEnumerator BackToNormal()
+    {
+        float startY = transform.position.y;
+        float differenceY = normalPos.y - startY;
+        for (float t = 0; t < resetTime; t += Time.deltaTime)
+        {
+            transform.position = new Vector3(transform.position.x, startY + (differenceY * (t / resetTime)), transform.position.z);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = normalPos;
     }
 
     IEnumerator DriveDown()

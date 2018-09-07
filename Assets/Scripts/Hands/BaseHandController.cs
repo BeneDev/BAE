@@ -13,7 +13,16 @@ public class BaseHandController : MonoBehaviour {
         }
     }
 
+    public bool CanSmash
+    {
+        get
+        {
+            return canSmash;
+        }
+    }
+
     public event System.Action<Vector3> OnHandSmashDown;
+    public event System.Action OnSpecialSmashEnd;
 
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float smashSpeed = 2f;
@@ -39,6 +48,7 @@ public class BaseHandController : MonoBehaviour {
     protected Rigidbody rBody;
 
     protected bool canSmash = true;
+    protected bool isInSpecialSmash = false;
 
     protected Vector3 moveInput;
     protected Vector3 smashPositionStart;
@@ -65,28 +75,22 @@ public class BaseHandController : MonoBehaviour {
 
     protected virtual void Update()
     {
-        if (triggerInput.magnitude > 0.2 && canSmash == true)
+        if (triggerInput.magnitude > 0.2 && canSmash && !isInSpecialSmash)
         {
             Smash();
             padState = GamePad.GetState(PlayerIndex.One);
         }
-        if(Input.GetButtonDown("LeftStickDown") && canSmash)
+        if(Input.GetButtonDown("LeftStickDown"))
         {
             isLeftStickDown = true;
             CancelInvoke("ResetLeftStick");
             Invoke("ResetLeftStick", holdStickDownInputForFrames * Time.deltaTime);
         }
-        if(Input.GetButtonDown("RightStickDown") && canSmash)
+        if(Input.GetButtonDown("RightStickDown"))
         {
             isRightStickDown = true;
             CancelInvoke("ResetRightStick");
             Invoke("ResetRightStick", holdStickDownInputForFrames * Time.deltaTime);
-        }
-        if (isLeftStickDown && isRightStickDown)
-        {
-            SpecialSmash();
-            isLeftStickDown = false;
-            isRightStickDown = false;
         }
     }
 
@@ -137,7 +141,7 @@ public class BaseHandController : MonoBehaviour {
 
     protected virtual void SpecialSmash()
     {
-        canSmash = false;
+        isInSpecialSmash = true;
         rBody.constraints = RigidbodyConstraints.FreezeRotation;
         StartCoroutine(SpecialSmashDown());
     }
@@ -175,6 +179,9 @@ public class BaseHandController : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y, transform.position.z);
             rBody.constraints = RigidbodyConstraints.FreezeRotation;
         }
+
+        canSmash = false;
+        rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         smashPositionStart = transform.position;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
         {
@@ -195,6 +202,11 @@ public class BaseHandController : MonoBehaviour {
         camShake.shakeDuration = smashCamShakeDuration;
         // Reset hand position
         StartCoroutine(ResetAfterSmash(resetTime));
+        if(OnSpecialSmashEnd != null)
+        {
+            OnSpecialSmashEnd();
+        }
+        isInSpecialSmash = false;
     }
 
     IEnumerator VibrateController(float duration)
