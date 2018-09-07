@@ -30603,8 +30603,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114005675142245332
@@ -30619,8 +30620,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114009260174731726
@@ -30635,8 +30637,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114016256092036852
@@ -30651,8 +30654,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114018779309905714
@@ -30667,8 +30671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114025596267078006
@@ -30683,8 +30688,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114026682547138582
@@ -30699,8 +30705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114029645933492044
@@ -30715,8 +30722,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114031647901001478
@@ -30731,8 +30739,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114038062057193204
@@ -30747,8 +30756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114043088409784396
@@ -30763,8 +30773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114043638936715050
@@ -30779,8 +30790,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114044594647391730
@@ -30795,8 +30807,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114051940930565116
@@ -30811,8 +30824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114055714077527890
@@ -30827,8 +30841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114055968989299308
@@ -30843,8 +30858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114058989355282736
@@ -30859,8 +30875,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114060207901734186
@@ -30875,8 +30892,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114062318166497500
@@ -30891,8 +30909,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114064442410259788
@@ -30907,8 +30926,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114066024293838688
@@ -30923,8 +30943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114067161207236244
@@ -30939,8 +30960,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114067601904728570
@@ -30955,8 +30977,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114069383710156610
@@ -30971,8 +30994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114070208834024030
@@ -30987,8 +31011,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114070466042914616
@@ -31003,8 +31028,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114070861376732038
@@ -31019,8 +31045,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114071474321120004
@@ -31035,8 +31062,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114073919240700404
@@ -31051,8 +31079,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114074243742800364
@@ -31067,8 +31096,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114074365040112092
@@ -31083,8 +31113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114074751055428642
@@ -31099,8 +31130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114075468171580896
@@ -31115,8 +31147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114076272764497708
@@ -31131,8 +31164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114077685944493958
@@ -31147,8 +31181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114078910028797924
@@ -31163,8 +31198,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114080979282019384
@@ -31179,8 +31215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114082611451515102
@@ -31195,8 +31232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114085015322427594
@@ -31211,8 +31249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114091870965890440
@@ -31227,8 +31266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114097781140221332
@@ -31243,8 +31283,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114098419793801060
@@ -31259,8 +31300,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114100731394359188
@@ -31275,8 +31317,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114102330155486854
@@ -31291,8 +31334,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114103102762695030
@@ -31307,8 +31351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114104860352713982
@@ -31323,8 +31368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114109284078560620
@@ -31339,8 +31385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114116614261893988
@@ -31355,8 +31402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114118536556605828
@@ -31371,8 +31419,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114125069452937414
@@ -31387,8 +31436,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114125679371140964
@@ -31403,8 +31453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114134125311875786
@@ -31419,8 +31470,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114134221087909202
@@ -31435,8 +31487,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114139008551120426
@@ -31451,8 +31504,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114139934214769144
@@ -31467,8 +31521,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114140786271228414
@@ -31483,8 +31538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114143813824554702
@@ -31499,8 +31555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114143994413226636
@@ -31515,8 +31572,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114148863827865862
@@ -31531,8 +31589,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114154824241552234
@@ -31547,8 +31606,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114154992953986988
@@ -31563,8 +31623,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114155235657263530
@@ -31579,8 +31640,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114164165578333868
@@ -31595,8 +31657,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114166014217394766
@@ -31611,8 +31674,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114168329352217860
@@ -31627,8 +31691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114170257226702020
@@ -31643,8 +31708,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114175790918132072
@@ -31659,8 +31725,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114181020353425474
@@ -31675,8 +31742,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114182048187762100
@@ -31691,8 +31759,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114185238072073572
@@ -31707,8 +31776,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114189212210107310
@@ -31723,8 +31793,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114192077978905770
@@ -31739,8 +31810,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114193623721676302
@@ -31755,8 +31827,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114193873107002920
@@ -31771,8 +31844,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114193915027142270
@@ -31787,8 +31861,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114195202163266156
@@ -31803,8 +31878,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114196941216947204
@@ -31819,8 +31895,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114197151333539882
@@ -31835,8 +31912,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114200597937049146
@@ -31851,8 +31929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114201451399979862
@@ -31867,8 +31946,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114204213844430910
@@ -31883,8 +31963,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114207621960759002
@@ -31899,8 +31980,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114210946177773970
@@ -31915,8 +31997,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114211385028421148
@@ -31931,8 +32014,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114212272438809188
@@ -31947,8 +32031,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114213359893649848
@@ -31963,8 +32048,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114214977812845526
@@ -31979,8 +32065,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114215254624082150
@@ -31995,8 +32082,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114219438753713680
@@ -32011,8 +32099,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114224689275882210
@@ -32027,8 +32116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114226381092515792
@@ -32043,8 +32133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114227613595118332
@@ -32059,8 +32150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114229215341400928
@@ -32075,8 +32167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114229565949710842
@@ -32091,8 +32184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114233875875365898
@@ -32107,8 +32201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114238221943027646
@@ -32123,8 +32218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114238791033993546
@@ -32139,8 +32235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114242806447099708
@@ -32155,8 +32252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114243142241260748
@@ -32171,8 +32269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114243260613408812
@@ -32187,8 +32286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114250062201114310
@@ -32203,8 +32303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114255774545098106
@@ -32219,8 +32320,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114258891192897338
@@ -32235,8 +32337,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114259386208220522
@@ -32251,8 +32354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114260231220795816
@@ -32267,8 +32371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114260415974097826
@@ -32283,8 +32388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114265568310021176
@@ -32299,8 +32405,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114270866579440114
@@ -32315,8 +32422,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114272000565534010
@@ -32331,8 +32439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114274537459747054
@@ -32347,8 +32456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114274949215548294
@@ -32363,8 +32473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114275275387195096
@@ -32379,8 +32490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114278682056168720
@@ -32395,8 +32507,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114280894602232834
@@ -32411,8 +32524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114281477676902516
@@ -32427,8 +32541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114295934667118048
@@ -32443,8 +32558,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114297772372032546
@@ -32459,8 +32575,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114300350908262814
@@ -32475,8 +32592,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114311608297811714
@@ -32491,8 +32609,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114311933025487602
@@ -32507,8 +32626,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114316774934160496
@@ -32523,8 +32643,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114321318802008978
@@ -32539,8 +32660,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114322363166370646
@@ -32555,8 +32677,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114323458865465692
@@ -32571,8 +32694,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114323564434249708
@@ -32587,8 +32711,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114327118191907684
@@ -32603,8 +32728,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114327677678097670
@@ -32619,8 +32745,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114329074339214912
@@ -32635,8 +32762,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114331490644764104
@@ -32651,8 +32779,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114338055646179194
@@ -32667,8 +32796,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114345184064913260
@@ -32683,8 +32813,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114347183695727680
@@ -32699,8 +32830,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114347900813974552
@@ -32715,8 +32847,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114348527426838856
@@ -32731,8 +32864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114352605690098610
@@ -32747,8 +32881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114359245407067140
@@ -32763,8 +32898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114366012487383728
@@ -32779,8 +32915,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114366924490258266
@@ -32795,8 +32932,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114369369912764186
@@ -32811,8 +32949,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114371706961623136
@@ -32827,8 +32966,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114372380701211792
@@ -32843,8 +32983,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114374530273030636
@@ -32859,8 +33000,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114378155532069012
@@ -32875,8 +33017,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114378220923889898
@@ -32891,8 +33034,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114381824996271972
@@ -32907,8 +33051,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114386318803834468
@@ -32923,8 +33068,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114392111427048542
@@ -32939,8 +33085,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114399624645621172
@@ -32955,8 +33102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114400360837911742
@@ -32971,8 +33119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114401958825807784
@@ -32987,8 +33136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114406249012435790
@@ -33003,8 +33153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114408214164726632
@@ -33019,8 +33170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114408579273638316
@@ -33035,8 +33187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114411177991441308
@@ -33051,8 +33204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114411779038942612
@@ -33067,8 +33221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114412979340906706
@@ -33083,8 +33238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114418168405732456
@@ -33099,8 +33255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114420654496429784
@@ -33115,8 +33272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114420794576352316
@@ -33131,8 +33289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114424331845988520
@@ -33147,8 +33306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114424884352306880
@@ -33163,8 +33323,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114434029848630436
@@ -33179,8 +33340,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114434633582819264
@@ -33195,8 +33357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114436567824820534
@@ -33211,8 +33374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114439697972521948
@@ -33227,8 +33391,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114441679421182264
@@ -33243,8 +33408,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114442719156467188
@@ -33259,8 +33425,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114443392514692684
@@ -33275,8 +33442,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114444796535886594
@@ -33291,8 +33459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114447899771154006
@@ -33307,8 +33476,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114450757404375098
@@ -33323,8 +33493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114455207362230914
@@ -33339,8 +33510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114455482445950494
@@ -33355,8 +33527,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114455953949531886
@@ -33371,8 +33544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114457565765908482
@@ -33387,8 +33561,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114459539942053836
@@ -33403,8 +33578,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114464364532836762
@@ -33419,8 +33595,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114465139655215762
@@ -33435,8 +33612,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114466961679550256
@@ -33451,8 +33629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114471914602566234
@@ -33467,8 +33646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114473668248298832
@@ -33483,8 +33663,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114475956136777614
@@ -33499,8 +33680,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114479214174821322
@@ -33515,8 +33697,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114483130155786570
@@ -33531,8 +33714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114483256722424856
@@ -33547,8 +33731,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114490294887941620
@@ -33563,8 +33748,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114495612045404714
@@ -33579,8 +33765,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114497678319104236
@@ -33595,8 +33782,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114500045713338270
@@ -33611,8 +33799,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114500584586185536
@@ -33627,8 +33816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114501618516021446
@@ -33643,8 +33833,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114501921987594754
@@ -33659,8 +33850,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114503730778944180
@@ -33675,8 +33867,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114504476814308742
@@ -33691,8 +33884,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114505738362196464
@@ -33707,8 +33901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114514101850447422
@@ -33723,8 +33918,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114517021372497952
@@ -33739,8 +33935,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114521361687977064
@@ -33755,8 +33952,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114524726907552708
@@ -33771,8 +33969,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114526188606947206
@@ -33787,8 +33986,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114529204465530800
@@ -33803,8 +34003,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114533680893487092
@@ -33819,8 +34020,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114545399037979106
@@ -33835,8 +34037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114547442491010874
@@ -33851,8 +34054,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114548457290633226
@@ -33867,8 +34071,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114549903512879410
@@ -33883,8 +34088,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114550562105754796
@@ -33899,8 +34105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114550618386558170
@@ -33915,8 +34122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114551012636280814
@@ -33931,8 +34139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114552717335930742
@@ -33947,8 +34156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114559442494896474
@@ -33963,8 +34173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114559952024355204
@@ -33979,8 +34190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114559973415411386
@@ -33995,8 +34207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114564207188954234
@@ -34011,8 +34224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114572279946911292
@@ -34027,8 +34241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114575934917520532
@@ -34043,8 +34258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114576539998974574
@@ -34059,8 +34275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114579575669322114
@@ -34075,8 +34292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114580180497412594
@@ -34091,8 +34309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114584147678387710
@@ -34107,8 +34326,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114601562065471954
@@ -34123,8 +34343,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114606704009967046
@@ -34139,8 +34360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114607977361552422
@@ -34155,8 +34377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114613958281282782
@@ -34171,8 +34394,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114614963489151782
@@ -34187,8 +34411,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114618672345477872
@@ -34203,8 +34428,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114620595990245276
@@ -34219,8 +34445,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114621098899771372
@@ -34235,8 +34462,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114624336525921258
@@ -34251,8 +34479,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114626605216810238
@@ -34267,8 +34496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114634284253249066
@@ -34283,8 +34513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114638495411574630
@@ -34299,8 +34530,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114640652142832420
@@ -34315,8 +34547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114641288558159788
@@ -34331,8 +34564,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114642996336215618
@@ -34347,8 +34581,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114647191230534216
@@ -34363,8 +34598,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114650627668000456
@@ -34379,8 +34615,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114651425136945526
@@ -34395,8 +34632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114653789330275394
@@ -34411,8 +34649,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114655550445666112
@@ -34427,8 +34666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114659766982721374
@@ -34443,8 +34683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114659862176189714
@@ -34459,8 +34700,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114669596966213394
@@ -34475,8 +34717,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114674939201076018
@@ -34491,8 +34734,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114680685900618208
@@ -34507,8 +34751,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114682567829001830
@@ -34523,8 +34768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114682760261562824
@@ -34539,8 +34785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114686609961177344
@@ -34555,8 +34802,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114686645756228988
@@ -34571,8 +34819,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114690496441355704
@@ -34587,8 +34836,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114692362962571556
@@ -34603,8 +34853,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114699174595119272
@@ -34619,8 +34870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114700450657020468
@@ -34635,8 +34887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114700547586375444
@@ -34651,8 +34904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114707309043111982
@@ -34667,8 +34921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114708246295095886
@@ -34683,8 +34938,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114712192635477674
@@ -34699,8 +34955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114717455522934736
@@ -34715,8 +34972,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114718559953355918
@@ -34731,8 +34989,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114718814233473610
@@ -34747,8 +35006,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114719001524836644
@@ -34763,8 +35023,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114723844741726692
@@ -34779,8 +35040,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114735804814441552
@@ -34795,8 +35057,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114735852881068822
@@ -34811,8 +35074,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114737501858727296
@@ -34827,8 +35091,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114739171486217952
@@ -34843,8 +35108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114746871650231458
@@ -34859,8 +35125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114748063403635318
@@ -34875,8 +35142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114751208336545928
@@ -34891,8 +35159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114751319472462990
@@ -34907,8 +35176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114756161379474614
@@ -34923,8 +35193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114757776815443748
@@ -34939,8 +35210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114761019409313276
@@ -34955,8 +35227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114764920039285206
@@ -34971,8 +35244,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114768725391043944
@@ -34987,8 +35261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114768782236647524
@@ -35003,8 +35278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114769706880429166
@@ -35019,8 +35295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114774003816377500
@@ -35035,8 +35312,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114774690399208910
@@ -35051,8 +35329,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114775330787917662
@@ -35067,8 +35346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114775464051772222
@@ -35083,8 +35363,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114777450763637536
@@ -35099,8 +35380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114779792819385152
@@ -35115,8 +35397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114781591832144434
@@ -35131,8 +35414,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114784460775549636
@@ -35147,8 +35431,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114786062192653696
@@ -35163,8 +35448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114787516322903502
@@ -35179,8 +35465,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114787552397878596
@@ -35195,8 +35482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114792907521853396
@@ -35211,8 +35499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114802777550212614
@@ -35227,8 +35516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114803766739021602
@@ -35243,8 +35533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114806455738452518
@@ -35259,8 +35550,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114809541463780042
@@ -35275,8 +35567,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114810019811272224
@@ -35291,8 +35584,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114813542775827206
@@ -35307,8 +35601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114816133221458508
@@ -35323,8 +35618,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114817130767371164
@@ -35339,8 +35635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114818764911389590
@@ -35355,8 +35652,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114819108677135718
@@ -35371,8 +35669,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114819821033823386
@@ -35387,8 +35686,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114821131237266522
@@ -35403,8 +35703,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114823633904817260
@@ -35419,8 +35720,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114827257650501566
@@ -35435,8 +35737,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114828340292477458
@@ -35451,8 +35754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114830304948985196
@@ -35467,8 +35771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114832199431083580
@@ -35483,8 +35788,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114832993472324498
@@ -35499,8 +35805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114837636986376174
@@ -35515,8 +35822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114840831415582308
@@ -35531,8 +35839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114841598417328688
@@ -35547,8 +35856,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114844391879290040
@@ -35563,8 +35873,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114844840083893548
@@ -35579,8 +35890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114848778356350122
@@ -35595,8 +35907,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114856295754513604
@@ -35611,8 +35924,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114859278104469400
@@ -35627,8 +35941,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114860063556224208
@@ -35643,8 +35958,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114865326892122568
@@ -35659,8 +35975,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114870138620592282
@@ -35675,8 +35992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114879114593980176
@@ -35691,8 +36009,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114879990425430220
@@ -35707,8 +36026,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114883714894257340
@@ -35723,8 +36043,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114885292955386890
@@ -35739,8 +36060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114887757557467732
@@ -35755,8 +36077,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114889300395201546
@@ -35771,8 +36094,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114892288641238058
@@ -35787,8 +36111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114892937738418726
@@ -35803,8 +36128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114898962509742054
@@ -35819,8 +36145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114903057800658022
@@ -35835,8 +36162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114905045979434830
@@ -35851,8 +36179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114908890560251474
@@ -35867,8 +36196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114911319666429758
@@ -35883,8 +36213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114913385426528400
@@ -35899,8 +36230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114920492233171768
@@ -35915,8 +36247,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114925272854821308
@@ -35931,8 +36264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114927839201298634
@@ -35947,8 +36281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114931200644878300
@@ -35963,8 +36298,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114934522262752534
@@ -35979,8 +36315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114939623321012552
@@ -35995,8 +36332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114940825948766944
@@ -36011,8 +36349,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114942440753368354
@@ -36027,8 +36366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114947028520113458
@@ -36043,8 +36383,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114959893918002232
@@ -36059,8 +36400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114960962848004408
@@ -36075,8 +36417,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114962509889477740
@@ -36091,8 +36434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114962828948192392
@@ -36107,8 +36451,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114963994413083412
@@ -36123,8 +36468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114965159122436088
@@ -36139,8 +36485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114968548453051882
@@ -36155,8 +36502,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114968626576688358
@@ -36171,8 +36519,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114971601366928538
@@ -36187,8 +36536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114972381562838908
@@ -36203,8 +36553,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114973602067517714
@@ -36219,8 +36570,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114974287124408344
@@ -36235,8 +36587,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114976036278584002
@@ -36251,8 +36604,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114977381240250294
@@ -36267,8 +36621,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114978647160285736
@@ -36283,8 +36638,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114980872353830452
@@ -36299,8 +36655,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114985466332513286
@@ -36315,8 +36672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114989579339750656
@@ -36331,8 +36689,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114996303197833684
@@ -36347,8 +36706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
 --- !u!114 &114996697038903386
@@ -36363,7 +36723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goDownThreshold: 1.5
+  isAffectedThreshold: 4.5
   waitAfterImpactMultiplier: 0.05
-  driveAmount: 0.07
+  driveAmount: 0.006
   driveFirstDuration: 0.1
   driveBackDuration: 0.2
