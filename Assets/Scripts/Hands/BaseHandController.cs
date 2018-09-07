@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BaseHandController : MonoBehaviour {
 
+    public event System.Action<Vector3> OnHandSmashDown;
+
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float smashSpeed = 2f;
     [SerializeField] protected float resetDistance = 0.01f;
     [SerializeField] protected float resetTime = 2f;
     [SerializeField] protected float resetSpeed = 1f;
+    [SerializeField] protected float smashTravelDistanceY = 0.5f;
+    [SerializeField] protected float smashDownDuration = 0.2f;
     
     protected float t1;
     protected float t2;
@@ -21,8 +25,6 @@ public class BaseHandController : MonoBehaviour {
 
     protected Vector3 moveInput;
     protected Vector3 smashPositionStart;
-    protected Vector3 smashPositionEnd;
-    protected Vector3 smashPositionReset;
     protected Vector3 moveVelocity;
 
     protected Vector2 triggerInput;
@@ -40,9 +42,11 @@ public class BaseHandController : MonoBehaviour {
         // freeze Hand position
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
-        smashPositionStart = transform.position;
-        smashPositionEnd = smashPositionStart;
-        smashPositionEnd.y = 0.5f;
+        //smashPositionStart = transform.position;
+        //smashPositionEnd = smashPositionStart;
+        //smashPositionEnd.y = 0.5f;
+
+        StartCoroutine(SmashDown());
 
         //Debug.Log("Current Position is " + smashPositionStart + "Smash Position is " + smashPositionEnd);
 
@@ -51,8 +55,20 @@ public class BaseHandController : MonoBehaviour {
 
         //transform.position = Vector3.Lerp(smashPositionStart, smashPositionEnd, smashSpeed * Time.deltaTime);
 
-        transform.position = smashPositionEnd;
+        //transform.position = smashPositionEnd;
 
+        //Invoke("ResetAfterSmash", resetTime);
+    }
+
+    IEnumerator SmashDown()
+    {
+        smashPositionStart = transform.position;
+        for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - t, transform.position.z);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         Invoke("ResetAfterSmash", resetTime);
     }
 
