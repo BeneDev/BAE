@@ -10,9 +10,8 @@ public class WaveSpawner : MonoBehaviour {
     public class Wave
     {
         public string name;
-        public Transform enemy1;
-        public Transform enemy2;
-        public int count;
+        public GameObject[] enemies;
+        public int[] count;
         public float spawnRate;
     }
 
@@ -28,7 +27,7 @@ public class WaveSpawner : MonoBehaviour {
 
     private SpawnState state = SpawnState.COUNTING;
 
-    void Start()
+    void Awake()
     {
         if (spawnPoints.Length == 0)
         {
@@ -113,11 +112,13 @@ public class WaveSpawner : MonoBehaviour {
         Debug.Log("Spawning Wave: " + _wave.name);
         state = SpawnState.SPAWNING;
 
-        for(int i = 0; i < _wave.count; i++)
+        for(int i = 0; i < _wave.enemies.Length; i++)
         {
-            SpawnEnemy(_wave.enemy1);
-            SpawnEnemy(_wave.enemy2);
-            yield return new WaitForSeconds(1f / _wave.spawnRate);
+            for (int j = 0; j < _wave.count[i]; j++)
+            {
+                SpawnEnemy(_wave.enemies[i]);
+                yield return new WaitForSeconds(1f / _wave.spawnRate);
+            }
         }
 
         state = SpawnState.WAITING;
@@ -126,7 +127,7 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     //Spawn enemy
-    void SpawnEnemy(Transform _enemy)
+    void SpawnEnemy(GameObject _enemy)
     {
         Debug.Log("Spawning Enemy: " + _enemy.name);
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];

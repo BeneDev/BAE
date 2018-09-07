@@ -198,29 +198,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Plebs
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 1
+    enemies:
+    - {fileID: 1626803868435862, guid: edd4a57355907ef4c966446c79a56745, type: 2}
+    count: 03000000
     spawnRate: 1
   - name: Plebs 2
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 2
+    enemies:
+    - {fileID: 1626803868435862, guid: edd4a57355907ef4c966446c79a56745, type: 2}
+    count: 05000000
     spawnRate: 1.5
   - name: Big Guys
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 3
+    enemies:
+    - {fileID: 1392913725375324, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+    count: 02000000
     spawnRate: 1
-  - name: Big Guys
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 4
+  - name: Big Guys2
+    enemies:
+    - {fileID: 1392913725375324, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+    count: 05000000
     spawnRate: 1
-  - name: Big Guys
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 5
+  - name: Big Guys3
+    enemies:
+    - {fileID: 1626803868435862, guid: edd4a57355907ef4c966446c79a56745, type: 2}
+    - {fileID: 1392913725375324, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+    count: 0500000003000000
     spawnRate: 1
   spawnPoints:
   - {fileID: 4662184786567300}
