@@ -27,6 +27,8 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float smashGamePadRumbleDuration = 0.2f;
     [SerializeField] protected float resetTransformDuration = 0.2f;
 
+    [SerializeField] protected static int timesHittingWithSpecialSmash = 10;
+
     [SerializeField] ParticleSystem smashImpact;
     
     protected float t1;
@@ -50,10 +52,52 @@ public class BaseHandController : MonoBehaviour {
 
     protected GamePadState padState;
 
+    protected bool isLeftStickDown = false;
+    protected bool isRightStickDown = false;
+
+    [SerializeField] int holdStickDownInputForFrames = 5;
+
     protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody>();
         camShake = Camera.main.GetComponent<CameraShake>();
+    }
+
+    protected virtual void Update()
+    {
+        if (triggerInput.magnitude > 0.2 && canSmash == true)
+        {
+            Smash();
+            padState = GamePad.GetState(PlayerIndex.One);
+        }
+        if(Input.GetButtonDown("LeftStickDown") && canSmash)
+        {
+            isLeftStickDown = true;
+            CancelInvoke("ResetLeftStick");
+            Invoke("ResetLeftStick", holdStickDownInputForFrames * Time.deltaTime);
+        }
+        if(Input.GetButtonDown("RightStickDown") && canSmash)
+        {
+            isRightStickDown = true;
+            CancelInvoke("ResetRightStick");
+            Invoke("ResetRightStick", holdStickDownInputForFrames * Time.deltaTime);
+        }
+        if (isLeftStickDown && isRightStickDown)
+        {
+            SpecialSmash();
+            isLeftStickDown = false;
+            isRightStickDown = false;
+        }
+    }
+
+    void ResetRightStick()
+    {
+        isRightStickDown = false;
+    }
+
+    void ResetLeftStick()
+    {
+        isLeftStickDown = false;
     }
 
     //smash ground
@@ -100,7 +144,57 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator SpecialSmashDown()
     {
-        yield return new WaitForEndOfFrame();
+        canKill = true;
+        for (int i = 0; i < timesHittingWithSpecialSmash; i++)
+        {
+            smashPositionStart = transform.position;
+            for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
+            {
+                transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
+                yield return new WaitForEndOfFrame();
+            }
+            transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY, transform.position.z);
+            if (OnHandSmashDown != null)
+            {
+                OnHandSmashDown(transform.position);
+            }
+            if (smashImpact)
+            {
+                smashImpact.Play();
+            }
+            StartCoroutine(VibrateController(smashGamePadRumbleDuration));
+            camShake.shakeAmount = smashCamShakeAmount;
+            camShake.shakeDuration = smashCamShakeDuration;
+
+            yield return new WaitForSeconds(resetTime * 0.2f);
+            for (float t = 0f; t < resetTransformDuration * 0.3f; t += Time.deltaTime)
+            {
+                transform.position = new Vector3(transform.position.x, (smashPositionStart.y - smashTravelDistanceY) + smashTravelDistanceY * (t / (resetTransformDuration * 0.3f)), transform.position.z);
+                yield return new WaitForEndOfFrame();
+            }
+            transform.position = new Vector3(transform.position.x, smashPositionStart.y, transform.position.z);
+            rBody.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+        smashPositionStart = transform.position;
+        for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
+        {
+            transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
+        if (OnHandSmashDown != null)
+        {
+            OnHandSmashDown(transform.position);
+        }
+        if (smashImpact)
+        {
+            smashImpact.Play();
+        }
+        StartCoroutine(VibrateController(smashGamePadRumbleDuration));
+        camShake.shakeAmount = smashCamShakeAmount;
+        camShake.shakeDuration = smashCamShakeDuration;
+        // Reset hand position
+        StartCoroutine(ResetAfterSmash(resetTime));
     }
 
     IEnumerator VibrateController(float duration)
