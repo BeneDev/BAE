@@ -68,4 +68,13 @@ public class EnemyController : MonoBehaviour {
         agent.SetDestination(spawnPosition);
     }
 
+    //check if Enemy is hit by Hand
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.GetComponent<BaseHandController>())
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
