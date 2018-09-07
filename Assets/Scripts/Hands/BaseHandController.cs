@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BaseHandController : MonoBehaviour {
 
+    public bool CanKill
+    {
+        get
+        {
+            return canKill;
+        }
+    }
+
     public event System.Action<Vector3> OnHandSmashDown;
 
     [SerializeField] protected float moveSpeed = 5f;
@@ -28,6 +36,8 @@ public class BaseHandController : MonoBehaviour {
     protected Vector3 moveVelocity;
 
     protected Vector2 triggerInput;
+
+    protected bool canKill = false;
 
     protected virtual void Awake()
     {
@@ -62,6 +72,7 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator SmashDown()
     {
+        canKill = true;
         smashPositionStart = transform.position;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
         {
@@ -70,6 +81,8 @@ public class BaseHandController : MonoBehaviour {
         }
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         Invoke("ResetAfterSmash", resetTime);
+        yield return new WaitForSeconds(0.2f);
+        canKill = false;
     }
 
     //Reset after Smash (gets invoked after resetTime seconds)

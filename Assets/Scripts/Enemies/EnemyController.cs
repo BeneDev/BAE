@@ -73,7 +73,10 @@ public class EnemyController : MonoBehaviour {
     {
         if (col.gameObject.GetComponent<BaseHandController>())
         {
-            Destroy(gameObject);
+            if(col.gameObject.GetComponent<BaseHandController>().CanKill)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
