@@ -11,6 +11,7 @@ public class GroundTileManager : MonoBehaviour {
     Vector3 toImpact;
 
     [SerializeField] float goDownThreshold = 1f;
+    [Range(3, 15), SerializeField] float isAffectedThreshold = 10f;
     [SerializeField] float waitAfterImpactMultiplier = 0.1f;
     [SerializeField] float driveAmount = 0.2f;
     [SerializeField] float driveFirstDuration = 0.1f;
@@ -32,7 +33,7 @@ public class GroundTileManager : MonoBehaviour {
         {
             StartCoroutine(DriveDown());
         }
-        else
+        else if(toImpact.magnitude <= isAffectedThreshold)
         {
             StartCoroutine(DriveUp(impactPos));
         }
@@ -42,12 +43,12 @@ public class GroundTileManager : MonoBehaviour {
     {
         for (float t = 0f; t < driveFirstDuration; t += Time.deltaTime)
         {
-            transform.position -= Vector3.up * driveAmount * t / driveFirstDuration;
+            transform.position -= Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveFirstDuration));
             yield return new WaitForEndOfFrame();
         }
         for (float t = 0f; t < driveBackDuration; t += Time.deltaTime)
         {
-            transform.position += Vector3.up * driveAmount * t / driveBackDuration;
+            transform.position += Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveBackDuration));
             yield return new WaitForEndOfFrame();
         }
         transform.position = startPos;
@@ -58,12 +59,12 @@ public class GroundTileManager : MonoBehaviour {
         yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
         for (float t = 0f; t < driveFirstDuration; t += Time.deltaTime)
         {
-            transform.position += Vector3.up * driveAmount * t / driveFirstDuration;
+            transform.position += Vector3.up * (driveAmount * (isAffectedThreshold - toImpact.magnitude) * (t / driveFirstDuration));
             yield return new WaitForEndOfFrame();
         }
         for (float t = 0f; t < driveBackDuration; t += Time.deltaTime)
         {
-            transform.position -= Vector3.up * driveAmount * t / driveBackDuration;
+            transform.position -= Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveBackDuration));
             yield return new WaitForEndOfFrame();
         }
         transform.position = startPos;
