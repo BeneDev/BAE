@@ -263,9 +263,10 @@ GameObject:
   - component: {fileID: 54210784150527370}
   - component: {fileID: 195992495932347324}
   - component: {fileID: 114554805755506746}
+  - component: {fileID: 136139733025190490}
   m_Layer: 0
   m_Name: BuffGuy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,7 +1129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429534408198210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2332253, y: -0.019892693, z: -3.368363}
+  m_LocalPosition: {x: 1.1305257, y: -0.019427776, z: -2.0388489}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4865300496172794}
@@ -1688,6 +1689,19 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   startWalkingDelay: 1
   turnAroundDistance: 1.5
+--- !u!136 &136139733025190490
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429534408198210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.6343117
+  m_Height: 9.012565
+  m_Direction: 1
+  m_Center: {x: -0.062303543, y: 4.006282, z: 0.486072}
 --- !u!137 &137250572626975658
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
