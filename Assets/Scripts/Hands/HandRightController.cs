@@ -20,7 +20,7 @@ public class HandRightController : BaseHandController
 
         if (triggerInput.magnitude > 0.2 && canSmash == true)
         {
-            smash();
+            Smash();
             padState = GamePad.GetState(PlayerIndex.One);
         }
     }

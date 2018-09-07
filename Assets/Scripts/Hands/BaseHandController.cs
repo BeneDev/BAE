@@ -25,6 +25,7 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float smashCamShakeAmount = 0.3f;
     [SerializeField] protected float smashCamShakeDuration = 0.15f;
     [SerializeField] protected float smashGamePadRumbleDuration = 0.2f;
+    [SerializeField] protected float resetTransformDuration = 0.2f;
 
     [SerializeField] ParticleSystem smashImpact;
     
@@ -56,7 +57,7 @@ public class BaseHandController : MonoBehaviour {
     }
 
     //smash ground
-    protected virtual void smash()
+    protected virtual void Smash()
     {
         canSmash = false;
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
@@ -69,7 +70,7 @@ public class BaseHandController : MonoBehaviour {
         smashPositionStart = transform.position;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - t, transform.position.z);
+            transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
         }
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
@@ -77,7 +78,8 @@ public class BaseHandController : MonoBehaviour {
         {
             OnHandSmashDown(transform.position);
         }
-        Invoke("ResetAfterSmash", resetTime);
+        // Reset hand position
+        StartCoroutine(ResetAfterSmash(resetTime));
         if(smashImpact)
         {
             smashImpact.Play();
@@ -89,10 +91,17 @@ public class BaseHandController : MonoBehaviour {
         canKill = false;
     }
 
-    //IEnumerator SpezialSmash()
-    //{
+    protected virtual void SpecialSmash()
+    {
+        canSmash = false;
+        rBody.constraints = RigidbodyConstraints.FreezeRotation;
+        StartCoroutine(SpecialSmashDown());
+    }
 
-    //}
+    IEnumerator SpecialSmashDown()
+    {
+        yield return new WaitForEndOfFrame();
+    }
 
     IEnumerator VibrateController(float duration)
     {
@@ -101,12 +110,15 @@ public class BaseHandController : MonoBehaviour {
         GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
     }
 
-    //Reset after Smash (gets invoked after resetTime seconds)
-    protected virtual void ResetAfterSmash()
+    IEnumerator ResetAfterSmash(float seconds)
     {
+        yield return new WaitForSeconds(seconds);
+        for (float t = 0f; t < resetTransformDuration; t += Time.deltaTime)
+        {
+            transform.position = new Vector3(transform.position.x, (smashPositionStart.y - smashTravelDistanceY) + smashTravelDistanceY * (t / resetTransformDuration), transform.position.z);
+            yield return new WaitForEndOfFrame();
+        }
         transform.position = smashPositionStart;
-
-        // un-freeze Hand position but keep rotation frozen
         rBody.constraints = RigidbodyConstraints.FreezeRotation;
 
         canSmash = true;

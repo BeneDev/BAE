@@ -157,16 +157,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 199531064703109602, guid: 2377fc0a8ff768946bdfb7a1bf8c2675,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3213f15ef744fb14d9f8701c3c286e4c, type: 2}
-    - target: {fileID: 114239964093857158, guid: 2377fc0a8ff768946bdfb7a1bf8c2675,
-        type: 2}
-      propertyPath: smashGamePadRumbleDuration
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2377fc0a8ff768946bdfb7a1bf8c2675, type: 2}
   m_IsPrefabAsset: 0
@@ -301,11 +291,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 199610073223773828, guid: 4d6ed9d686a8b8f45962246bf980439a,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3213f15ef744fb14d9f8701c3c286e4c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d6ed9d686a8b8f45962246bf980439a, type: 2}
   m_IsPrefabAsset: 0
