@@ -50,6 +50,7 @@ public class GroundTileManager : MonoBehaviour {
 
     IEnumerator BackToNormal()
     {
+        yield return new WaitForSeconds(resetTime * 0.5f);
         float startY = transform.position.y;
         float differenceY = normalPos.y - startY;
         for (float t = 0; t < resetTime; t += Time.deltaTime)

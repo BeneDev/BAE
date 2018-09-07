@@ -37,8 +37,6 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float resetTransformDuration = 0.2f;
 
     [SerializeField] protected static int timesHittingWithSpecialSmash = 10;
-
-    [SerializeField] ParticleSystem smashImpact;
     
     protected float t1;
     protected float t2;
@@ -128,10 +126,7 @@ public class BaseHandController : MonoBehaviour {
         }
         // Reset hand position
         StartCoroutine(ResetAfterSmash(resetTime));
-        if(smashImpact)
-        {
-            smashImpact.Play();
-        }
+        GameManager.Instance.GetSmashParticle(transform.position + Vector3.down * 0.3f);
         StartCoroutine(VibrateController(smashGamePadRumbleDuration));
         camShake.shakeAmount = smashCamShakeAmount;
         camShake.shakeDuration = smashCamShakeDuration;
@@ -148,9 +143,9 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator SpecialSmashDown()
     {
-        canKill = true;
         for (int i = 0; i < timesHittingWithSpecialSmash; i++)
         {
+            canKill = true;
             smashPositionStart = transform.position;
             for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
             {
@@ -162,15 +157,13 @@ public class BaseHandController : MonoBehaviour {
             {
                 OnHandSmashDown(transform.position);
             }
-            if (smashImpact)
-            {
-                smashImpact.Play();
-            }
+            GameManager.Instance.GetSmashParticle(transform.position + Vector3.down * 0.3f);
             StartCoroutine(VibrateController(smashGamePadRumbleDuration));
             camShake.shakeAmount = smashCamShakeAmount;
             camShake.shakeDuration = smashCamShakeDuration;
-
-            yield return new WaitForSeconds(resetTime * 0.2f);
+            yield return new WaitForSeconds(resetTime * 0.1f);
+            canKill = false;
+            yield return new WaitForSeconds(resetTime * 0.1f);
             for (float t = 0f; t < resetTransformDuration * 0.3f; t += Time.deltaTime)
             {
                 transform.position = new Vector3(transform.position.x, (smashPositionStart.y - smashTravelDistanceY) + smashTravelDistanceY * (t / (resetTransformDuration * 0.3f)), transform.position.z);
@@ -181,6 +174,7 @@ public class BaseHandController : MonoBehaviour {
         }
 
         canSmash = false;
+        canKill = true;
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
         smashPositionStart = transform.position;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
@@ -193,10 +187,7 @@ public class BaseHandController : MonoBehaviour {
         {
             OnHandSmashDown(transform.position);
         }
-        if (smashImpact)
-        {
-            smashImpact.Play();
-        }
+        GameManager.Instance.GetSmashParticle(transform.position + Vector3.down * 0.3f);
         StartCoroutine(VibrateController(smashGamePadRumbleDuration));
         camShake.shakeAmount = smashCamShakeAmount;
         camShake.shakeDuration = smashCamShakeDuration;
@@ -207,6 +198,8 @@ public class BaseHandController : MonoBehaviour {
             OnSpecialSmashEnd();
         }
         isInSpecialSmash = false;
+        yield return new WaitForSeconds(0.1f);
+        canKill = false;
     }
 
     IEnumerator VibrateController(float duration)
