@@ -23,6 +23,8 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float smashDownDuration = 0.2f;
     [SerializeField] protected float smashCamShakeAmount = 0.3f;
     [SerializeField] protected float smashCamShakeDuration = 0.15f;
+
+    [SerializeField] ParticleSystem smokeImpact;
     
     protected float t1;
     protected float t2;
@@ -90,6 +92,10 @@ public class BaseHandController : MonoBehaviour {
             OnHandSmashDown(transform.position);
         }
         Invoke("ResetAfterSmash", resetTime);
+        if(smokeImpact)
+        {
+            smokeImpact.Play();
+        }
         camShake.shakeAmount = smashCamShakeAmount;
         camShake.shakeDuration = smashCamShakeDuration;
         yield return new WaitForSeconds(0.2f);
