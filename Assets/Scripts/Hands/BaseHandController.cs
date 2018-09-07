@@ -45,9 +45,9 @@ public class BaseHandController : MonoBehaviour {
 
     protected bool canKill = false;
 
-    CameraShake camShake;
+    protected CameraShake camShake;
 
-    GamePadState padState;
+    protected GamePadState padState;
 
     protected virtual void Awake()
     {
@@ -96,11 +96,9 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator VibrateController(float duration)
     {
-        padState = GamePad.GetState(PlayerIndex.One);
         GamePad.SetVibration(PlayerIndex.One, padState.Triggers.Left, padState.Triggers.Right);
         yield return new WaitForSeconds(duration);
         GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
-
     }
 
     //Reset after Smash (gets invoked after resetTime seconds)

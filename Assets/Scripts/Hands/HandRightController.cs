@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class HandRightController : BaseHandController
 {
@@ -20,6 +21,7 @@ public class HandRightController : BaseHandController
         if (triggerInput.magnitude > 0.2 && canSmash == true)
         {
             smash();
+            padState = GamePad.GetState(PlayerIndex.One);
         }
     }
 }
