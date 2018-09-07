@@ -10,8 +10,6 @@ public class WaveSpawner : MonoBehaviour {
     public class Wave
     {
         public string name;
-        //public GameObject[] enemies;
-        //public int[] count;
         public EnemyToSpawn[] enemies;
         public float spawnRate;
     }
