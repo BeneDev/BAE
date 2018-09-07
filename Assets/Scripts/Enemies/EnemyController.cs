@@ -17,14 +17,14 @@ public class EnemyController : MonoBehaviour {
     private float distanceToSpawn;
 
     private bool toDestination = true;
-    
 
-	void Start () {
+    private Animator anim;
 
+	void Awake()
+    {
+        anim = GetComponent<Animator>();
         spawnPosition = transform.position;
-
         weakSpot = GameObject.Find("WeakSpot");
-
 	}
 	
 	
@@ -39,31 +39,39 @@ public class EnemyController : MonoBehaviour {
 
         if (toDestination == true)
         {
-            Invoke("toWeakSpot", startWalkingDelay);
+            ToWeakSpot();
         }
 
         //check if Enemy is at WeakSpot
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
-
-            Invoke("toSpawn", startWalkingDelay);
+            if(anim)
+            {
+                anim.SetTrigger("TakeEnergy");
+            }
+            Invoke("ToSpawn", startWalkingDelay);
         }
 
         //check if Enemy is at SpawnPoint
         if (toDestination == false && distanceToSpawn < turnAroundDistance)
         {
             toDestination = true;
+            if(anim)
+            {
+                anim.ResetTrigger("TakeEnergy");
+                anim.SetTrigger("LoseEnergy");
+            }
         }
 
     }
 
-    void toWeakSpot()
+    void ToWeakSpot()
     {
         agent.SetDestination(weakSpot.transform.position);
     }
 
-    void toSpawn()
+    void ToSpawn()
     {
         agent.SetDestination(spawnPosition);
     }
