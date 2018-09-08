@@ -32,6 +32,11 @@ public class HandLeftController : BaseHandController
             isLeftStickDown = false;
             isRightStickDown = false;
         }
+        toOtherHand = handRight.transform.position - transform.position;
+        if(toOtherHand.magnitude < distanceStartFistRotating && toOtherHand.magnitude > distanceFistRotationComplete)
+        {
+            RotateForFistBump();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -48,7 +53,7 @@ public class HandLeftController : BaseHandController
     {
         if (collision.gameObject.tag == "HandRight")
         {
-            transform.rotation = normalRot;
+            //transform.rotation = normalRot;
         }
     }
 }
