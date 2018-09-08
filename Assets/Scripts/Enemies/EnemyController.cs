@@ -103,6 +103,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     weakSpotCon.RegainEnergy(energyStealAmount);
                 }
+                GameManager.Instance.GetSplatterParticle(transform.position);
                 Destroy(gameObject);
             }
         }

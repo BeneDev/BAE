@@ -201,6 +201,8 @@ MonoBehaviour:
   particleParent: {fileID: 0}
   smashParticle: {fileID: 1873495194897344, guid: a87272586bc34e343b6ff0cfbd3184b1,
     type: 2}
+  splatterParticle: {fileID: 1696189578332520, guid: 16baa4fbf11761c44b60b914fbbe41fe,
+    type: 2}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1
