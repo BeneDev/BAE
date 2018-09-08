@@ -16,6 +16,8 @@ public class WeakSpotController : MonoBehaviour {
     int energy;
     int energyOnEnemies;
 
+    [SerializeField] GameObject energyEffect;
+
 	// Use this for initialization
 	void Awake() {
         energy = maxEnergy;
@@ -27,6 +29,15 @@ public class WeakSpotController : MonoBehaviour {
         {
             print("dead");
             //TODO play fancy dying animation, making the hands fall down of weakness and then the world collapses
+        }
+        if(energyEffect)
+        {
+            Vector3 scale = new Vector3(energy * 0.01f, energy * 0.01f, energy * 0.01f);
+            energyEffect.transform.localScale = scale;
+            for(int i = 0; i < energyEffect.transform.childCount; i++)
+            {
+                energyEffect.transform.GetChild(i).transform.localScale = scale;
+            }
         }
     }
 
