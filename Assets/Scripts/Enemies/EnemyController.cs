@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float startWalkingDelay = 3f;
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
-    bool hasEnergy = false;
+    int hasEnergy = 0;
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -52,11 +52,14 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
-            if(!hasEnergy)
+            if(hasEnergy <= 0)
             {
                 StealEnergy();
             }
-            Invoke("ToSpawn", startWalkingDelay);
+            if(hasEnergy > 0)
+            {
+                Invoke("ToSpawn", startWalkingDelay);
+            }
         }
 
         //check if Enemy is at SpawnPoint
@@ -67,19 +70,19 @@ public class EnemyController : MonoBehaviour {
             {
                 anim.SetTrigger("LoseEnergy");
             }
-            hasEnergy = false;
+            weakSpotCon.EnergyLostForever(hasEnergy);
+            hasEnergy = 0;
         }
 
     }
 
     private void StealEnergy()
     {
-        weakSpotCon.LoseEnergy(energyStealAmount);
-        if (anim)
+        hasEnergy = weakSpotCon.LoseEnergy(energyStealAmount);
+        if (anim && hasEnergy > 0)
         {
             anim.SetTrigger("TakeEnergy");
         }
-        hasEnergy = true;
     }
 
     void ToWeakSpot()
@@ -99,9 +102,9 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
-                if(hasEnergy)
+                if(hasEnergy > 0)
                 {
-                    weakSpotCon.RegainEnergy(energyStealAmount);
+                    weakSpotCon.RegainEnergy(hasEnergy);
                 }
                 GameManager.Instance.GetSplatterParticle(transform.position);
                 Destroy(gameObject);
