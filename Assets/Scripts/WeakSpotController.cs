@@ -22,4 +22,14 @@ public class WeakSpotController : MonoBehaviour {
             //TODO play fancy dying animation, making the hands fall down of weakness and then the world collapses
         }
     }
+
+    public void RegainEnergy(int energyToRegain)
+    {
+        energy += energyToRegain;
+        if(energy > maxEnergy)
+        {
+            energy = maxEnergy;
+        }
+        //TODO play animation or alter particle effect to show player, energy has been regained
+    }
 }

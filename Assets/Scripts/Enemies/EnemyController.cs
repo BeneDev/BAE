@@ -98,6 +98,10 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
+                if(hasEnergy)
+                {
+                    weakSpotCon.RegainEnergy(energyStealAmount);
+                }
                 Destroy(gameObject);
             }
         }
