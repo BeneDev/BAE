@@ -16,7 +16,7 @@ public class HandLeftController : BaseHandController
     protected override void Update()
     {
         //movement and controller stick deadzone
-        moveInput = new Vector3(Input.GetAxis("Horizontal1"), 0f, Input.GetAxis("Vertical1"));
+        moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
         //moveInput = moveInput.normalized * ((moveInput.magnitude - deadzone) / (1 - deadzone));
 

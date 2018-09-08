@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveSpawner : MonoBehaviour {
+public class WaveSpawner : Singleton<WaveSpawner> {
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
@@ -20,6 +20,8 @@ public class WaveSpawner : MonoBehaviour {
         public GameObject enemy;
         public int count;
     }
+
+    public System.Action<int> OnWaveChanged;
 
     public Wave[] waves;
     private int nextWave = 0;
@@ -41,6 +43,14 @@ public class WaveSpawner : MonoBehaviour {
         }
 
         waveCountdown = timeBetweenWaves;
+    }
+
+    private void Start()
+    {
+        if(OnWaveChanged != null)
+        {
+            OnWaveChanged(nextWave + 1);
+        }
     }
 
     void Update()
@@ -92,6 +102,10 @@ public class WaveSpawner : MonoBehaviour {
         else
         {
             nextWave++;
+            if(OnWaveChanged != null)
+            {
+                OnWaveChanged(nextWave + 1);
+            }
         }
     }
 
