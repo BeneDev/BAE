@@ -33,25 +33,13 @@ public class HandRightController : BaseHandController
             isRightStickDown = false;
         }
         toOtherHand = handLeft.transform.position - transform.position;
-        if (toOtherHand.magnitude < distanceStartFistRotating && toOtherHand.magnitude > distanceFistRotationComplete)
+        if (toOtherHand.magnitude < distanceStartFistRotating && canSmash && handLeft.CanSmash)
         {
             RotateForFistBump();
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "HandLeft")
+        else
         {
-            transform.rotation = Quaternion.Euler(fistBumpRotation);
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if(collision.gameObject.tag == "HandLeft")
-        {
-            //transform.rotation = normalRot;
+            transform.rotation = normalRot;
         }
     }
 }

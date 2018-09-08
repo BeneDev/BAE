@@ -30,6 +30,7 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float resetTime = 2f;
     [SerializeField] protected float resetSpeed = 1f;
     protected float smashTravelDistanceY;
+    protected Vector3 normalPos;
     protected const float normalSmashTravelDistanceY = 2.5f;
     [SerializeField] protected float smashDownDuration = 0.2f;
     [SerializeField] protected float smashCamShakeAmount = 0.3f;
@@ -51,7 +52,6 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected Vector3 fistBumpRotation;
     protected Vector3 toOtherHand;
     [SerializeField] protected float distanceStartFistRotating = 5f;
-    [SerializeField] protected float distanceFistRotationComplete = 2f;
 
     protected bool canSmash = true;
     protected bool isInSpecialSmash = false;
@@ -81,6 +81,7 @@ public class BaseHandController : MonoBehaviour {
         camShake = Camera.main.GetComponent<CameraShake>();
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot").GetComponent<WeakSpotController>();
         normalRot = transform.rotation;
+        normalPos = transform.position;
     }
 
     protected virtual void Update()
@@ -116,8 +117,23 @@ public class BaseHandController : MonoBehaviour {
 
     protected void RotateForFistBump()
     {
-        //transform.rotation = normalRot * (Quaternion.Euler(fistBumpRotation * (toOtherHand.magnitude / distanceStartFistRotating)));
-        transform.forward = Vector3.forward;
+        Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
+        //newRot.Pow(toOtherHand.magnitude / distanceStartFistRotating);
+        newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
+        transform.rotation = newRot;
+    }
+
+    protected IEnumerator ResetRotation(float seconds)
+    {
+        Quaternion startRot = transform.rotation;
+        Quaternion rotDiff = startRot * Quaternion.Inverse(normalRot);
+        for (float t = 0; t < seconds; t += Time.deltaTime)
+        {
+            transform.rotation = rotDiff.Pow((t / seconds)) * startRot;
+            yield return new WaitForEndOfFrame();
+        }
+        transform.rotation = normalRot;
+        yield break;
     }
 
     //smash ground
@@ -138,10 +154,7 @@ public class BaseHandController : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
         }
-        if (smashPositionStart.y > 3f)
-        {
-            smashPositionStart.y = 3f;
-        }
+        smashPositionStart.y = normalPos.y;
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if(OnHandSmashDown != null)
         {
@@ -177,10 +190,7 @@ public class BaseHandController : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
                 yield return new WaitForEndOfFrame();
             }
-            if (smashPositionStart.y > 3f)
-            {
-                smashPositionStart.y = 3f;
-            }
+            smashPositionStart.y = normalPos.y;
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY, transform.position.z);
             if (OnHandSmashDown != null)
             {
@@ -212,10 +222,7 @@ public class BaseHandController : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
         }
-        if (smashPositionStart.y > 3f)
-        {
-            smashPositionStart.y = 3f;
-        }
+        smashPositionStart.y = normalPos.y;
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if (OnHandSmashDown != null)
         {
