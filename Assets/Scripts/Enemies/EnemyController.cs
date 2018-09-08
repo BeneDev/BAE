@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour {
     GameObject weakSpot;
     WeakSpotController weakSpotCon;
 
-    [SerializeField] NavMeshAgent agent;
+    NavMeshAgent agent;
 
     Vector3 spawnPosition;
 
@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour {
 	void Awake()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();

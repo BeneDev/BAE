@@ -702,18 +702,6 @@ Prefab:
       propertyPath: particleParent
       value: 
       objectReference: {fileID: 526275596}
-    - target: {fileID: 114575838918200446, guid: 086c73556a5bc2448952f82ce0b9f24d,
-        type: 2}
-      propertyPath: waves.Array.data[1].enemies.Array.data[0].enemy
-      value: 
-      objectReference: {fileID: 1626803868435862, guid: edd4a57355907ef4c966446c79a56745,
-        type: 2}
-    - target: {fileID: 114575838918200446, guid: 086c73556a5bc2448952f82ce0b9f24d,
-        type: 2}
-      propertyPath: waves.Array.data[4].enemies.Array.data[0].enemy
-      value: 
-      objectReference: {fileID: 1626803868435862, guid: edd4a57355907ef4c966446c79a56745,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086c73556a5bc2448952f82ce0b9f24d, type: 2}
   m_IsPrefabAsset: 0
