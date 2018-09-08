@@ -65,12 +65,15 @@ public class BaseHandController : MonoBehaviour {
     protected bool isLeftStickDown = false;
     protected bool isRightStickDown = false;
 
+    protected WeakSpotController weakSpot;
+
     [SerializeField] int holdStickDownInputForFrames = 5;
 
     protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody>();
         camShake = Camera.main.GetComponent<CameraShake>();
+        weakSpot = GameObject.FindGameObjectWithTag("WeakSpot").GetComponent<WeakSpotController>();
     }
 
     protected virtual void Update()

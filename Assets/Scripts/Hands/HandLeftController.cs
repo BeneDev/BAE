@@ -26,7 +26,7 @@ public class HandLeftController : BaseHandController
         //smash ground using trigger
         triggerInput = new Vector3(0f, Input.GetAxis("TriggerLeft"), 0f);
         base.Update();
-        if (isLeftStickDown && isRightStickDown && canSmash && handRight.CanSmash)
+        if (isLeftStickDown && isRightStickDown && canSmash && handRight.CanSmash && weakSpot.RageMeter >= weakSpot.MaxRage)
         {
             SpecialSmash();
             isLeftStickDown = false;

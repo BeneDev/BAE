@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeakSpotController : MonoBehaviour {
+public class WeakSpotController : Singleton<WeakSpotController> {
 
     public int EnergyCoun
     {
@@ -12,16 +12,57 @@ public class WeakSpotController : MonoBehaviour {
         }
     }
 
+    public int RageMeter
+    {
+        get
+        {
+            return rageMeter;
+        }
+        private set
+        {
+            rageMeter = value;
+            if(OnRageMeterChanged != null)
+            {
+                OnRageMeterChanged(rageMeter, maxRage);
+            }
+        }
+    }
+
+    public int MaxRage
+    {
+        get
+        {
+            return maxRage;
+        }
+    }
+
+    public System.Action<int, int> OnRageMeterChanged;
+
     [SerializeField] int maxEnergy = 100;
     int energy;
     int energyOnEnemies;
 
+    [SerializeField] int maxRage = 100;
+    int rageMeter = 0;
+
     [SerializeField] GameObject energyEffect;
+
+    HandLeftController handLeft;
 
 	// Use this for initialization
 	void Awake() {
         energy = maxEnergy;
+        handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
+        handLeft.OnSpecialSmashEnd += ResetRageMeter;
 	}
+
+    private void Start()
+    {
+        if (OnRageMeterChanged != null)
+        {
+            OnRageMeterChanged(rageMeter, maxRage);
+        }
+    }
 
     private void Update()
     {
@@ -52,6 +93,14 @@ public class WeakSpotController : MonoBehaviour {
         {
             stealAmount = energyToSteal;
         }
+        if(RageMeter < maxRage)
+        {
+            RageMeter += stealAmount * 2;
+        }
+        if(RageMeter > maxRage)
+        {
+            RageMeter = maxRage;
+        }
         energy -= stealAmount;
         energyOnEnemies += stealAmount;
         //TODO play animation or alter particle effect to show player, energy has been stolen
@@ -72,5 +121,10 @@ public class WeakSpotController : MonoBehaviour {
             energy = maxEnergy;
         }
         //TODO play animation or alter particle effect to show player, energy has been regained
+    }
+
+    void ResetRageMeter()
+    {
+        RageMeter = 0;
     }
 }
