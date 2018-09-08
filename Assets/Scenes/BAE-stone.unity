@@ -249,6 +249,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114715602348509698, guid: 4d6ed9d686a8b8f45962246bf980439a,
+        type: 2}
+      propertyPath: fistBumpRotation.y
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d6ed9d686a8b8f45962246bf980439a, type: 2}
   m_IsPrefabAsset: 0
@@ -726,6 +731,11 @@ Prefab:
     - target: {fileID: 4570485572613968, guid: 2377fc0a8ff768946bdfb7a1bf8c2675, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239964093857158, guid: 2377fc0a8ff768946bdfb7a1bf8c2675,
+        type: 2}
+      propertyPath: fistBumpRotation.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2377fc0a8ff768946bdfb7a1bf8c2675, type: 2}

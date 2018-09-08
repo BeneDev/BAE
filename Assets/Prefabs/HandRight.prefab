@@ -138,6 +138,8 @@ MonoBehaviour:
   resetTransformDuration: 0.5
   timesHittingWithSpecialSmash: 10
   timeBeforeSpecialSmash: 0.2
+  fistBumpRotation: {x: 0, y: -90, z: 0}
+  distanceStartFistRotating: 2
   holdStickDownInputForFrames: 5
 --- !u!114 &114846816014438824
 MonoBehaviour:
