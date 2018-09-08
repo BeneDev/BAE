@@ -49,8 +49,6 @@ public class BaseHandController : MonoBehaviour {
 
     protected Quaternion normalRot;
     [SerializeField] protected Vector3 fistBumpRotation;
-    protected Vector3 toOtherHand;
-    [SerializeField] protected float distanceStartFistRotating = 5f;
 
     protected bool canSmash = true;
     protected bool isInSpecialSmash = false;
@@ -111,12 +109,6 @@ public class BaseHandController : MonoBehaviour {
     void ResetLeftStick()
     {
         isLeftStickDown = false;
-    }
-
-    protected void RotateForFistBump()
-    {
-        //transform.rotation = normalRot * (Quaternion.Euler(fistBumpRotation * (toOtherHand.magnitude / distanceStartFistRotating)));
-        //transform.forward = Vector3.forward + (new Vector3(normalRot.x, fistBumpRotation.y * (toOtherHand.magnitude / distanceStartFistRotating), normalRot.z));
     }
 
     //smash ground
