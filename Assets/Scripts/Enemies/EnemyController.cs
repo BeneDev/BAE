@@ -5,13 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
-    public GameObject weakSpot;
-    public NavMeshAgent agent;
+    GameObject weakSpot;
+    WeakSpotController weakSpotCon;
 
-    public Vector3 spawnPosition;
+    [SerializeField] NavMeshAgent agent;
 
-    public float startWalkingDelay = 3f;
-    public float turnAroundDistance = 1f;
+    Vector3 spawnPosition;
+
+    [SerializeField] float startWalkingDelay = 3f;
+    [SerializeField] float turnAroundDistance = 1f;
+    [SerializeField] int energyStealAmount = 3;
+    bool hasEnergy = false;
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -24,7 +28,8 @@ public class EnemyController : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         spawnPosition = transform.position;
-        weakSpot = GameObject.Find("WeakSpot");
+        weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
+        weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
 	}
 	
 	
@@ -46,9 +51,9 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
-            if(anim)
+            if(!hasEnergy)
             {
-                anim.SetTrigger("TakeEnergy");
+                StealEnergy();
             }
             Invoke("ToSpawn", startWalkingDelay);
         }
@@ -59,11 +64,21 @@ public class EnemyController : MonoBehaviour {
             toDestination = true;
             if(anim)
             {
-                anim.ResetTrigger("TakeEnergy");
                 anim.SetTrigger("LoseEnergy");
             }
+            hasEnergy = false;
         }
 
+    }
+
+    private void StealEnergy()
+    {
+        weakSpotCon.LoseEnergy(energyStealAmount);
+        if (anim)
+        {
+            anim.SetTrigger("TakeEnergy");
+        }
+        hasEnergy = true;
     }
 
     void ToWeakSpot()

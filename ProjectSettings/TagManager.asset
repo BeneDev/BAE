@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - HandLeft
   - HandRight
+  - WeakSpot
   layers:
   - Default
   - TransparentFX

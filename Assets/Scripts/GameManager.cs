@@ -11,6 +11,8 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] GameObject smashParticle;
     Stack<GameObject> freeSmashParticles = new Stack<GameObject>();
 
+    //TODO maybe make highscore
+
 	// Use this for initialization
 	void Awake() {
         DontDestroyOnLoad(gameObject);

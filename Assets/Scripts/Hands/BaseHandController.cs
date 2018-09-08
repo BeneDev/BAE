@@ -37,7 +37,8 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float smashGamePadRumbleDuration = 0.2f;
     [SerializeField] protected float resetTransformDuration = 0.2f;
 
-    [SerializeField] protected static int timesHittingWithSpecialSmash = 10;
+    [SerializeField] protected int timesHittingWithSpecialSmash = 10;
+    [SerializeField] protected float timeBeforeSpecialSmash = 0f;
     
     protected float t1;
     protected float t2;
@@ -149,6 +150,7 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator SpecialSmashDown()
     {
+        yield return new WaitForSeconds(timeBeforeSpecialSmash);
         for (int i = 0; i < timesHittingWithSpecialSmash; i++)
         {
             canKill = true;
