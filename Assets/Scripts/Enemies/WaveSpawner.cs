@@ -23,6 +23,11 @@ public class WaveSpawner : Singleton<WaveSpawner> {
 
     public System.Action<int> OnWaveChanged;
 
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioClip[] musicClips;
+
+    Dictionary<string, int> musicDic = new Dictionary<string, int>();
+
     public Wave[] waves;
     private int nextWave = 0;
 
@@ -41,7 +46,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         {
             Debug.Log("No spawn points referenced.");
         }
-
+        musicDic["Wave"] = 0;
         waveCountdown = timeBetweenWaves;
     }
 
@@ -77,12 +82,23 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             //start spawning wave
             if (state != SpawnState.SPAWNING)
             {
+                PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
         else
         {
             waveCountdown -= Time.deltaTime;
+        }
+    }
+
+    void PlaySound(AudioSource source, AudioClip clip, bool isLooping = false)
+    {
+        source.clip = clip;
+        source.loop = isLooping;
+        if(!source.isPlaying)
+        {
+            source.Play();
         }
     }
 
