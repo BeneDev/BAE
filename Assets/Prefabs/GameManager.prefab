@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4769563278939132}
   - component: {fileID: 114575838918200446}
+  - component: {fileID: 114137005427850536}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -185,6 +186,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114137005427850536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095079116363496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c94b6073fb75c42b281e680b3eb77c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxParticlesCount: 30
+  particleParent: {fileID: 0}
+  smashParticle: {fileID: 1873495194897344, guid: a87272586bc34e343b6ff0cfbd3184b1,
+    type: 2}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,29 +214,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Plebs
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 1
+    enemies:
+    - enemy: {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
+      count: 3
     spawnRate: 1
   - name: Plebs 2
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 2
+    enemies:
+    - enemy: {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
+      count: 5
     spawnRate: 1.5
   - name: Big Guys
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 3
+    enemies:
+    - enemy: {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+      count: 3
     spawnRate: 1
-  - name: Big Guys
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 4
+  - name: Big Guys2
+    enemies:
+    - enemy: {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+      count: 5
     spawnRate: 1
-  - name: Big Guys
-    enemy1: {fileID: 4950495338595376, guid: edd4a57355907ef4c966446c79a56745, type: 2}
-    enemy2: {fileID: 4014427579730456, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-    count: 5
+  - name: Big Guys3
+    enemies:
+    - enemy: {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
+      count: 5
+    - enemy: {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+      count: 3
     spawnRate: 1
   spawnPoints:
   - {fileID: 4662184786567300}

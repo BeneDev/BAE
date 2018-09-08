@@ -5,26 +5,32 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
-    public GameObject weakSpot;
-    public NavMeshAgent agent;
+    GameObject weakSpot;
+    WeakSpotController weakSpotCon;
 
-    public Vector3 spawnPosition;
+    NavMeshAgent agent;
 
-    public float startWalkingDelay = 3f;
-    public float turnAroundDistance = 1f;
+    Vector3 spawnPosition;
+
+    [SerializeField] float startWalkingDelay = 3f;
+    [SerializeField] float turnAroundDistance = 1f;
+    [SerializeField] int energyStealAmount = 3;
+    bool hasEnergy = false;
 
     private float distanceToDestination;
     private float distanceToSpawn;
 
     private bool toDestination = true;
-    
 
-	void Start () {
+    private Animator anim;
 
+	void Awake()
+    {
+        anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         spawnPosition = transform.position;
-
-        weakSpot = GameObject.Find("WeakSpot");
-
+        weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
+        weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
 	}
 	
 	
@@ -39,31 +45,49 @@ public class EnemyController : MonoBehaviour {
 
         if (toDestination == true)
         {
-            Invoke("toWeakSpot", startWalkingDelay);
+            ToWeakSpot();
         }
 
         //check if Enemy is at WeakSpot
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
-
-            Invoke("toSpawn", startWalkingDelay);
+            if(!hasEnergy)
+            {
+                StealEnergy();
+            }
+            Invoke("ToSpawn", startWalkingDelay);
         }
 
         //check if Enemy is at SpawnPoint
         if (toDestination == false && distanceToSpawn < turnAroundDistance)
         {
             toDestination = true;
+            if(anim)
+            {
+                anim.SetTrigger("LoseEnergy");
+            }
+            hasEnergy = false;
         }
 
     }
 
-    void toWeakSpot()
+    private void StealEnergy()
+    {
+        weakSpotCon.LoseEnergy(energyStealAmount);
+        if (anim)
+        {
+            anim.SetTrigger("TakeEnergy");
+        }
+        hasEnergy = true;
+    }
+
+    void ToWeakSpot()
     {
         agent.SetDestination(weakSpot.transform.position);
     }
 
-    void toSpawn()
+    void ToSpawn()
     {
         agent.SetDestination(spawnPosition);
     }
@@ -75,6 +99,10 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
+                if(hasEnergy)
+                {
+                    weakSpotCon.RegainEnergy(energyStealAmount);
+                }
                 Destroy(gameObject);
             }
         }

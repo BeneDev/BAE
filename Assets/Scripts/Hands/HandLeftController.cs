@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class HandLeftController : BaseHandController
 {
-    private void Update()
+    HandRightController handRight;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>();
+    }
+
+    protected override void Update()
     {
         //movement and controller stick deadzone
         moveInput = new Vector3(Input.GetAxis("Horizontal1"), 0f, Input.GetAxis("Vertical1"));
@@ -16,10 +25,12 @@ public class HandLeftController : BaseHandController
 
         //smash ground using trigger
         triggerInput = new Vector3(0f, Input.GetAxis("TriggerLeft"), 0f);
-
-        if(triggerInput.magnitude > 0.2 && canSmash == true)
+        base.Update();
+        if (isLeftStickDown && isRightStickDown && canSmash && handRight.CanSmash)
         {
-            smash();
+            SpecialSmash();
+            isLeftStickDown = false;
+            isRightStickDown = false;
         }
     }
 }

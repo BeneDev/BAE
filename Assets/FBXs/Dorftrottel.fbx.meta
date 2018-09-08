@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 7e3eef52ec339f04e88208463aa55988
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Dorftrottel
+    100004: Dorftrottel-Rig
+    100006: foot.L
+    100008: foot.R
+    100010: forearm.L
+    100012: forearm.R
+    100014: hand.001.L
+    100016: hand.001.R
+    100018: hand.002.L
+    100020: hand.002.R
+    100022: hand.003.L
+    100024: hand.003.L_end
+    100026: hand.003.R
+    100028: hand.003.R_end
+    100030: hand.index.001.L
+    100032: hand.index.001.R
+    100034: hand.index.002.L
+    100036: hand.index.002.R
+    100038: hand.index.003.L
+    100040: hand.index.003.L_end
+    100042: hand.index.003.R
+    100044: hand.index.003.R_end
+    100046: hand.thumb.001.L
+    100048: hand.thumb.001.R
+    100050: hand.thumb.002.L
+    100052: hand.thumb.002.L_end
+    100054: hand.thumb.002.R
+    100056: hand.thumb.002.R_end
+    100058: heel.02.L
+    100060: heel.02.L_end
+    100062: heel.02.R
+    100064: heel.02.R_end
+    100066: Root
+    100068: shin.L
+    100070: shin.R
+    100072: shoulder.L
+    100074: shoulder.R
+    100076: spine
+    100078: spine.001
+    100080: spine.002
+    100082: spine.003
+    100084: spine.004
+    100086: spine.005
+    100088: spine.006
+    100090: spine.007
+    100092: spine.008
+    100094: spine.009
+    100096: spine.009_end
+    100098: thigh.L
+    100100: thigh.R
+    100102: toe.L
+    100104: toe.L_end
+    100106: toe.R
+    100108: toe.R_end
+    100110: upper_arm.L
+    100112: upper_arm.R
+    100114: weapon
+    100116: weapon_end
+    400000: Dorftrottel
+    400002: //RootNode
+    400004: Dorftrottel-Rig
+    400006: foot.L
+    400008: foot.R
+    400010: forearm.L
+    400012: forearm.R
+    400014: hand.001.L
+    400016: hand.001.R
+    400018: hand.002.L
+    400020: hand.002.R
+    400022: hand.003.L
+    400024: hand.003.L_end
+    400026: hand.003.R
+    400028: hand.003.R_end
+    400030: hand.index.001.L
+    400032: hand.index.001.R
+    400034: hand.index.002.L
+    400036: hand.index.002.R
+    400038: hand.index.003.L
+    400040: hand.index.003.L_end
+    400042: hand.index.003.R
+    400044: hand.index.003.R_end
+    400046: hand.thumb.001.L
+    400048: hand.thumb.001.R
+    400050: hand.thumb.002.L
+    400052: hand.thumb.002.L_end
+    400054: hand.thumb.002.R
+    400056: hand.thumb.002.R_end
+    400058: heel.02.L
+    400060: heel.02.L_end
+    400062: heel.02.R
+    400064: heel.02.R_end
+    400066: Root
+    400068: shin.L
+    400070: shin.R
+    400072: shoulder.L
+    400074: shoulder.R
+    400076: spine
+    400078: spine.001
+    400080: spine.002
+    400082: spine.003
+    400084: spine.004
+    400086: spine.005
+    400088: spine.006
+    400090: spine.007
+    400092: spine.008
+    400094: spine.009
+    400096: spine.009_end
+    400098: thigh.L
+    400100: thigh.R
+    400102: toe.L
+    400104: toe.L_end
+    400106: toe.R
+    400108: toe.R_end
+    400110: upper_arm.L
+    400112: upper_arm.R
+    400114: weapon
+    400116: weapon_end
+    2100000: ColorPaletteDorftrottel
+    4300000: Dorftrottel
+    7400000: Dorftrottel-Rig|DT_Carry
+    7400002: Dorftrottel-Rig|DT_Run
+    7400004: Dorftrottel-Rig|DT_Take
+    9500000: //RootNode
+    13700000: Dorftrottel
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
