@@ -18,6 +18,7 @@ public class GroundTileManager : MonoBehaviour {
     [SerializeField] float driveFirstDuration = 0.1f;
     [SerializeField] float driveBackDuration = 0.5f;
     [SerializeField] float resetTime = 1f;
+    [SerializeField] float maxAmplitude = 0.25f;
 
     private void Awake()
     {
@@ -27,11 +28,11 @@ public class GroundTileManager : MonoBehaviour {
         handRight.OnHandSmashDown += Go;
         handRight.OnSpecialSmashEnd += Reset;
         normalPos = transform.position;
+        startPos = transform.position;
     }
 
     void Go(Vector3 impactPos)
     {
-        startPos = transform.position;
         toImpact = impactPos - transform.position;
         if(toImpact.magnitude <= goDownThreshold)
         {
@@ -65,15 +66,21 @@ public class GroundTileManager : MonoBehaviour {
     {
         for (float t = 0f; t < driveFirstDuration; t += Time.deltaTime)
         {
-            transform.position -= Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveFirstDuration));
+            if(transform.position.y >= startPos.y - maxAmplitude)
+            {
+                transform.position -= Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveFirstDuration));
+            }
             yield return new WaitForEndOfFrame();
         }
         for (float t = 0f; t < driveBackDuration; t += Time.deltaTime)
         {
-            transform.position += Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveBackDuration));
+            if(transform.position.y <= startPos.y + maxAmplitude)
+            {
+                transform.position += Vector3.up * ((driveAmount * 0.2f)  * (isAffectedThreshold - toImpact.magnitude) * (t / driveBackDuration));
+            }
             yield return new WaitForEndOfFrame();
         }
-        transform.position = startPos;
+        //transform.position = startPos;
     }
 
     IEnumerator DriveUp(Vector3 impactPos)
@@ -81,12 +88,18 @@ public class GroundTileManager : MonoBehaviour {
         yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
         for (float t = 0f; t < driveFirstDuration; t += Time.deltaTime)
         {
-            transform.position += Vector3.up * (driveAmount * (isAffectedThreshold - toImpact.magnitude) * (t / driveFirstDuration));
+            if(transform.position.y <= startPos.y + maxAmplitude)
+            {
+                transform.position += Vector3.up * (driveAmount * (isAffectedThreshold - toImpact.magnitude) * (t / driveFirstDuration));
+            }
             yield return new WaitForEndOfFrame();
         }
         for (float t = 0f; t < driveBackDuration; t += Time.deltaTime)
         {
-            transform.position -= Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveBackDuration));
+            if(transform.position.y >= startPos.y - maxAmplitude)
+            {
+                transform.position -= Vector3.up * (driveAmount  * (isAffectedThreshold - toImpact.magnitude) * (t / driveBackDuration));
+            }
             yield return new WaitForEndOfFrame();
         }
         transform.position = startPos;

@@ -32,24 +32,19 @@ public class HandLeftController : BaseHandController
             isLeftStickDown = false;
             isRightStickDown = false;
         }
-        // Rotating for fist bump
-        //toOtherHand = handRight.transform.position - transform.position;
-        //if(toOtherHand.magnitude < distanceStartFistRotating && canSmash && handRight.CanSmash)
-        //{
-        //    RotateForFistBump();
-        //}
-        //else
-        //{
-        //    transform.rotation = normalRot;
-        //}
+        toOtherHand = handRight.transform.position - transform.position;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "HandRight")
-        {
-            camShake.shakeAmount = smashCamShakeAmount * 0.5f;
-            camShake.shakeDuration = smashCamShakeDuration * 0.5f;
-        }
-    }
+    // FOR FISTBUMPING
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "HandRight")
+    //    {
+    //        Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
+    //        newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
+    //        transform.rotation = newRot;
+    //        camShake.shakeAmount = smashCamShakeAmount * 0.5f;
+    //        camShake.shakeDuration = smashCamShakeDuration * 0.5f;
+    //    }
+    //}
 }
