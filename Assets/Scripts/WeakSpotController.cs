@@ -68,7 +68,7 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     {
         if (energy <= 0 && energyOnEnemies <= 0)
         {
-            print("dead");
+            GameManager.Instance.Dead();
             //TODO play fancy dying animation, making the hands fall down of weakness and then the world collapses
         }
         if(energyEffect)

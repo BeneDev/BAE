@@ -35,26 +35,30 @@ public class GameManager : Singleton<GameManager> {
             newSplatterParticle.SetActive(false);
             freeSplatterParticles.Push(newSplatterParticle);
         }
-        foreach(MonoBehaviour script in scriptsToEnableToPlay)
+	}
+
+    private void Start()
+    {
+        foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {
             script.enabled = false;
         }
-	}
+    }
 
     public void PlayGame()
     {
-        StartCoroutine(FadeCanvas(mainMenu, 0f, 1f));
-        StartCoroutine(FadeCanvas(gameplayUI, 1f, 1f, 1f));
-        foreach(MonoBehaviour script in scriptsToEnableToPlay)
+        foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {
             script.enabled = true;
         }
+        StartCoroutine(FadeCanvas(mainMenu, 0f, 1f));
+        StartCoroutine(FadeCanvas(gameplayUI, 1f, 1f, 1f));
     }
 
     public void Dead()
     {
-        StartCoroutine(FadeCanvas(gameplayUI, 0f, 1f));
         StartCoroutine(FadeCanvas(endScreen, 1f, 1f));
+        StartCoroutine(FadeCanvas(gameplayUI, 0f, 1f));
         foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {
             script.enabled = false;

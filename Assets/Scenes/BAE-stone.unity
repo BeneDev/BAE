@@ -604,10 +604,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1379860810284570, guid: 121f9c7cdb5100d468cec5e9f8ba47c5, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121f9c7cdb5100d468cec5e9f8ba47c5, type: 2}
   m_IsPrefabAsset: 0
@@ -655,6 +651,11 @@ Prefab:
       propertyPath: energyEffect
       value: 
       objectReference: {fileID: 1393249103}
+    - target: {fileID: 114372675605897902, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
+        type: 2}
+      propertyPath: maxEnergy
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b6af0d2ac571941ab5ccc574c08a6f, type: 2}
   m_IsPrefabAsset: 0
@@ -760,7 +761,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1295898959
 GameObject:
@@ -992,7 +993,7 @@ Prefab:
     - target: {fileID: 224135840393590246, guid: b7e941b73199c8f4bafb07139cf46639,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 224135840393590246, guid: b7e941b73199c8f4bafb07139cf46639,
         type: 2}
@@ -1044,10 +1045,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1793376310911512, guid: b7e941b73199c8f4bafb07139cf46639, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e941b73199c8f4bafb07139cf46639, type: 2}
   m_IsPrefabAsset: 0
@@ -1096,7 +1093,7 @@ Prefab:
     - target: {fileID: 224044189203189498, guid: a8da3ded3eb111c4ca1691a05c4ee52f,
         type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224044189203189498, guid: a8da3ded3eb111c4ca1691a05c4ee52f,
         type: 2}

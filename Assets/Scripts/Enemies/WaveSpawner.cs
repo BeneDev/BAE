@@ -50,7 +50,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         waveCountdown = timeBetweenWaves;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         if(OnWaveChanged != null)
         {
