@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
-                GameManager.Instance.GetSplatterParticle(transform.position);
+                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
                 Destroy(gameObject);
             }
         }
