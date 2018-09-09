@@ -36,15 +36,15 @@ public class HandLeftController : BaseHandController
     }
 
     // FOR FISTBUMPING
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "HandRight")
-    //    {
-    //        Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
-    //        newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
-    //        transform.rotation = newRot;
-    //        camShake.shakeAmount = smashCamShakeAmount * 0.5f;
-    //        camShake.shakeDuration = smashCamShakeDuration * 0.5f;
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "HandRight")
+        {
+            //Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
+            //newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
+            //transform.rotation = newRot;
+            camShake.shakeAmount = smashCamShakeAmount * 0.5f;
+            camShake.shakeDuration = smashCamShakeDuration * 0.5f;
+        }
+    }
 }
