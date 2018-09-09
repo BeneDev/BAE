@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager> {
 
+    [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
+    [SerializeField] CanvasGroup gameplayUI;
+    [SerializeField] CanvasGroup endScreen;
+
     [SerializeField] int maxParticlesCount = 30;
 
     [SerializeField] Transform particleParent;
