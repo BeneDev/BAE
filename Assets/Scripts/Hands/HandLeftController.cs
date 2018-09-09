@@ -32,15 +32,16 @@ public class HandLeftController : BaseHandController
             isLeftStickDown = false;
             isRightStickDown = false;
         }
-        toOtherHand = handRight.transform.position - transform.position;
-        if(toOtherHand.magnitude < distanceStartFistRotating && canSmash && handRight.CanSmash)
-        {
-            RotateForFistBump();
-        }
-        else
-        {
-            transform.rotation = normalRot;
-        }
+        // Rotating for fist bump
+        //toOtherHand = handRight.transform.position - transform.position;
+        //if(toOtherHand.magnitude < distanceStartFistRotating && canSmash && handRight.CanSmash)
+        //{
+        //    RotateForFistBump();
+        //}
+        //else
+        //{
+        //    transform.rotation = normalRot;
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -115,26 +115,26 @@ public class BaseHandController : MonoBehaviour {
         isLeftStickDown = false;
     }
 
-    protected void RotateForFistBump()
-    {
-        Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
-        //newRot.Pow(toOtherHand.magnitude / distanceStartFistRotating);
-        newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
-        transform.rotation = newRot;
-    }
+    //protected void RotateForFistBump()
+    //{
+    //    Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
+    //    //newRot.Pow(toOtherHand.magnitude / distanceStartFistRotating);
+    //    newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
+    //    transform.rotation = newRot;
+    //}
 
-    protected IEnumerator ResetRotation(float seconds)
-    {
-        Quaternion startRot = transform.rotation;
-        Quaternion rotDiff = startRot * Quaternion.Inverse(normalRot);
-        for (float t = 0; t < seconds; t += Time.deltaTime)
-        {
-            transform.rotation = rotDiff.Pow((t / seconds)) * startRot;
-            yield return new WaitForEndOfFrame();
-        }
-        transform.rotation = normalRot;
-        yield break;
-    }
+    //protected IEnumerator ResetRotation(float seconds)
+    //{
+    //    Quaternion startRot = transform.rotation;
+    //    Quaternion rotDiff = startRot * Quaternion.Inverse(normalRot);
+    //    for (float t = 0; t < seconds; t += Time.deltaTime)
+    //    {
+    //        transform.rotation = rotDiff.Pow((t / seconds)) * startRot;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //    transform.rotation = normalRot;
+    //    yield break;
+    //}
 
     //smash ground
     protected virtual void Smash()

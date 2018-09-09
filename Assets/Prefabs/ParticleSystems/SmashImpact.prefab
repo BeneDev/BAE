@@ -63,7 +63,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873495194897344}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: -0}
+  m_LocalPosition: {x: 1.2305297, y: 0.90624297, z: -4.7370605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4138967155688722}
@@ -4703,7 +4703,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1c1080336dcd34a48af58a5d6f7adf64, type: 2}
+  - {fileID: 2100000, guid: d291dbc16b8a22742ac25f8ac1f2d568, type: 3}
   - {fileID: 2100000, guid: a7f665fd8d9928e4ca51dfda65ed00d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4739,7 +4739,7 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: d291dbc16b8a22742ac25f8ac1f2d568, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

@@ -32,14 +32,15 @@ public class HandRightController : BaseHandController
             isLeftStickDown = false;
             isRightStickDown = false;
         }
-        toOtherHand = handLeft.transform.position - transform.position;
-        if (toOtherHand.magnitude < distanceStartFistRotating && canSmash && handLeft.CanSmash)
-        {
-            RotateForFistBump();
-        }
-        else
-        {
-            transform.rotation = normalRot;
-        }
+        // Rotating for fistbump
+        //toOtherHand = handLeft.transform.position - transform.position;
+        //if (toOtherHand.magnitude < distanceStartFistRotating && canSmash && handLeft.CanSmash)
+        //{
+        //    RotateForFistBump();
+        //}
+        //else
+        //{
+        //    transform.rotation = normalRot;
+        //}
     }
 }
