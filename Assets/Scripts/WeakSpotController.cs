@@ -49,6 +49,8 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     HandLeftController handLeft;
 
+    bool isDead = false;
+
 	// Use this for initialization
 	void Awake() {
         energy = maxEnergy;
@@ -66,9 +68,10 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     private void Update()
     {
-        if (energy <= 0 && energyOnEnemies <= 0)
+        if (energy <= 0 && energyOnEnemies <= 0 && !isDead)
         {
             GameManager.Instance.Dead();
+            isDead = true;
             //TODO play fancy dying animation, making the hands fall down of weakness and then the world collapses
         }
         if(energyEffect)

@@ -10,11 +10,6 @@ public class EndScreenController : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void MainMenu()
-    {
-
-    }
-
     public void Quit()
     {
         Application.Quit();

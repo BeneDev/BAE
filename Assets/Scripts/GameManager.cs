@@ -100,6 +100,7 @@ public class GameManager : Singleton<GameManager> {
         {
             canvas.interactable = true;
         }
+        yield break;
     }
 
     public GameObject GetSmashParticle(Vector3 pos)
