@@ -23,8 +23,13 @@ public class GameManager : Singleton<GameManager> {
     //TODO maybe make highscore
 
 	// Use this for initialization
-	void Awake() {
+	void Awake()
+    {
         DontDestroyOnLoad(gameObject);
+        if (!particleParent)
+        {
+            Destroy(gameObject);
+        }
         for (int i = 0; i < maxParticlesCount; i++)
         {
             GameObject newSmashParticle = Instantiate(smashParticle, transform.position, Quaternion.Euler(new Vector3(90f, 0f, 0f)), particleParent);

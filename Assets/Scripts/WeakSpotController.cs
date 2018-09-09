@@ -52,7 +52,8 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     bool isDead = false;
 
 	// Use this for initialization
-	void Awake() {
+	void Awake()
+    {
         energy = maxEnergy;
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handLeft.OnSpecialSmashEnd += ResetRageMeter;
