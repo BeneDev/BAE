@@ -293,6 +293,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c94b6073fb75c42b281e680b3eb77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
+  gameplayUI: {fileID: 0}
+  endScreen: {fileID: 0}
+  scriptsToEnableToPlay:
+  - {fileID: 114575838918200446}
+  - {fileID: 0}
+  - {fileID: 0}
   maxParticlesCount: 30
   particleParent: {fileID: 0}
   smashParticle: {fileID: 1873495194897344, guid: a87272586bc34e343b6ff0cfbd3184b1,

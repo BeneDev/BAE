@@ -8,6 +8,8 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
 
+    [SerializeField] MonoBehaviour[] scriptsToEnableToPlay;
+
     [SerializeField] int maxParticlesCount = 30;
 
     [SerializeField] Transform particleParent;
@@ -33,9 +35,70 @@ public class GameManager : Singleton<GameManager> {
             newSplatterParticle.SetActive(false);
             freeSplatterParticles.Push(newSplatterParticle);
         }
+        foreach(MonoBehaviour script in scriptsToEnableToPlay)
+        {
+            script.enabled = false;
+        }
 	}
-	
-	public GameObject GetSmashParticle(Vector3 pos)
+
+    public void PlayGame()
+    {
+        StartCoroutine(FadeCanvas(mainMenu, 0f, 1f));
+        StartCoroutine(FadeCanvas(gameplayUI, 1f, 1f, 1f));
+        foreach(MonoBehaviour script in scriptsToEnableToPlay)
+        {
+            script.enabled = true;
+        }
+    }
+
+    public void Dead()
+    {
+        StartCoroutine(FadeCanvas(gameplayUI, 0f, 1f));
+        StartCoroutine(FadeCanvas(endScreen, 1f, 1f));
+        foreach (MonoBehaviour script in scriptsToEnableToPlay)
+        {
+            script.enabled = false;
+        }
+    }
+
+    IEnumerator FadeCanvas(CanvasGroup canvas, float fadeTo, float duration, float secondsToWait = 0f)
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        if(fadeTo > 0f)
+        {
+            canvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            canvas.interactable = false;
+        }
+        float startFadeValue = canvas.alpha;
+        float progress;
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            if (fadeTo > startFadeValue)
+            {
+                progress = t / duration;
+            }
+            else
+            {
+                progress = 1 - t / duration;
+            }
+            canvas.alpha = progress;
+            yield return new WaitForEndOfFrame();
+        }
+        canvas.alpha = fadeTo;
+        if (fadeTo <= 0f)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            canvas.interactable = true;
+        }
+    }
+
+    public GameObject GetSmashParticle(Vector3 pos)
     {
         GameObject pObj = freeSmashParticles.Pop();
         pObj.SetActive(true);
