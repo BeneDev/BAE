@@ -25,10 +25,9 @@ public class GameManager : Singleton<GameManager> {
 	// Use this for initialization
 	void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (!particleParent)
         {
-            Destroy(gameObject);
+            
         }
         for (int i = 0; i < maxParticlesCount; i++)
         {
