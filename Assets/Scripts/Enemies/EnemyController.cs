@@ -109,12 +109,18 @@ public class EnemyController : MonoBehaviour {
 
     void ToWeakSpot()
     {
-        agent.SetDestination(weakSpot.transform.position);
+        if(agent)
+        {
+            agent.SetDestination(weakSpot.transform.position);
+        }
     }
 
     void ToSpawn()
     {
-        agent.SetDestination(spawnPosition);
+        if(agent)
+        {
+            agent.SetDestination(spawnPosition);
+        }
     }
 
     //check if Enemy is hit by Hand

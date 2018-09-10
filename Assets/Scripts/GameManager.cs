@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager : Singleton<GameManager> {
 
@@ -100,6 +101,12 @@ public class GameManager : Singleton<GameManager> {
         {
             environmentAnim.enabled = true;
             environmentAnim.SetTrigger("BreakDown");
+        }
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies)
+        {
+            Destroy(enemy.GetComponent<NavMeshAgent>());
+            enemy.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

@@ -165,6 +165,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7436e50bdb062546b1e8210ada6a797, type: 2}
   m_IsPrefabAsset: 0
+--- !u!64 &363479549 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 64475449721711446, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1095808986}
 --- !u!1001 &526275595
 Prefab:
   m_ObjectHideFlags: 0
@@ -650,9 +655,9 @@ Prefab:
       objectReference: {fileID: 2131106187}
     - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
         type: 2}
-      propertyPath: navCollider
+      propertyPath: weakSpotColl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 363479549}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086c73556a5bc2448952f82ce0b9f24d, type: 2}
   m_IsPrefabAsset: 0

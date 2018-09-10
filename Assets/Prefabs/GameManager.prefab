@@ -310,6 +310,7 @@ MonoBehaviour:
     type: 2}
   isPSInput: 1
   environment: {fileID: 0}
+  weakSpotColl: {fileID: 0}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1
