@@ -306,6 +306,9 @@ MonoBehaviour:
     type: 2}
   splatterParticle: {fileID: 1863314629092068, guid: a287f757b1e4e8946ad2eeb01261c736,
     type: 2}
+  littleEnergyParticle: {fileID: 1170121994551082, guid: 9fd7ea85805aaab4aa456918b70d561e,
+    type: 2}
+  isPSInput: 1
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1

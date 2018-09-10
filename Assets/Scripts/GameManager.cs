@@ -28,6 +28,9 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] GameObject splatterParticle;
     Stack<GameObject> freeSplatterParticles = new Stack<GameObject>();
 
+    [SerializeField] GameObject littleEnergyParticle;
+    Stack<GameObject> freeLittleEnergies = new Stack<GameObject>();
+
     [SerializeField] bool isPSInput = false;
 
     //TODO maybe make highscore
@@ -48,6 +51,10 @@ public class GameManager : Singleton<GameManager> {
             GameObject newSplatterParticle = Instantiate(splatterParticle, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
             newSplatterParticle.SetActive(false);
             freeSplatterParticles.Push(newSplatterParticle);
+
+            GameObject newLittleEnergy = Instantiate(littleEnergyParticle, transform.position, Quaternion.Euler(Vector3.zero), particleParent);
+            newLittleEnergy.SetActive(false);
+            freeLittleEnergies.Push(newLittleEnergy);
         }
 	}
 

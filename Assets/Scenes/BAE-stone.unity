@@ -401,16 +401,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 20069703972553176, guid: d5607c36a0d58f24e8fcab55eb6ee3f9,
-        type: 2}
-      propertyPath: m_FocalLength
-      value: 43.080566
-      objectReference: {fileID: 0}
-    - target: {fileID: 20069703972553176, guid: d5607c36a0d58f24e8fcab55eb6ee3f9,
-        type: 2}
-      propertyPath: field of view
-      value: 23.6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5607c36a0d58f24e8fcab55eb6ee3f9, type: 2}
   m_IsPrefabAsset: 0
@@ -894,11 +884,6 @@ Prefab:
       propertyPath: particleParent
       value: 
       objectReference: {fileID: 526275596}
-    - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
-        type: 2}
-      propertyPath: isPSInput
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086c73556a5bc2448952f82ce0b9f24d, type: 2}
   m_IsPrefabAsset: 0
