@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class WaveSpawner : Singleton<WaveSpawner> {
 
+    private int NextWave
+    {
+        get
+        {
+            return nextWave;
+        }
+        set
+        {
+            nextWave = value;
+            if (OnWaveChanged != null)
+            {
+                OnWaveChanged(nextWave + 1);
+            }
+        }
+    }
+
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
     [System.Serializable]
@@ -111,17 +127,13 @@ public class WaveSpawner : Singleton<WaveSpawner> {
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
+            NextWave = 0;
             Debug.Log("ALL WAVES COMPLETE! Looping...");
             //can add wave-stat multiplier etc.
         }
         else
         {
-            nextWave++;
-            if(OnWaveChanged != null)
-            {
-                OnWaveChanged(nextWave + 1);
-            }
+            NextWave++;
         }
     }
 
