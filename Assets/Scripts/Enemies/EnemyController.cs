@@ -5,6 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
+    public int HasEnergy
+    {
+        get
+        {
+            return hasEnergy;
+        }
+    }
+
     GameObject weakSpot;
     WeakSpotController weakSpotCon;
 
@@ -85,12 +93,18 @@ public class EnemyController : MonoBehaviour {
         {
             anim.SetTrigger("TakeEnergy");
             isWaiting = false;
+            Invoke("TakeEnergy", 0.5f);
         }
         else if(anim && !isWaiting)
         {
             anim.SetTrigger("WaitToTake");
             isWaiting = true;
         }
+    }
+
+    void TakeEnergy()
+    {
+        GameManager.Instance.GetLittleEnergy(gameObject);
     }
 
     void ToWeakSpot()

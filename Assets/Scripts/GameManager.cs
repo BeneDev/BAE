@@ -124,6 +124,45 @@ public class GameManager : Singleton<GameManager> {
         yield break;
     }
 
+    public GameObject GetLittleEnergy(GameObject objectToFollow)
+    {
+        ParticleSystem ps = freeLittleEnergies.Pop().GetComponent<ParticleSystem>();
+        ps.gameObject.SetActive(true);
+        ps.Play();
+        if(objectToFollow.GetComponent<EnemyController>())
+        {
+            StartCoroutine(GetFollowingParticleSystemBack(2.5f, ps.gameObject, freeLittleEnergies, objectToFollow.GetComponent<EnemyController>(), WeakSpotController.Instance.transform.position));
+        }
+        return ps.gameObject;
+    }
+
+    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, EnemyController enemyToFollow, Vector3 fadeTo)
+    {
+        while(enemyToFollow.HasEnergy > 0)
+        {
+            if(enemyToFollow)
+            {
+                ps.transform.position = enemyToFollow.gameObject.transform.position + Vector3.up * 1.1f;
+            }
+            else
+            {
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        if(!enemyToFollow)
+        {
+            Vector3 startPos = ps.transform.position;
+            for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)
+            {
+                ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        ps.SetActive(false);
+        stackToPush.Push(ps);
+    }
+
     public GameObject GetSmashParticle(Vector3 pos)
     {
         GameObject pObj = freeSmashParticles.Pop();
