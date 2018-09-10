@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour {
 
     private Animator anim;
 
+    private bool isWaiting = false;
+
 	void Awake()
     {
         anim = GetComponent<Animator>();
@@ -82,6 +84,12 @@ public class EnemyController : MonoBehaviour {
         if (anim && hasEnergy > 0)
         {
             anim.SetTrigger("TakeEnergy");
+            isWaiting = false;
+        }
+        else if(anim && !isWaiting)
+        {
+            anim.SetTrigger("WaitToTake");
+            isWaiting = true;
         }
     }
 
