@@ -1,10 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour {
 
-	public void Play()
+    [SerializeField] Button highlightedButton;
+
+    private void Start()
+    {
+        highlightedButton.Select();
+    }
+
+    public void Play()
     {
         GameManager.Instance.PlayGame();
     }

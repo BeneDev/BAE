@@ -117,6 +117,11 @@ public class BaseHandController : MonoBehaviour {
         }
     }
 
+    private void OnDisable()
+    {
+        rBody.velocity = Vector3.zero;
+    }
+
     void ResetRightStick()
     {
         isRightStickDown = false;
