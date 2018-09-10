@@ -33,14 +33,21 @@ public class GameManager : Singleton<GameManager> {
 
     [SerializeField] bool isPSInput = false;
 
+    [SerializeField] GameObject environment;
+    Animator environmentAnim;
+
     //TODO maybe make highscore
 
 	// Use this for initialization
 	void Awake()
     {
+        if(environment)
+        {
+            environmentAnim = environment.GetComponent<Animator>();
+        }
         if (!particleParent)
         {
-            
+            //particleParent = Instantiate(GameObject.empty)
         }
         for (int i = 0; i < maxParticlesCount; i++)
         {
@@ -83,6 +90,16 @@ public class GameManager : Singleton<GameManager> {
         foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {
             script.enabled = false;
+        }
+        Invoke("PlayEnvironmentBreakDown", 1f);
+    }
+
+    void PlayEnvironmentBreakDown()
+    {
+        if (environmentAnim)
+        {
+            environmentAnim.enabled = true;
+            environmentAnim.SetTrigger("BreakDown");
         }
     }
 

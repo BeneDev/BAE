@@ -309,6 +309,7 @@ MonoBehaviour:
   littleEnergyParticle: {fileID: 1170121994551082, guid: 9fd7ea85805aaab4aa456918b70d561e,
     type: 2}
   isPSInput: 1
+  environment: {fileID: 0}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1
