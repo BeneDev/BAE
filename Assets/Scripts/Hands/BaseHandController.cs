@@ -120,6 +120,12 @@ public class BaseHandController : MonoBehaviour {
     private void OnDisable()
     {
         rBody.velocity = Vector3.zero;
+        rBody.useGravity = true;
+    }
+
+    private void OnEnable()
+    {
+        rBody.useGravity = false;
     }
 
     void ResetRightStick()

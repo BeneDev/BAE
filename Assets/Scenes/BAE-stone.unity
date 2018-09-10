@@ -113,6 +113,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &108672101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1644099985787570, guid: b86d63701aee8564abc298db815d4793,
+    type: 2}
+  m_PrefabInternal: {fileID: 1133834382}
+--- !u!95 &108672102
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 108672101}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21e776d7d8e25d446b9279ad3c9acd8e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &170076734 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108218963922391620, guid: 6b11298f5e54b3b4fa2fd1e9c83f570f,
@@ -161,11 +184,6 @@ Prefab:
     - target: {fileID: 4927310250577356, guid: e7436e50bdb062546b1e8210ada6a797, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114929445730366954, guid: e7436e50bdb062546b1e8210ada6a797,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7436e50bdb062546b1e8210ada6a797, type: 2}
@@ -940,15 +958,6 @@ Prefab:
     - target: {fileID: 4153589201516852, guid: c3c9c6e27859ea3409c4373fd26ece9e, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114928163534870986, guid: c3c9c6e27859ea3409c4373fd26ece9e,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995106311703876, guid: c3c9c6e27859ea3409c4373fd26ece9e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3c9c6e27859ea3409c4373fd26ece9e, type: 2}
