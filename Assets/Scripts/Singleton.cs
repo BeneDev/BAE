@@ -6,7 +6,8 @@ using UnityEngine;
 /// This class makes a certain object a singleton, to assure that there is always exactly one instance of it
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+{
 
     protected static T instance; // The instance of the object
 
@@ -16,11 +17,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
     {
         get
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = (T)FindObjectOfType(typeof(T));
 
-                if(instance == null)
+                if (instance == null)
                 {
                     Debug.LogErrorFormat("An instance of {0} is missing in this scene", typeof(T));
                 }
@@ -29,4 +30,5 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
             return instance;
         }
     }
+
 }

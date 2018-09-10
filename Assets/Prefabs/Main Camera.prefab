@@ -55,7 +55,7 @@ Camera:
   m_projectionMatrixMode: 2
   m_SensorSize: {x: 32, y: 18}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 31.386732
+  m_FocalLength: 43.080566
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -64,7 +64,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 100
-  field of view: 32
+  field of view: 23.6
   orthographic: 0
   orthographic size: 0.0025714287
   m_Depth: 0

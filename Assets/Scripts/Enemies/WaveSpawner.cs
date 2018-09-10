@@ -2,7 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveSpawner : MonoBehaviour {
+public class WaveSpawner : Singleton<WaveSpawner> {
+
+    private int NextWave
+    {
+        get
+        {
+            return nextWave;
+        }
+        set
+        {
+            nextWave = value;
+            if (OnWaveChanged != null)
+            {
+                OnWaveChanged(nextWave + 1);
+            }
+        }
+    }
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
@@ -20,6 +36,13 @@ public class WaveSpawner : MonoBehaviour {
         public GameObject enemy;
         public int count;
     }
+
+    public System.Action<int> OnWaveChanged;
+
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioClip[] musicClips;
+
+    Dictionary<string, int> musicDic = new Dictionary<string, int>();
 
     public Wave[] waves;
     private int nextWave = 0;
@@ -39,8 +62,16 @@ public class WaveSpawner : MonoBehaviour {
         {
             Debug.Log("No spawn points referenced.");
         }
-
+        musicDic["Wave"] = 0;
         waveCountdown = timeBetweenWaves;
+    }
+
+    private void OnEnable()
+    {
+        if(OnWaveChanged != null)
+        {
+            OnWaveChanged(nextWave + 1);
+        }
     }
 
     void Update()
@@ -67,12 +98,23 @@ public class WaveSpawner : MonoBehaviour {
             //start spawning wave
             if (state != SpawnState.SPAWNING)
             {
+                PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
         else
         {
             waveCountdown -= Time.deltaTime;
+        }
+    }
+
+    void PlaySound(AudioSource source, AudioClip clip, bool isLooping = false)
+    {
+        source.clip = clip;
+        source.loop = isLooping;
+        if(!source.isPlaying)
+        {
+            source.Play();
         }
     }
 
@@ -85,13 +127,13 @@ public class WaveSpawner : MonoBehaviour {
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
+            NextWave = 0;
             Debug.Log("ALL WAVES COMPLETE! Looping...");
             //can add wave-stat multiplier etc.
         }
         else
         {
-            nextWave++;
+            NextWave++;
         }
     }
 

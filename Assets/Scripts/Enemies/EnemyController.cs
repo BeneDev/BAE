@@ -5,6 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
+    public int HasEnergy
+    {
+        get
+        {
+            return hasEnergy;
+        }
+    }
+
     GameObject weakSpot;
     WeakSpotController weakSpotCon;
 
@@ -15,7 +23,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float startWalkingDelay = 3f;
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
-    bool hasEnergy = false;
+    int hasEnergy = 0;
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -23,6 +31,8 @@ public class EnemyController : MonoBehaviour {
     private bool toDestination = true;
 
     private Animator anim;
+
+    private bool isWaiting = false;
 
 	void Awake()
     {
@@ -52,11 +62,14 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
-            if(!hasEnergy)
+            if(hasEnergy <= 0)
             {
                 StealEnergy();
             }
-            Invoke("ToSpawn", startWalkingDelay);
+            if(hasEnergy > 0)
+            {
+                Invoke("ToSpawn", startWalkingDelay);
+            }
         }
 
         //check if Enemy is at SpawnPoint
@@ -67,29 +80,47 @@ public class EnemyController : MonoBehaviour {
             {
                 anim.SetTrigger("LoseEnergy");
             }
-            hasEnergy = false;
+            weakSpotCon.EnergyLostForever(hasEnergy);
+            hasEnergy = 0;
         }
 
     }
 
     private void StealEnergy()
     {
-        weakSpotCon.LoseEnergy(energyStealAmount);
-        if (anim)
+        hasEnergy = weakSpotCon.LoseEnergy(energyStealAmount);
+        if (anim && hasEnergy > 0)
         {
             anim.SetTrigger("TakeEnergy");
+            isWaiting = false;
+            Invoke("TakeEnergy", 0.5f);
         }
-        hasEnergy = true;
+        else if(anim && !isWaiting)
+        {
+            anim.SetTrigger("WaitToTake");
+            isWaiting = true;
+        }
+    }
+
+    void TakeEnergy()
+    {
+        GameManager.Instance.GetLittleEnergy(gameObject);
     }
 
     void ToWeakSpot()
     {
-        agent.SetDestination(weakSpot.transform.position);
+        if(agent)
+        {
+            agent.SetDestination(weakSpot.transform.position);
+        }
     }
 
     void ToSpawn()
     {
-        agent.SetDestination(spawnPosition);
+        if(agent)
+        {
+            agent.SetDestination(spawnPosition);
+        }
     }
 
     //check if Enemy is hit by Hand
@@ -99,10 +130,11 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
-                if(hasEnergy)
+                if(hasEnergy > 0)
                 {
-                    weakSpotCon.RegainEnergy(energyStealAmount);
+                    weakSpotCon.RegainEnergy(hasEnergy);
                 }
+                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
                 Destroy(gameObject);
             }
         }

@@ -30,6 +30,7 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] protected float resetTime = 2f;
     [SerializeField] protected float resetSpeed = 1f;
     protected float smashTravelDistanceY;
+    protected Vector3 normalPos;
     protected const float normalSmashTravelDistanceY = 2.5f;
     [SerializeField] protected float smashDownDuration = 0.2f;
     [SerializeField] protected float smashCamShakeAmount = 0.3f;
@@ -47,6 +48,11 @@ public class BaseHandController : MonoBehaviour {
 
     protected Rigidbody rBody;
 
+    protected Quaternion normalRot;
+    [SerializeField] protected Vector3 fistBumpRotation;
+    protected Vector3 toOtherHand;
+    [SerializeField] protected float distanceStartFistRotating = 5f;
+
     protected bool canSmash = true;
     protected bool isInSpecialSmash = false;
 
@@ -54,7 +60,7 @@ public class BaseHandController : MonoBehaviour {
     protected Vector3 smashPositionStart;
     protected Vector3 moveVelocity;
 
-    protected Vector2 triggerInput;
+    protected float triggerInput;
 
     protected bool canKill = false;
 
@@ -65,33 +71,61 @@ public class BaseHandController : MonoBehaviour {
     protected bool isLeftStickDown = false;
     protected bool isRightStickDown = false;
 
+    protected WeakSpotController weakSpot;
+
     [SerializeField] int holdStickDownInputForFrames = 5;
 
     protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody>();
         camShake = Camera.main.GetComponent<CameraShake>();
+        weakSpot = GameObject.FindGameObjectWithTag("WeakSpot").GetComponent<WeakSpotController>();
+        normalRot = transform.rotation;
+        normalPos = transform.position;
     }
 
     protected virtual void Update()
     {
-        if (triggerInput.magnitude > 0.2 && canSmash && !isInSpecialSmash)
+        if (triggerInput > 0.1f && canSmash && !isInSpecialSmash)
         {
             Smash();
             padState = GamePad.GetState(PlayerIndex.One);
         }
-        if(Input.GetButtonDown("LeftStickDown"))
+        if(!GameManager.Instance.IsPSInput && Input.GetButtonDown("LeftStickDown"))
         {
             isLeftStickDown = true;
             CancelInvoke("ResetLeftStick");
             Invoke("ResetLeftStick", holdStickDownInputForFrames * Time.deltaTime);
         }
-        if(Input.GetButtonDown("RightStickDown"))
+        else if(GameManager.Instance.IsPSInput && Input.GetButtonDown("PSLeftStickDown"))
+        {
+            isLeftStickDown = true;
+            CancelInvoke("ResetLeftStick");
+            Invoke("ResetLeftStick", holdStickDownInputForFrames * Time.deltaTime);
+        }
+        if(!GameManager.Instance.IsPSInput && Input.GetButtonDown("RightStickDown"))
         {
             isRightStickDown = true;
             CancelInvoke("ResetRightStick");
             Invoke("ResetRightStick", holdStickDownInputForFrames * Time.deltaTime);
         }
+        else if (GameManager.Instance.IsPSInput && Input.GetButtonDown("PSRightStickDown"))
+        {
+            isRightStickDown = true;
+            CancelInvoke("ResetRightStick");
+            Invoke("ResetRightStick", holdStickDownInputForFrames * Time.deltaTime);
+        }
+    }
+
+    private void OnDisable()
+    {
+        rBody.velocity = Vector3.zero;
+        rBody.useGravity = true;
+    }
+
+    private void OnEnable()
+    {
+        rBody.useGravity = false;
     }
 
     void ResetRightStick()
@@ -103,6 +137,27 @@ public class BaseHandController : MonoBehaviour {
     {
         isLeftStickDown = false;
     }
+
+    //protected void RotateForFistBump()
+    //{
+    //    Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
+    //    //newRot.Pow(toOtherHand.magnitude / distanceStartFistRotating);
+    //    newRot = Quaternion.Euler(new Vector3(0f, newRot.eulerAngles.y, 0f));
+    //    transform.rotation = newRot;
+    //}
+
+    //protected IEnumerator ResetRotation(float seconds)
+    //{
+    //    Quaternion startRot = transform.rotation;
+    //    Quaternion rotDiff = startRot * Quaternion.Inverse(normalRot);
+    //    for (float t = 0; t < seconds; t += Time.deltaTime)
+    //    {
+    //        transform.rotation = rotDiff.Pow((t / seconds)) * startRot;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //    transform.rotation = normalRot;
+    //    yield break;
+    //}
 
     //smash ground
     protected virtual void Smash()
@@ -122,10 +177,7 @@ public class BaseHandController : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
         }
-        if (smashPositionStart.y > 3f)
-        {
-            smashPositionStart.y = 3f;
-        }
+        smashPositionStart.y = normalPos.y;
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if(OnHandSmashDown != null)
         {
@@ -161,10 +213,7 @@ public class BaseHandController : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
                 yield return new WaitForEndOfFrame();
             }
-            if (smashPositionStart.y > 3f)
-            {
-                smashPositionStart.y = 3f;
-            }
+            smashPositionStart.y = normalPos.y;
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY, transform.position.z);
             if (OnHandSmashDown != null)
             {
@@ -196,10 +245,7 @@ public class BaseHandController : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y - smashTravelDistanceY * (t / smashDownDuration), transform.position.z);
             yield return new WaitForEndOfFrame();
         }
-        if (smashPositionStart.y > 3f)
-        {
-            smashPositionStart.y = 3f;
-        }
+        smashPositionStart.y = normalPos.y;
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if (OnHandSmashDown != null)
         {
