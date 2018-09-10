@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager> {
 
+    public bool IsPSInput
+    {
+        get
+        {
+            return isPSInput;
+        }
+    }
+
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
@@ -19,6 +27,8 @@ public class GameManager : Singleton<GameManager> {
 
     [SerializeField] GameObject splatterParticle;
     Stack<GameObject> freeSplatterParticles = new Stack<GameObject>();
+
+    [SerializeField] bool isPSInput = false;
 
     //TODO maybe make highscore
 

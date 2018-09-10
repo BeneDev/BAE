@@ -651,6 +651,11 @@ Prefab:
       propertyPath: energyEffect
       value: 
       objectReference: {fileID: 1393249103}
+    - target: {fileID: 114372675605897902, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
+        type: 2}
+      propertyPath: maxRage
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b6af0d2ac571941ab5ccc574c08a6f, type: 2}
   m_IsPrefabAsset: 0
@@ -889,6 +894,11 @@ Prefab:
       propertyPath: particleParent
       value: 
       objectReference: {fileID: 526275596}
+    - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
+        type: 2}
+      propertyPath: isPSInput
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086c73556a5bc2448952f82ce0b9f24d, type: 2}
   m_IsPrefabAsset: 0

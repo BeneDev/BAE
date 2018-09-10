@@ -16,15 +16,24 @@ public class HandRightController : BaseHandController
     protected override void Update()
     {
         //movement and controller stick deadzone
-        moveInput = new Vector3(Input.GetAxis("Horizontal2"), 0f, Input.GetAxis("Vertical2"));
+        if(!GameManager.Instance.IsPSInput)
+        {
+            moveInput = new Vector3(Input.GetAxis("Horizontal2"), 0f, Input.GetAxis("Vertical2"));
+            //smash ground using trigger
+            triggerInput = Input.GetAxis("TriggerRight");
+        }
+        else
+        {
+            moveInput = new Vector3(Input.GetAxis("PSHorizontal2"), 0f, Input.GetAxis("PSVertical2"));
+            //smash ground using trigger
+            triggerInput = Input.GetAxis("PSTriggerRight");
+        }
 
         //moveInput = moveInput.normalized * ((moveInput.magnitude - deadzone) / (1 - deadzone));
 
         moveVelocity = moveInput * moveSpeed;
         rBody.velocity = moveVelocity;
 
-        //smash ground using trigger
-        triggerInput = new Vector3(0f, Input.GetAxis("TriggerRight"), 0f);
         base.Update();
         if (isLeftStickDown && isRightStickDown && canSmash && handLeft.CanSmash && weakSpot.RageMeter == weakSpot.MaxRage)
         {

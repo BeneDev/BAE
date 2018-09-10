@@ -23,8 +23,16 @@ public class HandLeftController : BaseHandController
         moveVelocity = moveInput * moveSpeed;
         rBody.velocity = moveVelocity;
 
-        //smash ground using trigger
-        triggerInput = new Vector3(0f, Input.GetAxis("TriggerLeft"), 0f);
+        if(!GameManager.Instance.IsPSInput)
+        {
+            //smash ground using trigger
+            triggerInput = Input.GetAxis("TriggerLeft");
+        }
+        else
+        {
+            //smash ground using trigger
+            triggerInput = Input.GetAxis("PSTriggerLeft");
+        }
         base.Update();
         if (isLeftStickDown && isRightStickDown && canSmash && handRight.CanSmash && weakSpot.RageMeter >= weakSpot.MaxRage)
         {

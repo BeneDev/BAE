@@ -60,7 +60,7 @@ public class BaseHandController : MonoBehaviour {
     protected Vector3 smashPositionStart;
     protected Vector3 moveVelocity;
 
-    protected Vector2 triggerInput;
+    protected float triggerInput;
 
     protected bool canKill = false;
 
@@ -86,18 +86,30 @@ public class BaseHandController : MonoBehaviour {
 
     protected virtual void Update()
     {
-        if (triggerInput.magnitude > 0.2 && canSmash && !isInSpecialSmash)
+        if (triggerInput > 0.1f && canSmash && !isInSpecialSmash)
         {
             Smash();
             padState = GamePad.GetState(PlayerIndex.One);
         }
-        if(Input.GetButtonDown("LeftStickDown"))
+        if(!GameManager.Instance.IsPSInput && Input.GetButtonDown("LeftStickDown"))
         {
             isLeftStickDown = true;
             CancelInvoke("ResetLeftStick");
             Invoke("ResetLeftStick", holdStickDownInputForFrames * Time.deltaTime);
         }
-        if(Input.GetButtonDown("RightStickDown"))
+        else if(GameManager.Instance.IsPSInput && Input.GetButtonDown("PSLeftStickDown"))
+        {
+            isLeftStickDown = true;
+            CancelInvoke("ResetLeftStick");
+            Invoke("ResetLeftStick", holdStickDownInputForFrames * Time.deltaTime);
+        }
+        if(!GameManager.Instance.IsPSInput && Input.GetButtonDown("RightStickDown"))
+        {
+            isRightStickDown = true;
+            CancelInvoke("ResetRightStick");
+            Invoke("ResetRightStick", holdStickDownInputForFrames * Time.deltaTime);
+        }
+        else if (GameManager.Instance.IsPSInput && Input.GetButtonDown("PSRightStickDown"))
         {
             isRightStickDown = true;
             CancelInvoke("ResetRightStick");
