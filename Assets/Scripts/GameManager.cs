@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager> {
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
+    [SerializeField] CanvasGroup pauseMenu;
 
     [SerializeField] MonoBehaviour[] scriptsToEnableToPlay;
 
@@ -72,6 +73,27 @@ public class GameManager : Singleton<GameManager> {
         {
             script.enabled = false;
         }
+        pauseMenu.GetComponent<PauseMenuController>().OnContinue += Continue;
+    }
+
+    private void Update()
+    {
+        if(pauseMenu.alpha < 1f && Input.GetButtonDown("Pause"))
+        {
+            StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+            //pauseMenu.gameObject.SetActive(true);
+            //Time.timeScale = 0f;
+        }
+        if(pauseMenu.alpha > 0f && Input.GetButtonDown("Pause"))
+        {
+            Continue();
+        }
+    }
+
+    void Continue()
+    {
+        Time.timeScale = 1f;
+        StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
     }
 
     public void PlayGame()
@@ -112,7 +134,7 @@ public class GameManager : Singleton<GameManager> {
 
     IEnumerator FadeCanvas(CanvasGroup canvas, float fadeTo, float duration, float secondsToWait = 0f)
     {
-        yield return new WaitForSeconds(secondsToWait);
+        yield return new WaitForSecondsRealtime(secondsToWait);
         if(fadeTo > 0f)
         {
             canvas.gameObject.SetActive(true);

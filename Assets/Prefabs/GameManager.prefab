@@ -296,6 +296,7 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   gameplayUI: {fileID: 0}
   endScreen: {fileID: 0}
+  pauseMenu: {fileID: 0}
   scriptsToEnableToPlay:
   - {fileID: 114575838918200446}
   - {fileID: 0}
@@ -308,9 +309,8 @@ MonoBehaviour:
     type: 2}
   littleEnergyParticle: {fileID: 1170121994551082, guid: 9fd7ea85805aaab4aa456918b70d561e,
     type: 2}
-  isPSInput: 1
+  isPSInput: 0
   environment: {fileID: 0}
-  weakSpotColl: {fileID: 0}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1

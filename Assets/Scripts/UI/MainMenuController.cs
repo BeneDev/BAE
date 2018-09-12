@@ -19,7 +19,7 @@ public class MainMenuController : MonoBehaviour {
 
     public void Options()
     {
-
+        //TODO open options menu
     }
 
     public void Quit()

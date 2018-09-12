@@ -123,6 +123,111 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 225521664040741784, guid: b7e941b73199c8f4bafb07139cf46639,
     type: 2}
   m_PrefabInternal: {fileID: 1855371333}
+--- !u!1001 &185130245
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630836830760860, guid: 14eec56e7e3049342bea5d76d25d132b,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14eec56e7e3049342bea5d76d25d132b, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!225 &185130246 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 225341855903863840, guid: 14eec56e7e3049342bea5d76d25d132b,
+    type: 2}
+  m_PrefabInternal: {fileID: 185130245}
 --- !u!1001 &206432014
 Prefab:
   m_ObjectHideFlags: 0
@@ -165,11 +270,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7436e50bdb062546b1e8210ada6a797, type: 2}
   m_IsPrefabAsset: 0
---- !u!64 &363479549 stripped
-MeshCollider:
-  m_CorrespondingSourceObject: {fileID: 64475449721711446, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1095808986}
 --- !u!1001 &526275595
 Prefab:
   m_ObjectHideFlags: 0
@@ -635,6 +735,11 @@ Prefab:
       objectReference: {fileID: 715370517}
     - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
         type: 2}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 185130246}
+    - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
+        type: 2}
       propertyPath: scriptsToEnableToPlay.Array.data[1]
       value: 
       objectReference: {fileID: 772914199}
@@ -653,16 +758,6 @@ Prefab:
       propertyPath: environment
       value: 
       objectReference: {fileID: 2131106187}
-    - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
-        type: 2}
-      propertyPath: weakSpotColl
-      value: 
-      objectReference: {fileID: 363479549}
-    - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
-        type: 2}
-      propertyPath: isPSInput
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086c73556a5bc2448952f82ce0b9f24d, type: 2}
   m_IsPrefabAsset: 0
@@ -904,6 +999,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258683892501606, guid: a8da3ded3eb111c4ca1691a05c4ee52f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8da3ded3eb111c4ca1691a05c4ee52f, type: 2}
