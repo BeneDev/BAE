@@ -86,7 +86,7 @@ public class BaseHandController : MonoBehaviour {
 
     protected virtual void Update()
     {
-        if (triggerInput > 0.1f && canSmash && !isInSpecialSmash)
+        if (triggerInput != 0f && canSmash && !isInSpecialSmash)
         {
             Smash();
             padState = GamePad.GetState(PlayerIndex.One);

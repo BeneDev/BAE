@@ -29,6 +29,8 @@ public class HandRightController : BaseHandController
             triggerInput = Input.GetAxis("PSTriggerRight");
         }
 
+        print(triggerInput);
+
         //moveInput = moveInput.normalized * ((moveInput.magnitude - deadzone) / (1 - deadzone));
 
         moveVelocity = moveInput * moveSpeed;
