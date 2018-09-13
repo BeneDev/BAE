@@ -7,9 +7,12 @@ using UnityEngine.UI;
 public class EndScreenController : MonoBehaviour {
 
     [SerializeField] Button highlightedButton;
+    AudioSource aS;
 
     private void OnEnable()
     {
+        aS = GetComponent<AudioSource>();
+        aS.Play();
         Invoke("SelectButton", 1f);
     }
 

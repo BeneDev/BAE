@@ -241,7 +241,7 @@ public class GameManager : Singleton<GameManager> {
             }
             yield return new WaitForEndOfFrame();
         }
-        if(!enemyToFollow || enemyToFollow.GetComponent<BirdController>().IsFinished)
+        if(!enemyToFollow)
         {
             Vector3 startPos = ps.transform.position;
             for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)

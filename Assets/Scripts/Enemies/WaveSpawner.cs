@@ -74,6 +74,11 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         }
     }
 
+    private void OnDisable()
+    {
+        musicSource.Stop();
+    }
+
     void Update()
     {
         if (GameManager.Instance.IsPaused)

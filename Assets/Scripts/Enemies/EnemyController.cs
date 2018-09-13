@@ -49,14 +49,20 @@ public class EnemyController : MonoBehaviour {
     {
         if (GameManager.Instance.IsPaused)
         {
-            agent.isStopped = true;
+            if(agent)
+            {
+                agent.isStopped = true;
+            }
             anim.speed = 0f;
             return;
         }
-        else if (agent.isStopped)
+        else if (agent)
         {
-            agent.isStopped = false;
-            anim.speed = 1f;
+            if(agent.isStopped)
+            {
+                agent.isStopped = false;
+                anim.speed = 1f;
+            }
         }
         distanceToDestination = Vector3.Distance(transform.position, weakSpot.transform.position);
         distanceToSpawn = Vector3.Distance(transform.position, spawnPosition);

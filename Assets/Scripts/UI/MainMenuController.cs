@@ -7,14 +7,18 @@ public class MainMenuController : MonoBehaviour {
 
     [SerializeField] Button highlightedButton;
 
+    AudioSource aS;
+
     private void Start()
     {
         highlightedButton.Select();
+        aS = GetComponent<AudioSource>();
     }
 
     public void Play()
     {
         GameManager.Instance.PlayGame();
+        aS.Stop();
     }
 
     public void Options()
