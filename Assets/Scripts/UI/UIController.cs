@@ -17,7 +17,7 @@ public class UIController : MonoBehaviour {
 
     void ChangeWaveCountText(int newCount)
     {
-        waveCountText.text = "Wave: " + newCount;
+        waveCountText.text = "Wave " + newCount;
     }
 
     void ChangeRageBar(int value, int maxValue)
