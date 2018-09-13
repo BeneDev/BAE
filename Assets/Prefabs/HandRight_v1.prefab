@@ -607,7 +607,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -751,9 +751,9 @@ MonoBehaviour:
   distanceStartFistRotating: 2
   aSource: {fileID: 82579233708391050}
   aClips:
-  - {fileID: 8300000, guid: ab848fca2d3abaa4693ed83a509a4f44, type: 3}
+  - {fileID: 8300000, guid: a92cd14c781aa6e49baa112710d1920f, type: 3}
   - {fileID: 8300000, guid: 266e5249ca571e843b105d3467a7f509, type: 3}
-  - {fileID: 8300000, guid: bdb36a61801d32644929f53846d9e680, type: 3}
+  - {fileID: 8300000, guid: 5cce0e69d241ec24886c94baa6de805f, type: 3}
   holdStickDownInputForFrames: 5
 --- !u!137 &137128670904213144
 SkinnedMeshRenderer:

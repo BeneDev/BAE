@@ -185,7 +185,7 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator SmashDown()
     {
-        aSource.PlayOneShot(aClips[0], 0.3f);
+        aSource.PlayOneShot(aClips[0], 0.1f);
         canKill = true;
         smashPositionStart = transform.position;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
@@ -294,7 +294,7 @@ public class BaseHandController : MonoBehaviour {
     IEnumerator ResetAfterSmash(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        aSource.PlayOneShot(aClips[2], 0.3f);
+        aSource.PlayOneShot(aClips[2], 0.2f);
         for (float t = 0f; t < resetTransformDuration; t += Time.deltaTime)
         {
             transform.position = new Vector3(transform.position.x, (smashPositionStart.y - normalSmashTravelDistanceY) + normalSmashTravelDistanceY * (t / resetTransformDuration), transform.position.z);
