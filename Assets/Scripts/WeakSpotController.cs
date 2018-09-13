@@ -120,11 +120,11 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     {
         energy += energyToRegain;
         energyOnEnemies -= energyToRegain;
-        if(energy > maxEnergy)
-        {
-            energy = maxEnergy;
-        }
         //TODO play animation or alter particle effect to show player, energy has been regained
+    }
+    public void GainEnergy(int energyToGain)
+    {
+        energy += energyToGain;
     }
 
     void ResetRageMeter()

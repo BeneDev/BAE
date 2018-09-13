@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
     int hasEnergy = 0;
+    [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -44,14 +45,11 @@ public class EnemyController : MonoBehaviour {
 	}
 	
 	
-	void Update () {
-
-        //Debug.Log("spawn position: " + spawnPosition + "current position: " + transform.position);
-
+	void Update ()
+    {
+        
         distanceToDestination = Vector3.Distance(transform.position, weakSpot.transform.position);
         distanceToSpawn = Vector3.Distance(transform.position, spawnPosition);
-
-        //Debug.Log("Distance to Weakspot: " + distanceToDestination);
 
         if (toDestination == true)
         {
@@ -104,7 +102,7 @@ public class EnemyController : MonoBehaviour {
 
     void TakeEnergy()
     {
-        GameManager.Instance.GetLittleEnergy(gameObject);
+        GameManager.Instance.GetLittleEnergy(gameObject, energyCarryOffset);
     }
 
     void ToWeakSpot()

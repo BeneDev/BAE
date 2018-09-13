@@ -194,25 +194,29 @@ public class GameManager : Singleton<GameManager> {
         yield break;
     }
 
-    public GameObject GetLittleEnergy(GameObject objectToFollow)
+    public GameObject GetLittleEnergy(GameObject objectToFollow, Vector3 offset)
     {
         ParticleSystem ps = freeLittleEnergies.Pop().GetComponent<ParticleSystem>();
         ps.gameObject.SetActive(true);
         ps.Play();
         if(objectToFollow.GetComponent<EnemyController>())
         {
-            StartCoroutine(GetFollowingParticleSystemBack(2.5f, ps.gameObject, freeLittleEnergies, objectToFollow.GetComponent<EnemyController>(), WeakSpotController.Instance.transform.position));
+            StartCoroutine(GetFollowingParticleSystemBack(2.5f, ps.gameObject, freeLittleEnergies, objectToFollow.GetComponent<EnemyController>(), WeakSpotController.Instance.transform.position, offset));
+        }
+        else
+        {
+            StartCoroutine(GetFollowingParticleSystemBack(0.5f, ps.gameObject, freeLittleEnergies, objectToFollow, WeakSpotController.Instance.transform.position, offset));
         }
         return ps.gameObject;
     }
 
-    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, EnemyController enemyToFollow, Vector3 fadeTo)
+    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, EnemyController enemyToFollow, Vector3 fadeTo, Vector3 offset)
     {
         while(enemyToFollow.HasEnergy > 0)
         {
             if(enemyToFollow)
             {
-                ps.transform.position = enemyToFollow.gameObject.transform.position + Vector3.up * 1.1f;
+                ps.transform.position = enemyToFollow.gameObject.transform.position + offset;
             }
             else
             {
@@ -220,7 +224,7 @@ public class GameManager : Singleton<GameManager> {
             }
             yield return new WaitForEndOfFrame();
         }
-        if(!enemyToFollow)
+        if(!enemyToFollow || enemyToFollow.GetComponent<BirdController>().IsFinished)
         {
             Vector3 startPos = ps.transform.position;
             for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)
@@ -228,6 +232,27 @@ public class GameManager : Singleton<GameManager> {
                 ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
                 yield return new WaitForEndOfFrame();
             }
+        }
+        ps.SetActive(false);
+        stackToPush.Push(ps);
+    }
+
+    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, GameObject objectToFollow, Vector3 fadeTo, Vector3 offset)
+    {
+        while (objectToFollow)
+        {
+            ps.transform.position = objectToFollow.gameObject.transform.position + offset;
+            if (objectToFollow.GetComponent<BirdController>().IsFinished)
+            {
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        Vector3 startPos = ps.transform.position;
+        for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)
+        {
+            ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
+            yield return new WaitForEndOfFrame();
         }
         ps.SetActive(false);
         stackToPush.Push(ps);
