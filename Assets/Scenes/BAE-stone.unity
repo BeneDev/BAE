@@ -973,6 +973,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114425432809100148, guid: a8da3ded3eb111c4ca1691a05c4ee52f,
+        type: 2}
+      propertyPath: m_Text
+      value: Tiaki
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8da3ded3eb111c4ca1691a05c4ee52f, type: 2}
   m_IsPrefabAsset: 0
