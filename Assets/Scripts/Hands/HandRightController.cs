@@ -15,6 +15,11 @@ public class HandRightController : BaseHandController
 
     protected override void Update()
     {
+        if(GameManager.Instance.IsPaused)
+        {
+            rBody.velocity = Vector3.zero;
+            return;
+        }
         //movement and controller stick deadzone
         if(!GameManager.Instance.IsPSInput)
         {

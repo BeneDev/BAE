@@ -76,7 +76,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
 
     void Update()
     {
-
+        if (GameManager.Instance.IsPaused)
+        {
+            return;
+        }
         if (state == SpawnState.WAITING)
         {
             //check if enemies are still alive
