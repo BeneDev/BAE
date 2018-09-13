@@ -73,7 +73,6 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         {
             GameManager.Instance.Dead();
             isDead = true;
-            //TODO play fancy dying animation, making the hands fall down of weakness and then the world collapses
         }
         if(energyEffect)
         {
@@ -107,7 +106,6 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         }
         energy -= stealAmount;
         energyOnEnemies += stealAmount;
-        //TODO play animation or alter particle effect to show player, energy has been stolen
         return stealAmount;
     }
 
@@ -120,7 +118,6 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     {
         energy += energyToRegain;
         energyOnEnemies -= energyToRegain;
-        //TODO play animation or alter particle effect to show player, energy has been regained
     }
     public void GainEnergy(int energyToGain)
     {

@@ -76,7 +76,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
 
     private void OnDisable()
     {
-        musicSource.Stop();
+        GameManager.Instance.FadeOutSound(musicSource, 1f);
     }
 
     void Update()
@@ -106,7 +106,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             //start spawning wave
             if (state != SpawnState.SPAWNING)
             {
-                PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
+                if(!musicSource.isPlaying)
+                {
+                    PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
+                }
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
@@ -120,10 +123,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     {
         source.clip = clip;
         source.loop = isLooping;
-        if(!source.isPlaying)
-        {
-            source.Play();
-        }
+        GameManager.Instance.FadeInSound(musicSource, 0.5f, 1f);
     }
 
     void WaveCompleted()

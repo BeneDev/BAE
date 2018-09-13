@@ -54,8 +54,6 @@ public class GameManager : Singleton<GameManager> {
 
     bool isPaused = false;
 
-    //TODO maybe make highscore
-
 	// Use this for initialization
 	void Awake()
     {
@@ -121,7 +119,40 @@ public class GameManager : Singleton<GameManager> {
             }
         }
     }
-    
+
+    public void FadeOutSound(AudioSource aS, float duration)
+    {
+        StartCoroutine(FadeSoundOut(aS, duration));
+    }
+
+    IEnumerator FadeSoundOut(AudioSource aS, float duration)
+    {
+        float startVol = aS.volume;
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            aS.volume = startVol * (1 - (t / duration));
+            yield return new WaitForEndOfFrame();
+        }
+        aS.volume = 0f;
+        aS.Stop();
+    }
+
+    public void FadeInSound(AudioSource aS, float targetVol, float duration)
+    {
+        StartCoroutine(FadeSoundIn(aS, targetVol, duration));
+    }
+
+    IEnumerator FadeSoundIn(AudioSource aS, float targetVol, float duration)
+    {
+        aS.Play();
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            aS.volume = targetVol * (t / duration);
+            yield return new WaitForEndOfFrame();
+        }
+        aS.volume = targetVol;
+    }
+
     void Continue()
     {
         Time.timeScale = 1f;

@@ -18,7 +18,7 @@ public class MainMenuController : MonoBehaviour {
     public void Play()
     {
         GameManager.Instance.PlayGame();
-        aS.Stop();
+        GameManager.Instance.FadeOutSound(aS, 1f);
     }
 
     public void Options()
