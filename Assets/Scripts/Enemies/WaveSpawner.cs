@@ -40,6 +40,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     public System.Action<int> OnWaveChanged;
 
     [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource soundSource;
     [SerializeField] AudioClip[] musicClips;
 
     Dictionary<string, int> musicDic = new Dictionary<string, int>();
@@ -63,6 +64,8 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             Debug.Log("No spawn points referenced.");
         }
         musicDic["Wave"] = 0;
+        musicDic["WaveStart"] = 1;
+        musicDic["WaveFinished"] = 2;
         waveCountdown = timeBetweenWaves;
     }
 
@@ -92,6 +95,8 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             {
                 //begin new wave
                 WaveCompleted();
+                GameManager.Instance.FadeOutSound(musicSource, 1f);
+                soundSource.PlayOneShot(musicClips[musicDic["WaveFinished"]]);
                 return;
             }
             else
@@ -108,6 +113,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             {
                 if(!musicSource.isPlaying)
                 {
+                    soundSource.PlayOneShot(musicClips[musicDic["WaveStart"]]);
                     PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
                 }
                 StartCoroutine(SpawnWave(waves[nextWave]));
@@ -123,7 +129,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     {
         source.clip = clip;
         source.loop = isLooping;
-        GameManager.Instance.FadeInSound(musicSource, 0.5f, 1f);
+        GameManager.Instance.FadeInSound(musicSource, 0.5f, 2f);
     }
 
     void WaveCompleted()
