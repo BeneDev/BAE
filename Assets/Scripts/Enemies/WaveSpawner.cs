@@ -129,7 +129,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     {
         source.clip = clip;
         source.loop = isLooping;
-        GameManager.Instance.FadeInSound(musicSource, 0.5f, 2f);
+        GameManager.Instance.FadeInSound(musicSource, 0.1f, 2f);
     }
 
     void WaveCompleted()

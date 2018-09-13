@@ -26,6 +26,9 @@ public class EnemyController : MonoBehaviour {
     int hasEnergy = 0;
     [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
 
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip[] aClips;
+
     private float distanceToDestination;
     private float distanceToSpawn;
 
@@ -100,6 +103,11 @@ public class EnemyController : MonoBehaviour {
 
     }
 
+    public void PlayFootStep()
+    {
+        aSource.PlayOneShot(aClips[0]);
+    }
+
     private void StealEnergy()
     {
         hasEnergy = weakSpotCon.LoseEnergy(energyStealAmount);
@@ -144,12 +152,17 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
+                aSource.PlayOneShot(aClips[1]);
                 if(hasEnergy > 0)
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
                 GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
-                Destroy(gameObject);
+                Destroy(agent);
+                Destroy(gameObject, 1f);
+                Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
+                Destroy(GetComponent<CapsuleCollider>());
+                Destroy(this);
             }
         }
     }
