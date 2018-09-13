@@ -86,11 +86,23 @@ public class BaseHandController : MonoBehaviour {
 
     protected virtual void Update()
     {
-        if (triggerInput != 0f && canSmash && !isInSpecialSmash)
+        if(!GameManager.Instance.IsPSInput)
         {
-            Smash();
-            padState = GamePad.GetState(PlayerIndex.One);
+            if (triggerInput != 0f && canSmash && !isInSpecialSmash)
+            {
+                Smash();
+                padState = GamePad.GetState(PlayerIndex.One);
+            }
         }
+        else
+        {
+            if (triggerInput > 0f && canSmash && !isInSpecialSmash)
+            {
+                Smash();
+                padState = GamePad.GetState(PlayerIndex.One);
+            }
+        }
+        
         if(!GameManager.Instance.IsPSInput && Input.GetButtonDown("LeftStickDown"))
         {
             isLeftStickDown = true;

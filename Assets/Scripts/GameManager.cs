@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public System.Action OnGameStarted;
+
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
@@ -78,18 +80,32 @@ public class GameManager : Singleton<GameManager> {
 
     private void Update()
     {
-        if(pauseMenu.alpha < 1f && Input.GetButtonDown("Pause"))
+        if(!GameManager.Instance.IsPSInput)
         {
-            StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
-            //pauseMenu.gameObject.SetActive(true);
-            //Time.timeScale = 0f;
+            if (pauseMenu.alpha < 1f && Input.GetButtonDown("Pause"))
+            {
+                StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+                //Time.timeScale = 0f;
+            }
+            if (pauseMenu.alpha > 0f && Input.GetButtonDown("Pause"))
+            {
+                Continue();
+            }
         }
-        if(pauseMenu.alpha > 0f && Input.GetButtonDown("Pause"))
+        else
         {
-            Continue();
+            if (pauseMenu.alpha < 1f && Input.GetButtonDown("PSPause"))
+            {
+                StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+                //Time.timeScale = 0f;
+            }
+            if (pauseMenu.alpha > 0f && Input.GetButtonDown("PSPause"))
+            {
+                Continue();
+            }
         }
     }
-
+    
     void Continue()
     {
         Time.timeScale = 1f;
@@ -104,6 +120,10 @@ public class GameManager : Singleton<GameManager> {
         }
         StartCoroutine(FadeCanvas(mainMenu, 0f, 1f));
         StartCoroutine(FadeCanvas(gameplayUI, 1f, 1f, 1f));
+        if(OnGameStarted != null)
+        {
+            OnGameStarted();
+        }
     }
 
     public void Dead()

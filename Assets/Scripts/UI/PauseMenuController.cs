@@ -10,17 +10,9 @@ public class PauseMenuController : MonoBehaviour {
 
     [SerializeField] Button highlightedButton;
 
-    Animator anim;
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
-
     private void OnEnable()
     {
-        anim.SetTrigger("Show");
-        Invoke("SelectButton", 1f);
+        Invoke("SelectButton", 0.3f);
     }
 
     void SelectButton()
@@ -34,7 +26,6 @@ public class PauseMenuController : MonoBehaviour {
         {
             OnContinue();
         }
-        anim.SetTrigger("Hide");
     }
 
     public void Options()
