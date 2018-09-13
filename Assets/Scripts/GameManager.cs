@@ -134,6 +134,10 @@ public class GameManager : Singleton<GameManager> {
         {
             script.enabled = false;
         }
+        if(pauseMenu.alpha > 0f)
+        {
+            Continue();
+        }
         Invoke("PlayEnvironmentBreakDown", 1f);
     }
 
