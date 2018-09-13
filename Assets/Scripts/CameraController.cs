@@ -16,4 +16,9 @@ public class CameraController : MonoBehaviour {
     {
         anim.SetTrigger("Start");
     }
+
+    public void DisableAnimator()
+    {
+        anim.enabled = false;
+    }
 }
