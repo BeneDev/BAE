@@ -13,6 +13,18 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public bool IsPaused
+    {
+        get
+        {
+            return isPaused;
+        }
+        set
+        {
+            isPaused = value;
+        }
+    }
+
     public System.Action OnGameStarted;
 
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
@@ -39,6 +51,8 @@ public class GameManager : Singleton<GameManager> {
 
     [SerializeField] GameObject environment;
     Animator environmentAnim;
+
+    bool isPaused = false;
 
     //TODO maybe make highscore
 
@@ -86,6 +100,7 @@ public class GameManager : Singleton<GameManager> {
             {
                 StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
                 //Time.timeScale = 0f;
+                GameManager.Instance.IsPaused = true;
             }
             if (pauseMenu.alpha > 0f && Input.GetButtonDown("Pause"))
             {
@@ -98,6 +113,7 @@ public class GameManager : Singleton<GameManager> {
             {
                 StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
                 //Time.timeScale = 0f;
+                GameManager.Instance.IsPaused = true;
             }
             if (pauseMenu.alpha > 0f && Input.GetButtonDown("PSPause"))
             {
@@ -110,6 +126,7 @@ public class GameManager : Singleton<GameManager> {
     {
         Time.timeScale = 1f;
         StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
+        GameManager.Instance.IsPaused = false;
     }
 
     public void PlayGame()
