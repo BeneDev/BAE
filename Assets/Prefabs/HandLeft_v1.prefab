@@ -754,6 +754,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a92cd14c781aa6e49baa112710d1920f, type: 3}
   - {fileID: 8300000, guid: 266e5249ca571e843b105d3467a7f509, type: 3}
   - {fileID: 8300000, guid: 5cce0e69d241ec24886c94baa6de805f, type: 3}
+  minPitch: 0.647
+  maxPitch: 1.51
   holdStickDownInputForFrames: 5
 --- !u!137 &137914984999584710
 SkinnedMeshRenderer:

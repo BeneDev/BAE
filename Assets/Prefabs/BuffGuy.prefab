@@ -1788,6 +1788,8 @@ MonoBehaviour:
   aClips:
   - {fileID: 8300000, guid: 074464cbf51be1d49a1941f414c7f54d, type: 3}
   - {fileID: 8300000, guid: e394fce9a5ee6af4ebdd8d3586c82a98, type: 3}
+  minPitch: 0.516
+  maxPitch: 1.13
 --- !u!136 &136139733025190490
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -28,6 +28,8 @@ public class EnemyController : MonoBehaviour {
 
     [SerializeField] AudioSource aSource;
     [SerializeField] AudioClip[] aClips;
+    [Range(0.5f, 2f), SerializeField] float minPitch;
+    [Range(1f, 3f), SerializeField] float maxPitch;
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -145,6 +147,14 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    IEnumerator PlayAtRandomPitch(AudioClip clip)
+    {
+        aSource.pitch = Random.Range(minPitch, maxPitch);
+        aSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
+        aSource.pitch = 1f;
+    }
+
     //check if Enemy is hit by Hand
     void OnCollisionEnter(Collision col)
     {
@@ -152,7 +162,7 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
-                aSource.PlayOneShot(aClips[1]);
+                StartCoroutine(PlayAtRandomPitch(aClips[1]));
                 if(hasEnergy > 0)
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);

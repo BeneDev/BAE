@@ -698,9 +698,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995106311703876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: a5e9c80c37f8d374aa985cb3916c5fd3, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d23ebe1add5f965438cf39efa8b185ed, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -754,6 +754,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a92cd14c781aa6e49baa112710d1920f, type: 3}
   - {fileID: 8300000, guid: 266e5249ca571e843b105d3467a7f509, type: 3}
   - {fileID: 8300000, guid: 5cce0e69d241ec24886c94baa6de805f, type: 3}
+  minPitch: 0.647
+  maxPitch: 1.51
   holdStickDownInputForFrames: 5
 --- !u!137 &137128670904213144
 SkinnedMeshRenderer:
