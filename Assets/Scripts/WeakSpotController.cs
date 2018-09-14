@@ -114,6 +114,11 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         energyOnEnemies -= energyLost;
     }
 
+    public void GainRage(int rageToGain)
+    {
+        RageMeter += rageToGain;
+    }
+
     public void RegainEnergy(int energyToRegain)
     {
         energy += energyToRegain;
