@@ -163,7 +163,6 @@ public class EnemyController : MonoBehaviour {
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
                 Destroy(GetComponent<CapsuleCollider>());
-                Destroy(this);
             }
         }
     }

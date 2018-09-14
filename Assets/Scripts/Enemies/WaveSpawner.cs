@@ -38,6 +38,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     }
 
     public System.Action<int> OnWaveChanged;
+    public System.Action OnWaveCleared;
 
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource soundSource;
@@ -95,6 +96,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             {
                 //begin new wave
                 WaveCompleted();
+                if(OnWaveCleared != null)
+                {
+                    OnWaveCleared();
+                }
                 GameManager.Instance.FadeOutSound(musicSource, 1f);
                 soundSource.PlayOneShot(musicClips[musicDic["WaveFinished"]]);
                 return;

@@ -225,11 +225,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114240977862214260, guid: 9e28e3f496831fc4db5b7ba7fe5c1bed,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e28e3f496831fc4db5b7ba7fe5c1bed, type: 2}
   m_IsPrefabAsset: 0
@@ -372,11 +367,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114544639495380520, guid: 14eec56e7e3049342bea5d76d25d132b,
-        type: 2}
-      propertyPath: m_Text
-      value: QUit
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14eec56e7e3049342bea5d76d25d132b, type: 2}
   m_IsPrefabAsset: 0
@@ -476,11 +466,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114044106414708804, guid: 121f9c7cdb5100d468cec5e9f8ba47c5,
-        type: 2}
-      propertyPath: m_Text
-      value: QUit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121f9c7cdb5100d468cec5e9f8ba47c5, type: 2}
@@ -1015,11 +1000,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114018373612964478, guid: a8da3ded3eb111c4ca1691a05c4ee52f,
-        type: 2}
-      propertyPath: m_Text
-      value: QUit
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8da3ded3eb111c4ca1691a05c4ee52f, type: 2}
   m_IsPrefabAsset: 0
@@ -1161,16 +1141,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224615576298353352, guid: b7e941b73199c8f4bafb07139cf46639,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 224615576298353352, guid: b7e941b73199c8f4bafb07139cf46639,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e941b73199c8f4bafb07139cf46639, type: 2}
