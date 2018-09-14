@@ -532,11 +532,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d91533a7dc70c304eb3c08600cb5bf3b, type: 3}
   nextWaveWeight: 1
   weightGainPerWave: 2
-  weightUntilBigGuys: 10
+  weightUntilBigGuys: 5
   enemies:
   - {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
   - {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
   bird: {fileID: 1069498887892558, guid: 6b4f6666a5052ef49b5ff88cb2a9440a, type: 2}
+  minTimebetweenBirdSpawns: 5
   spawnPoints:
   - {fileID: 4662184786567300}
   - {fileID: 4596209874274686}

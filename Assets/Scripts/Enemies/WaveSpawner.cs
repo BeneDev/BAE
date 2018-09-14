@@ -38,6 +38,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
 
     [SerializeField] GameObject[] enemies;
     [SerializeField] GameObject bird;
+    [Range(0.05f, 1f)] float chanceToSpawnBird = 0f;
 
     public Transform[] spawnPoints;
 
@@ -66,6 +67,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         {
             OnWaveChanged(nextWave);
         }
+        InvokeRepeating("SpawnBird", 1f, 3f);
     }
 
     private void OnDisable()
@@ -78,6 +80,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         if (GameManager.Instance.IsPaused)
         {
             return;
+        }
+        if(chanceToSpawnBird > 0.02f)
+        {
+            chanceToSpawnBird -= 0.01f * Time.deltaTime;
         }
         if (state == SpawnState.WAITING)
         {
@@ -117,6 +123,20 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         else
         {
             waveCountdown -= Time.deltaTime;
+        }
+    }
+
+    public void IncreaseBirdSpawnChance(int mulitplier)
+    {
+        chanceToSpawnBird += 0.01f * mulitplier;
+    }
+
+    void SpawnBird()
+    {
+        if (Random.value <= chanceToSpawnBird && !GameManager.Instance.IsPaused)
+        {
+            Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Instantiate(bird, _sp.position, _sp.rotation);
         }
     }
 

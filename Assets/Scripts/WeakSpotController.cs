@@ -106,12 +106,14 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         }
         energy -= stealAmount;
         energyOnEnemies += stealAmount;
+        WaveSpawner.Instance.IncreaseBirdSpawnChance(2);
         return stealAmount;
     }
 
     public void EnergyLostForever(int energyLost)
     {
         energyOnEnemies -= energyLost;
+        WaveSpawner.Instance.IncreaseBirdSpawnChance(3);
     }
 
     public void GainRage(int rageToGain)
