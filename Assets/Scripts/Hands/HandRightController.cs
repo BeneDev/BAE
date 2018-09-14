@@ -40,7 +40,7 @@ public class HandRightController : BaseHandController
         rBody.velocity = moveVelocity;
 
         base.Update();
-        if (isLeftStickDown && isRightStickDown && canSmash && handLeft.CanSmash && weakSpot.RageMeter == weakSpot.MaxRage)
+        if (isLeftStickDown && isRightStickDown && canSmash && handLeft.CanSmash && weakSpot.RageMeter >= weakSpot.MaxRage && !anim.enabled)
         {
             SpecialSmash();
             isLeftStickDown = false;

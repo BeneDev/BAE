@@ -39,7 +39,7 @@ public class HandLeftController : BaseHandController
             triggerInput = Input.GetAxis("PSTriggerLeft");
         }
         base.Update();
-        if (isLeftStickDown && isRightStickDown && canSmash && handRight.CanSmash && weakSpot.RageMeter >= weakSpot.MaxRage)
+        if (isLeftStickDown && isRightStickDown && canSmash && handRight.CanSmash && weakSpot.RageMeter >= weakSpot.MaxRage && !anim.enabled)
         {
             SpecialSmash();
             isLeftStickDown = false;

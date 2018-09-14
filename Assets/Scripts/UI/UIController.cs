@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour {
     Animator anim;
 
     [SerializeField] Image doAnimationImage;
+    [SerializeField] GameObject rageInstructions;
 
     private void Awake()
     {
@@ -33,6 +34,11 @@ public class UIController : MonoBehaviour {
         StartCoroutine(ShowDoAnimationForSeconds(2.5f));
     }
 
+    void ManageRageInstructions(bool enable)
+    {
+        rageInstructions.SetActive(enable);
+    }
+
     IEnumerator ShowDoAnimationForSeconds(float seconds)
     {
         doAnimationImage.gameObject.SetActive(true);
@@ -44,6 +50,14 @@ public class UIController : MonoBehaviour {
     {
         rageBar.maxValue = maxValue;
         rageBar.value = value;
+        if(value >= maxValue)
+        {
+            ManageRageInstructions(true);
+        }
+        else
+        {
+            ManageRageInstructions(false);
+        }
     }
 
 }

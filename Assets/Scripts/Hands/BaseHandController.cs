@@ -23,6 +23,7 @@ public class BaseHandController : MonoBehaviour {
 
     public event System.Action<Vector3> OnHandSmashDown;
     public event System.Action OnSpecialSmashEnd;
+    public event System.Action OnSpecialSmashStarted;
 
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float smashSpeed = 2f;
@@ -80,7 +81,7 @@ public class BaseHandController : MonoBehaviour {
 
     [SerializeField] int holdStickDownInputForFrames = 5;
 
-    Animator anim;
+    protected Animator anim;
 
     protected virtual void Awake()
     {
@@ -96,7 +97,7 @@ public class BaseHandController : MonoBehaviour {
     {
         if(!GameManager.Instance.IsPSInput)
         {
-            if (triggerInput != 0f && canSmash && !isInSpecialSmash)
+            if (triggerInput != 0f && canSmash && !isInSpecialSmash && !anim.enabled)
             {
                 Smash();
                 padState = GamePad.GetState(PlayerIndex.One);
@@ -104,7 +105,7 @@ public class BaseHandController : MonoBehaviour {
         }
         else
         {
-            if (triggerInput > 0f && canSmash && !isInSpecialSmash)
+            if (triggerInput > 0f && canSmash && !isInSpecialSmash && !anim.enabled)
             {
                 Smash();
                 padState = GamePad.GetState(PlayerIndex.One);
@@ -249,6 +250,10 @@ public class BaseHandController : MonoBehaviour {
     IEnumerator SpecialSmashDown()
     {
         yield return new WaitForSeconds(timeBeforeSpecialSmash);
+        if (OnSpecialSmashStarted != null)
+        {
+            OnSpecialSmashStarted();
+        }
         for (int i = 0; i < timesHittingWithSpecialSmash; i++)
         {
             canKill = true;
@@ -281,7 +286,6 @@ public class BaseHandController : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, smashPositionStart.y, transform.position.z);
             rBody.constraints = RigidbodyConstraints.FreezeRotation;
         }
-
         canSmash = false;
         canKill = true;
         rBody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
