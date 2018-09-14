@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager> {
 
     public System.Action OnGameStarted;
     public System.Action OnResumeToMainMenu;
-    public System.Action<int> OnPlayerDied;
+    public System.Action<int, int, int> OnPlayerDied;
 
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
@@ -76,6 +76,9 @@ public class GameManager : Singleton<GameManager> {
     bool isPaused = false;
 
     bool optionsOutOfPauseMenu = false;
+
+    int plebKills = 0;
+    int bigGuyKills = 0;
 
 	// Use this for initialization
 	void Awake()
@@ -264,13 +267,25 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public void IncreaseKills(bool isGreenBlooded)
+    {
+        if(isGreenBlooded)
+        {
+            plebKills++;
+        }
+        else
+        {
+            bigGuyKills++;
+        }
+    }
+
     public void Dead()
     {
         StartCoroutine(FadeCanvas(endScreen, 1f, 1f));
         StartCoroutine(FadeCanvas(gameplayUI, 0f, 1f));
         if(OnPlayerDied != null)
         {
-            OnPlayerDied(WaveSpawner.Instance.NextWave);
+            OnPlayerDied(WaveSpawner.Instance.NextWave, plebKills, bigGuyKills);
         }
         foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {

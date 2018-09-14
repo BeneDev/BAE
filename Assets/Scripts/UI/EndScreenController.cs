@@ -10,10 +10,11 @@ public class EndScreenController : MonoBehaviour {
     AudioSource aS;
 
     [SerializeField] Text waveCountText;
+    [SerializeField] Text killCountText;
 
     private void Awake()
     {
-        GameManager.Instance.OnPlayerDied += SetWaveCountText;
+        GameManager.Instance.OnPlayerDied += SetEndScreenTexts;
         aS = GetComponent<AudioSource>();
     }
 
@@ -22,11 +23,12 @@ public class EndScreenController : MonoBehaviour {
         highlightedButton.Select();
     }
 
-    void SetWaveCountText(int waveCount)
+    void SetEndScreenTexts(int waveCount, int plebKills, int bigGuyKills)
     {
         aS.Play();
         Invoke("SelectButton", 1f);
         waveCountText.text = "You made it to Wave " + waveCount + "!";
+        killCountText.text = "Getting there, you killed " + plebKills + " Plebs and " + bigGuyKills + " Big Guys.";
     }
 
     public void PlayAgain()

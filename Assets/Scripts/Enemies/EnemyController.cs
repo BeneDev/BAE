@@ -197,6 +197,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Red");
                 }
+                GameManager.Instance.IncreaseKills(isGreenBlooded);
                 Destroy(agent);
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
