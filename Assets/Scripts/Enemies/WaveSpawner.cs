@@ -129,6 +129,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     public void IncreaseBirdSpawnChance(int mulitplier)
     {
         chanceToSpawnBird += 0.01f * mulitplier;
+        if(chanceToSpawnBird > 0.05f)
+        {
+            chanceToSpawnBird = 0.05f;
+        }
     }
 
     void SpawnBird()
