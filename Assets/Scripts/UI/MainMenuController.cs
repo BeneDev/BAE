@@ -23,12 +23,14 @@ public class MainMenuController : MonoBehaviour {
 
     public void Play()
     {
+        GameManager.Instance.PlayButtonClick();
         GameManager.Instance.PlayGame();
         GameManager.Instance.FadeOutSound(aS, 1f);
     }
 
     public void Options()
     {
+        GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsIn();
     }
 

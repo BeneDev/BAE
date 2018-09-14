@@ -23,6 +23,7 @@ public class EndScreenController : MonoBehaviour {
 
     public void PlayAgain()
     {
+        GameManager.Instance.PlayButtonClick();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

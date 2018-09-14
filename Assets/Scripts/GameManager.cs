@@ -25,6 +25,10 @@ public class GameManager : Singleton<GameManager> {
         }
         set
         {
+            if(value)
+            {
+                aSource.PlayOneShot(aClips[0]);
+            }
             isPaused = value;
         }
     }
@@ -57,6 +61,9 @@ public class GameManager : Singleton<GameManager> {
 
     [SerializeField] GameObject environment;
     Animator environmentAnim;
+
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip[] aClips;
 
     bool isPaused = false;
 
@@ -128,11 +135,11 @@ public class GameManager : Singleton<GameManager> {
         }
         if(Input.GetButtonDown("Cancel"))
         {
-            if(pauseMenu.alpha > 0f)
+            if(pauseMenu.alpha > 0.99f && optionsMenu.alpha <= 0f)
             {
                 Continue();
             }
-            else if(optionsMenu.alpha > 0f)
+            else if(optionsMenu.alpha > 0.99f)
             {
                 FadeOptionsOut();
             }
@@ -177,6 +184,11 @@ public class GameManager : Singleton<GameManager> {
         Time.timeScale = 1f;
         StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
         GameManager.Instance.IsPaused = false;
+    }
+
+    public void PlayButtonClick()
+    {
+        aSource.PlayOneShot(aClips[1]);
     }
 
     public void FadeOptionsIn()

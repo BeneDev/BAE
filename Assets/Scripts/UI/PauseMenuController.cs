@@ -22,6 +22,7 @@ public class PauseMenuController : MonoBehaviour {
 
     public void Continue()
     {
+        GameManager.Instance.PlayButtonClick();
         if(OnContinue != null)
         {
             OnContinue();
@@ -30,11 +31,13 @@ public class PauseMenuController : MonoBehaviour {
 
     public void Options()
     {
+        GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsIn();
     }
 
     public void MainMenu()
     {
+        GameManager.Instance.PlayButtonClick();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

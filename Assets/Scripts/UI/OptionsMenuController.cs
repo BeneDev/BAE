@@ -19,6 +19,7 @@ public class OptionsMenuController : MonoBehaviour {
 
     public void Back()
     {
+        GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsOut();
     }
 
