@@ -56,7 +56,7 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     {
         energy = maxEnergy;
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
-        handLeft.OnSpecialSmashEnd += ResetRageMeter;
+        handLeft.OnSpecialSmashStarted += ResetRageMeter;
 	}
 
     private void Start()
