@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class MainMenuController : MonoBehaviour {
 
@@ -13,17 +15,25 @@ public class MainMenuController : MonoBehaviour {
     {
         highlightedButton.Select();
         aS = GetComponent<AudioSource>();
+        GameManager.Instance.OnResumeToMainMenu += OnResume;
+    }
+
+    void OnResume()
+    {
+        highlightedButton.Select();
     }
 
     public void Play()
     {
+        GameManager.Instance.PlayButtonClick();
         GameManager.Instance.PlayGame();
         GameManager.Instance.FadeOutSound(aS, 1f);
     }
 
     public void Options()
     {
-        //TODO open options menu
+        GameManager.Instance.PlayButtonClick();
+        GameManager.Instance.FadeOptionsIn();
     }
 
     public void Quit()

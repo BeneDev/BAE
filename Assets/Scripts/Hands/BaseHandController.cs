@@ -75,8 +75,12 @@ public class BaseHandController : MonoBehaviour {
 
     [SerializeField] AudioSource aSource;
     [SerializeField] AudioClip[] aClips;
+    [Range(0.5f, 2f), SerializeField] float minPitch;
+    [Range(1f, 3f), SerializeField] float maxPitch;
 
     [SerializeField] int holdStickDownInputForFrames = 5;
+
+    Animator anim;
 
     protected virtual void Awake()
     {
@@ -85,6 +89,7 @@ public class BaseHandController : MonoBehaviour {
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot").GetComponent<WeakSpotController>();
         normalRot = transform.rotation;
         normalPos = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     protected virtual void Update()
@@ -153,6 +158,11 @@ public class BaseHandController : MonoBehaviour {
         isLeftStickDown = false;
     }
 
+    public void DisableAnimator()
+    {
+        anim.enabled = false;
+    }
+
     //protected void RotateForFistBump()
     //{
     //    Quaternion newRot = Quaternion.LookRotation(toOtherHand, Vector3.up);
@@ -183,6 +193,17 @@ public class BaseHandController : MonoBehaviour {
         StartCoroutine(SmashDown());
     }
 
+    public IEnumerator ToInitialPos()
+    {
+        Vector3 startPos = transform.position;
+        for (float t = 0f; t < 0.25f; t += Time.deltaTime)
+        {
+            transform.position = startPos + ((normalPos - startPos) * (t / 0.25f));
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = normalPos;
+    }
+
     IEnumerator SmashDown()
     {
         aSource.PlayOneShot(aClips[0], 0.1f);
@@ -197,7 +218,7 @@ public class BaseHandController : MonoBehaviour {
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if(OnHandSmashDown != null)
         {
-            aSource.PlayOneShot(aClips[1]);
+            StartCoroutine(PlayAtRandomPitch(aClips[1]));
             OnHandSmashDown(transform.position);
         }
         // Reset hand position
@@ -208,6 +229,14 @@ public class BaseHandController : MonoBehaviour {
         camShake.shakeDuration = smashCamShakeDuration;
         yield return new WaitForSeconds(0.2f);
         canKill = false;
+    }
+
+    IEnumerator PlayAtRandomPitch(AudioClip clip)
+    {
+        aSource.pitch = Random.Range(minPitch, maxPitch);
+        aSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
+        aSource.pitch = 1f;
     }
 
     protected virtual void SpecialSmash()
@@ -235,7 +264,7 @@ public class BaseHandController : MonoBehaviour {
             if (OnHandSmashDown != null)
             {
                 OnHandSmashDown(transform.position);
-                aSource.PlayOneShot(aClips[1]);
+                StartCoroutine(PlayAtRandomPitch(aClips[1]));
             }
             GameManager.Instance.GetSmashParticle(transform.position + Vector3.down * 0.3f);
             StartCoroutine(VibrateController(smashGamePadRumbleDuration));
@@ -294,7 +323,7 @@ public class BaseHandController : MonoBehaviour {
     IEnumerator ResetAfterSmash(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        aSource.PlayOneShot(aClips[2], 0.2f);
+        aSource.PlayOneShot(aClips[2], 0.1f);
         for (float t = 0f; t < resetTransformDuration; t += Time.deltaTime)
         {
             transform.position = new Vector3(transform.position.x, (smashPositionStart.y - normalSmashTravelDistanceY) + normalSmashTravelDistanceY * (t / resetTransformDuration), transform.position.z);

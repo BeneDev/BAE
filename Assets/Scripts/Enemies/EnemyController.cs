@@ -13,6 +13,14 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    public float WaveWeight
+    {
+        get
+        {
+            return waveWeight;
+        }
+    }
+
     GameObject weakSpot;
     WeakSpotController weakSpotCon;
 
@@ -23,11 +31,14 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float startWalkingDelay = 3f;
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
+    [Range(0.1f, 10f), SerializeField] float waveWeight = 1f;
     int hasEnergy = 0;
     [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
 
     [SerializeField] AudioSource aSource;
     [SerializeField] AudioClip[] aClips;
+    [Range(0.5f, 2f), SerializeField] float minPitch;
+    [Range(1f, 3f), SerializeField] float maxPitch;
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -37,6 +48,8 @@ public class EnemyController : MonoBehaviour {
     private Animator anim;
 
     private bool isWaiting = false;
+
+    [SerializeField] bool isGreenBlooded = false;
 
 	void Awake()
     {
@@ -145,6 +158,14 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    IEnumerator PlayAtRandomPitch(AudioClip clip)
+    {
+        aSource.pitch = Random.Range(minPitch, maxPitch);
+        aSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
+        aSource.pitch = 1f;
+    }
+
     //check if Enemy is hit by Hand
     void OnCollisionEnter(Collision col)
     {
@@ -152,13 +173,20 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
-                aSource.PlayOneShot(aClips[1]);
+                StartCoroutine(PlayAtRandomPitch(aClips[1]));
                 if(hasEnergy > 0)
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
                 weakSpotCon.GainRage(energyStealAmount);
-                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
+                if(isGreenBlooded)
+                {
+                    GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Green");
+                }
+                else
+                {
+                    GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Red");
+                }
                 Destroy(agent);
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());

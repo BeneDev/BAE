@@ -11,6 +11,8 @@ public class UIController : MonoBehaviour {
 
     Animator anim;
 
+    [SerializeField] Image doAnimationImage;
+
     private void Awake()
     {
         WaveSpawner.Instance.OnWaveChanged += ChangeWaveCountText;
@@ -28,6 +30,14 @@ public class UIController : MonoBehaviour {
     void WaveCleared()
     {
         anim.SetTrigger("WaveCleared");
+        StartCoroutine(ShowDoAnimationForSeconds(2.5f));
+    }
+
+    IEnumerator ShowDoAnimationForSeconds(float seconds)
+    {
+        doAnimationImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        doAnimationImage.gameObject.SetActive(false);
     }
 
     void ChangeRageBar(int value, int maxValue)

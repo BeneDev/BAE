@@ -1876,6 +1876,9 @@ MonoBehaviour:
   aClips:
   - {fileID: 8300000, guid: 994d05eb44dc2bb468ea0e32155f7935, type: 3}
   - {fileID: 8300000, guid: 7ca31842f6a778247a37921a1b2b509f, type: 3}
+  minPitch: 0.704
+  maxPitch: 1.62
+  isGreenBlooded: 1
 --- !u!136 &136111381559951294
 CapsuleCollider:
   m_ObjectHideFlags: 1

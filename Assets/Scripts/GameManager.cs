@@ -11,6 +11,10 @@ public class GameManager : Singleton<GameManager> {
         {
             return isPSInput;
         }
+        set
+        {
+            isPSInput = value;
+        }
     }
 
     public bool IsPaused
@@ -21,16 +25,22 @@ public class GameManager : Singleton<GameManager> {
         }
         set
         {
+            if(value)
+            {
+                aSource.PlayOneShot(aClips[0]);
+            }
             isPaused = value;
         }
     }
 
     public System.Action OnGameStarted;
+    public System.Action OnResumeToMainMenu;
 
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
     [SerializeField] CanvasGroup pauseMenu;
+    [SerializeField] CanvasGroup optionsMenu;
 
     [SerializeField] MonoBehaviour[] scriptsToEnableToPlay;
 
@@ -44,6 +54,12 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] GameObject splatterParticle;
     Stack<GameObject> freeSplatterParticles = new Stack<GameObject>();
 
+    [SerializeField] GameObject splatterParticleGreen;
+    Stack<GameObject> freeSplatterParticlesGreen = new Stack<GameObject>();
+
+    [SerializeField] GameObject splatterParticleBlue;
+    Stack<GameObject> freeSplatterParticlesBlue = new Stack<GameObject>();
+
     [SerializeField] GameObject littleEnergyParticle;
     Stack<GameObject> freeLittleEnergies = new Stack<GameObject>();
 
@@ -52,7 +68,13 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] GameObject environment;
     Animator environmentAnim;
 
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip[] aClips;
+    bool playedScrollSound = false;
+
     bool isPaused = false;
+
+    bool optionsOutOfPauseMenu = false;
 
 	// Use this for initialization
 	void Awake()
@@ -74,6 +96,14 @@ public class GameManager : Singleton<GameManager> {
             GameObject newSplatterParticle = Instantiate(splatterParticle, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
             newSplatterParticle.SetActive(false);
             freeSplatterParticles.Push(newSplatterParticle);
+
+            GameObject newSplatterParticleGreen = Instantiate(splatterParticleGreen, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
+            newSplatterParticleGreen.SetActive(false);
+            freeSplatterParticlesGreen.Push(newSplatterParticleGreen);
+
+            GameObject newSplatterParticleBlue = Instantiate(splatterParticleBlue, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
+            newSplatterParticleBlue.SetActive(false);
+            freeSplatterParticlesBlue.Push(newSplatterParticleBlue);
 
             GameObject newLittleEnergy = Instantiate(littleEnergyParticle, transform.position, Quaternion.Euler(Vector3.zero), particleParent);
             newLittleEnergy.SetActive(false);
@@ -118,6 +148,33 @@ public class GameManager : Singleton<GameManager> {
                 Continue();
             }
         }
+        if(Input.GetButtonDown("Cancel"))
+        {
+            if(pauseMenu.alpha > 0.99f && optionsMenu.alpha <= 0f)
+            {
+                Continue();
+            }
+            else if(optionsMenu.alpha > 0.99f)
+            {
+                FadeOptionsOut();
+            }
+        }
+        if(!playedScrollSound)
+        {
+            if(!scriptsToEnableToPlay[0].enabled || IsPaused)
+            {
+                if (Input.GetAxis("Vertical") > 0.3f || Input.GetAxis("Vertical") < -0.3f)
+                {
+                    aSource.PlayOneShot(aClips[2]);
+                    playedScrollSound = true;
+                }
+            }
+        }
+        if(playedScrollSound && Input.GetAxis("Vertical") < 0.2f && Input.GetAxis("Vertical") > -0.2f)
+        {
+            playedScrollSound = false;
+        }
+
     }
 
     public void FadeOutSound(AudioSource aS, float duration)
@@ -158,6 +215,38 @@ public class GameManager : Singleton<GameManager> {
         Time.timeScale = 1f;
         StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
         GameManager.Instance.IsPaused = false;
+    }
+
+    public void PlayButtonClick()
+    {
+        aSource.PlayOneShot(aClips[1]);
+    }
+
+    public void FadeOptionsIn()
+    {
+        StartCoroutine(FadeCanvas(optionsMenu, 1f, 1f));
+        if(pauseMenu.alpha > 0f)
+        {
+            StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
+            optionsOutOfPauseMenu = true;
+        }
+        else
+        {
+            optionsOutOfPauseMenu = false;
+        }
+    }
+
+    public void FadeOptionsOut()
+    {
+        if(optionsOutOfPauseMenu)
+        {
+            StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+        }
+        else if(OnResumeToMainMenu != null)
+        {
+            OnResumeToMainMenu();
+        }
+        StartCoroutine(FadeCanvas(optionsMenu, 0f, 1f));
     }
 
     public void PlayGame()
@@ -296,10 +385,10 @@ public class GameManager : Singleton<GameManager> {
             }
             yield return new WaitForEndOfFrame();
         }
-        Vector3 startPos = ps.transform.position;
+        Vector3 startScale = ps.transform.localScale;
         for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)
         {
-            ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
+            ps.transform.localScale = startScale - (startScale * (t / durationAfterDeath));
             yield return new WaitForEndOfFrame();
         }
         ps.SetActive(false);
@@ -317,15 +406,38 @@ public class GameManager : Singleton<GameManager> {
         return pObj;
     }
 
-    public GameObject GetSplatterParticle(Vector3 pos)
+    public GameObject GetSplatterParticle(Vector3 pos, string color)
     {
-        GameObject pObj = freeSplatterParticles.Pop();
-        pObj.SetActive(true);
-        pObj.transform.position = pos;
-        ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
-        pSys.Play();
-        StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticles));
-        return pObj;
+        if(color == "Green")
+        {
+            GameObject pObj = freeSplatterParticlesGreen.Pop();
+            pObj.SetActive(true);
+            pObj.transform.position = pos;
+            ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
+            pSys.Play();
+            StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticlesGreen));
+            return pObj;
+        }
+        else if(color == "Blue")
+        {
+            GameObject pObj = freeSplatterParticlesBlue.Pop();
+            pObj.SetActive(true);
+            pObj.transform.position = pos;
+            ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
+            pSys.Play();
+            StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticlesBlue));
+            return pObj;
+        }
+        else
+        {
+            GameObject pObj = freeSplatterParticles.Pop();
+            pObj.SetActive(true);
+            pObj.transform.position = pos;
+            ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
+            pSys.Play();
+            StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticles));
+            return pObj;
+        }
     }
 
     IEnumerator GetParticleBack(GameObject ps, float seconds, Stack<GameObject> stackToPush)

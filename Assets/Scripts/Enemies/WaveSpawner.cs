@@ -15,27 +15,12 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             nextWave = value;
             if (OnWaveChanged != null)
             {
-                OnWaveChanged(nextWave + 1);
+                OnWaveChanged(nextWave);
             }
         }
     }
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
-
-    [System.Serializable]
-    public class Wave
-    {
-        public string name;
-        public EnemyToSpawn[] enemies;
-        public float spawnRate;
-    }
-
-    [System.Serializable] 
-    public struct EnemyToSpawn
-    {
-        public GameObject enemy;
-        public int count;
-    }
 
     public System.Action<int> OnWaveChanged;
     public System.Action OnWaveCleared;
@@ -45,9 +30,15 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     [SerializeField] AudioClip[] musicClips;
 
     Dictionary<string, int> musicDic = new Dictionary<string, int>();
+    
+    private int nextWave = 1;
+    [SerializeField] float nextWaveWeight = 5f;
+    [SerializeField] float weightGainPerWave = 3f;
+    [SerializeField] float weightUntilBigGuys = 10f;
 
-    public Wave[] waves;
-    private int nextWave = 0;
+    [SerializeField] GameObject[] enemies;
+    [SerializeField] GameObject bird;
+    [Range(0.05f, 1f)] float chanceToSpawnBird = 0f;
 
     public Transform[] spawnPoints;
 
@@ -57,6 +48,12 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     private float searchCountdown = 1f;
 
     private SpawnState state = SpawnState.COUNTING;
+
+    string[] handAnimTriggerNames = new string[7];
+    [SerializeField] Animator handLeftAnim;
+    [SerializeField] Animator handRightAnim;
+
+    bool canDoAnimation = false;
 
     void Awake()
     {
@@ -68,14 +65,22 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         musicDic["WaveStart"] = 1;
         musicDic["WaveFinished"] = 2;
         waveCountdown = timeBetweenWaves;
+        handAnimTriggerNames[0] = "Clap";
+        handAnimTriggerNames[1] = "Ok";
+        handAnimTriggerNames[2] = "Highfive";
+        handAnimTriggerNames[3] = "Pistol";
+        handAnimTriggerNames[4] = "Peace";
+        handAnimTriggerNames[5] = "Fistbump";
+        handAnimTriggerNames[6] = "Fingerroll";
     }
 
     private void OnEnable()
     {
         if(OnWaveChanged != null)
         {
-            OnWaveChanged(nextWave + 1);
+            OnWaveChanged(nextWave);
         }
+        InvokeRepeating("SpawnBird", 1f, 3f);
     }
 
     private void OnDisable()
@@ -89,6 +94,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         {
             return;
         }
+        if(chanceToSpawnBird > 0.02f)
+        {
+            chanceToSpawnBird -= 0.01f * Time.deltaTime;
+        }
         if (state == SpawnState.WAITING)
         {
             //check if enemies are still alive
@@ -100,6 +109,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
                 {
                     OnWaveCleared();
                 }
+                StartCoroutine(HandleHandAnimationEnabling());
                 GameManager.Instance.FadeOutSound(musicSource, 1f);
                 soundSource.PlayOneShot(musicClips[musicDic["WaveFinished"]]);
                 return;
@@ -109,7 +119,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
                 return;
             }
         }
-
+        if(canDoAnimation && Input.GetButtonDown("Submit"))
+        {
+            StartCoroutine(PlayHandAnimation());
+        }
         if (waveCountdown <= 0)
         {
             
@@ -121,12 +134,51 @@ public class WaveSpawner : Singleton<WaveSpawner> {
                     soundSource.PlayOneShot(musicClips[musicDic["WaveStart"]]);
                     PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
                 }
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                StartCoroutine(SpawnWave(nextWaveWeight));
             }
         }
         else
         {
             waveCountdown -= Time.deltaTime;
+        }
+    }
+
+    IEnumerator HandleHandAnimationEnabling()
+    {
+        canDoAnimation = true;
+        yield return new WaitForSeconds(timeBetweenWaves * 0.5f);
+        canDoAnimation = false;
+    }
+
+    IEnumerator PlayHandAnimation()
+    {
+        StartCoroutine(handLeftAnim.gameObject.GetComponent<HandLeftController>().ToInitialPos());
+        StartCoroutine(handRightAnim.gameObject.GetComponent<HandRightController>().ToInitialPos());
+        canDoAnimation = false;
+        yield return new WaitForSeconds(0.25f);
+        //TODO make this choose of all the 7 animations (Random.Range(0, 7)) when fingerroll loops properly
+        string trigger = handAnimTriggerNames[Random.Range(0, 6)];
+        handLeftAnim.enabled = true;
+        handRightAnim.enabled = true;
+        handLeftAnim.SetTrigger(trigger);
+        handRightAnim.SetTrigger(trigger);
+    }
+
+    public void IncreaseBirdSpawnChance(int mulitplier)
+    {
+        chanceToSpawnBird += 0.01f * mulitplier;
+        if(chanceToSpawnBird > 0.05f)
+        {
+            chanceToSpawnBird = 0.05f;
+        }
+    }
+
+    void SpawnBird()
+    {
+        if (Random.value <= chanceToSpawnBird && !GameManager.Instance.IsPaused)
+        {
+            Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Instantiate(bird, _sp.position, _sp.rotation);
         }
     }
 
@@ -144,16 +196,8 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
 
-        if (nextWave + 1 > waves.Length - 1)
-        {
-            NextWave = 0;
-            Debug.Log("ALL WAVES COMPLETE! Looping...");
-            //can add wave-stat multiplier etc.
-        }
-        else
-        {
-            NextWave++;
-        }
+        NextWave++;
+        nextWaveWeight += weightGainPerWave;
     }
 
     //check if enemies are still alive
@@ -174,18 +218,23 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     }
 
     //spawn a wave
-    IEnumerator SpawnWave(Wave _wave)
+    IEnumerator SpawnWave(float waveWeight)
     {
-        Debug.Log("Spawning Wave: " + _wave.name);
+        Debug.Log("Spawning Wave: " + nextWave);
         state = SpawnState.SPAWNING;
 
-        for(int i = 0; i < _wave.enemies.Length; i++)
+        float currentWeight = 0f;
+
+        while(currentWeight < nextWaveWeight)
         {
-            for (int j = 0; j < _wave.enemies[i].count; j++)
-            {
-                SpawnEnemy(_wave.enemies[i].enemy);
-                yield return new WaitForSeconds(1f / _wave.spawnRate);
-            }
+            if(currentWeight > weightUntilBigGuys) { break; }
+            currentWeight = SpawnEnemy(enemies[0], currentWeight);
+            //TODO vary the amount of seconds waiting between spawns
+            yield return new WaitForSeconds(1f);
+        }
+        while(currentWeight < nextWaveWeight)
+        {
+            currentWeight = SpawnEnemy(enemies[Random.Range(0, 2)], currentWeight);
         }
 
         state = SpawnState.WAITING;
@@ -194,11 +243,12 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     }
 
     //Spawn enemy
-    void SpawnEnemy(GameObject _enemy)
+    float SpawnEnemy(GameObject _enemy, float currentWeight)
     {
         Debug.Log("Spawning Enemy: " + _enemy.name);
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
+        return currentWeight + _enemy.GetComponent<EnemyController>().WaveWeight;
     }
 
 }

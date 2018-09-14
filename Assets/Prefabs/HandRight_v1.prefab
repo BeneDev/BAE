@@ -317,7 +317,7 @@ Transform:
   - {fileID: 4873875922809180}
   m_Father: {fileID: 4773647953030606}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.121513, y: -31.354914, z: -17.294622}
 --- !u!4 &4082850854864078
 Transform:
   m_ObjectHideFlags: 1
@@ -331,7 +331,7 @@ Transform:
   - {fileID: 4936139387893102}
   m_Father: {fileID: 4921519620082800}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.70101, y: -33.640015, z: -10.680313}
 --- !u!4 &4101296246840460
 Transform:
   m_ObjectHideFlags: 1
@@ -345,7 +345,7 @@ Transform:
   - {fileID: 4544698954994668}
   m_Father: {fileID: 4398590164166508}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.504864, y: -3.6569479, z: 1.4248526}
 --- !u!4 &4153589201516852
 Transform:
   m_ObjectHideFlags: 1
@@ -400,7 +400,7 @@ Transform:
   - {fileID: 4101296246840460}
   m_Father: {fileID: 4789602745234244}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.209415, y: 5.1531644, z: -1.441829}
 --- !u!4 &4474227233252998
 Transform:
   m_ObjectHideFlags: 1
@@ -414,7 +414,7 @@ Transform:
   - {fileID: 4650847463428394}
   m_Father: {fileID: 4789602745234244}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 37.9816, y: 20.794588, z: 61.823555}
 --- !u!4 &4527034970448938
 Transform:
   m_ObjectHideFlags: 1
@@ -428,7 +428,7 @@ Transform:
   - {fileID: 4986063258829614}
   m_Father: {fileID: 4153589201516852}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
 --- !u!4 &4544698954994668
 Transform:
   m_ObjectHideFlags: 1
@@ -468,7 +468,7 @@ Transform:
   - {fileID: 4287853927221306}
   m_Father: {fileID: 4474227233252998}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -23.312977, y: -35.339993, z: -26.55824}
 --- !u!4 &4773647953030606
 Transform:
   m_ObjectHideFlags: 1
@@ -482,7 +482,7 @@ Transform:
   - {fileID: 4004159972114960}
   m_Father: {fileID: 4789602745234244}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.89398, y: 0.598351, z: 4.2407436}
 --- !u!4 &4789602745234244
 Transform:
   m_ObjectHideFlags: 1
@@ -500,7 +500,7 @@ Transform:
   - {fileID: 4474227233252998}
   m_Father: {fileID: 4986063258829614}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -11.557802, y: -59.77916, z: 69.9027}
 --- !u!4 &4857705096489522
 Transform:
   m_ObjectHideFlags: 1
@@ -514,7 +514,7 @@ Transform:
   - {fileID: 4185734559109582}
   m_Father: {fileID: 4789602745234244}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.1903224, y: 179.9997, z: 179.99997}
 --- !u!4 &4873875922809180
 Transform:
   m_ObjectHideFlags: 1
@@ -541,7 +541,7 @@ Transform:
   - {fileID: 4082850854864078}
   m_Father: {fileID: 4789602745234244}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.994654, y: 24.310627, z: 9.844884}
 --- !u!4 &4936139387893102
 Transform:
   m_ObjectHideFlags: 1
@@ -568,7 +568,7 @@ Transform:
   - {fileID: 4789602745234244}
   m_Father: {fileID: 4527034970448938}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.9954353e-15, y: 179.99994, z: 180}
 --- !u!54 &54620290545206476
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -698,9 +698,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995106311703876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: a5e9c80c37f8d374aa985cb3916c5fd3, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d23ebe1add5f965438cf39efa8b185ed, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -754,6 +754,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a92cd14c781aa6e49baa112710d1920f, type: 3}
   - {fileID: 8300000, guid: 266e5249ca571e843b105d3467a7f509, type: 3}
   - {fileID: 8300000, guid: 5cce0e69d241ec24886c94baa6de805f, type: 3}
+  minPitch: 0.647
+  maxPitch: 1.51
   holdStickDownInputForFrames: 5
 --- !u!137 &137128670904213144
 SkinnedMeshRenderer:

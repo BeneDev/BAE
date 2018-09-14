@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114137005427850536}
   - component: {fileID: 82149400727147216}
   - component: {fileID: 82489514354760932}
+  - component: {fileID: 82443620284807790}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -283,6 +284,101 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &82443620284807790
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095079116363496}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &82489514354760932
 AudioSource:
   m_ObjectHideFlags: 1
@@ -393,6 +489,7 @@ MonoBehaviour:
   gameplayUI: {fileID: 0}
   endScreen: {fileID: 0}
   pauseMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   scriptsToEnableToPlay:
   - {fileID: 114575838918200446}
   - {fileID: 0}
@@ -403,10 +500,19 @@ MonoBehaviour:
     type: 2}
   splatterParticle: {fileID: 1863314629092068, guid: a287f757b1e4e8946ad2eeb01261c736,
     type: 2}
+  splatterParticleGreen: {fileID: 1147109014817272, guid: b582a251b742d3b4ea2d30c32b6c0a01,
+    type: 2}
+  splatterParticleBlue: {fileID: 1153179036809888, guid: cde6a938e1bf5c644a454cb64493c64e,
+    type: 2}
   littleEnergyParticle: {fileID: 1170121994551082, guid: 9fd7ea85805aaab4aa456918b70d561e,
     type: 2}
   isPSInput: 0
   environment: {fileID: 0}
+  aSource: {fileID: 82443620284807790}
+  aClips:
+  - {fileID: 8300000, guid: 3c8ad0b5cb763f040a0e501f06b72144, type: 3}
+  - {fileID: 8300000, guid: 3f25a75e02d0a69488d490f9c5243c30, type: 3}
+  - {fileID: 8300000, guid: dade5ce36f62c0e4390910bb12655768, type: 3}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,34 +530,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a1da5138b9a1325409d36c82da29fed4, type: 3}
   - {fileID: 8300000, guid: f12a7f01eca9b8b4385c02d2b545ce6a, type: 3}
   - {fileID: 8300000, guid: d91533a7dc70c304eb3c08600cb5bf3b, type: 3}
-  waves:
-  - name: Plebs
-    enemies:
-    - enemy: {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
-      count: 3
-    spawnRate: 1
-  - name: Plebs 2
-    enemies:
-    - enemy: {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
-      count: 5
-    spawnRate: 1.5
-  - name: Big Guys
-    enemies:
-    - enemy: {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-      count: 3
-    spawnRate: 1
-  - name: Big Guys2
-    enemies:
-    - enemy: {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-      count: 5
-    spawnRate: 1
-  - name: Big Guys3
-    enemies:
-    - enemy: {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
-      count: 5
-    - enemy: {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
-      count: 3
-    spawnRate: 1
+  nextWaveWeight: 1
+  weightGainPerWave: 2
+  weightUntilBigGuys: 5
+  enemies:
+  - {fileID: 1580954354828894, guid: 09cb822758628cb4a822626cf9135ee4, type: 2}
+  - {fileID: 1429534408198210, guid: 500c3e447f9a1c3439d939e7d6792676, type: 2}
+  bird: {fileID: 1069498887892558, guid: 6b4f6666a5052ef49b5ff88cb2a9440a, type: 2}
   spawnPoints:
   - {fileID: 4662184786567300}
   - {fileID: 4596209874274686}
@@ -460,3 +545,5 @@ MonoBehaviour:
   - {fileID: 4027437806970910}
   timeBetweenWaves: 5
   waveCountdown: 0
+  handLeftAnim: {fileID: 0}
+  handRightAnim: {fileID: 0}

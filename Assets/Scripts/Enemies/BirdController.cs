@@ -32,6 +32,11 @@ public class BirdController : MonoBehaviour {
 
     bool isFinished = false;
 
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip[] aClips;
+    [Range(0.5f, 2f), SerializeField] float minPitch;
+    [Range(1f, 3f), SerializeField] float maxPitch;
+
     private Animator anim;
 
     private void Start()
@@ -48,14 +53,20 @@ public class BirdController : MonoBehaviour {
     {
         if(GameManager.Instance.IsPaused)
         {
-            agent.isStopped = true;
+            if(agent)
+            {
+                agent.isStopped = true;
+            }
             anim.speed = 0f;
             return;
         }
-        else if(agent.isStopped)
+        else if(agent)
         {
-            agent.isStopped = false;
-            anim.speed = 1f;
+            if(agent.isStopped)
+            {
+                agent.isStopped = false;
+                anim.speed = 1f;
+            }
         }
         distanceToDestination = Vector3.Distance(transform.position, weakSpot.transform.position);
         distanceToSpawn = Vector3.Distance(transform.position, spawnPosition);
@@ -91,6 +102,14 @@ public class BirdController : MonoBehaviour {
         }
     }
 
+    IEnumerator PlayAtRandomPitch(AudioClip clip)
+    {
+        aSource.pitch = Random.Range(minPitch, maxPitch);
+        aSource.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
+        aSource.pitch = 1f;
+    }
+
     //check if Enemy is hit by Hand
     void OnCollisionEnter(Collision col)
     {
@@ -98,8 +117,12 @@ public class BirdController : MonoBehaviour {
         {
             if (col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
-                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
-                Destroy(gameObject);
+                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Blue");
+                StartCoroutine(PlayAtRandomPitch(aClips[0]));
+                Destroy(agent);
+                Destroy(gameObject, 1f);
+                Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
+                Destroy(GetComponent<CapsuleCollider>());
             }
         }
     }
