@@ -69,9 +69,9 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         handAnimTriggerNames[1] = "Ok";
         handAnimTriggerNames[2] = "Highfive";
         handAnimTriggerNames[3] = "Pistol";
-        handAnimTriggerNames[4] = "Fingerroll";
+        handAnimTriggerNames[4] = "Peace";
         handAnimTriggerNames[5] = "Fistbump";
-        handAnimTriggerNames[6] = "Peace";
+        handAnimTriggerNames[6] = "Fingerroll";
     }
 
     private void OnEnable()
@@ -146,7 +146,6 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     IEnumerator HandleHandAnimationEnabling()
     {
         canDoAnimation = true;
-        //TODO show player he can do animation
         yield return new WaitForSeconds(timeBetweenWaves * 0.5f);
         canDoAnimation = false;
     }
@@ -157,7 +156,8 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         StartCoroutine(handRightAnim.gameObject.GetComponent<HandRightController>().ToInitialPos());
         canDoAnimation = false;
         yield return new WaitForSeconds(0.25f);
-        string trigger = handAnimTriggerNames[Random.Range(0, 7)];
+        //TODO make this choose of all the 7 animations (Random.Range(0, 7)) when fingerroll loops properly
+        string trigger = handAnimTriggerNames[Random.Range(0, 6)];
         handLeftAnim.enabled = true;
         handRightAnim.enabled = true;
         handLeftAnim.SetTrigger(trigger);
