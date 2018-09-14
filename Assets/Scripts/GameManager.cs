@@ -54,6 +54,12 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] GameObject splatterParticle;
     Stack<GameObject> freeSplatterParticles = new Stack<GameObject>();
 
+    [SerializeField] GameObject splatterParticleGreen;
+    Stack<GameObject> freeSplatterParticlesGreen = new Stack<GameObject>();
+
+    [SerializeField] GameObject splatterParticleBlue;
+    Stack<GameObject> freeSplatterParticlesBlue = new Stack<GameObject>();
+
     [SerializeField] GameObject littleEnergyParticle;
     Stack<GameObject> freeLittleEnergies = new Stack<GameObject>();
 
@@ -90,6 +96,14 @@ public class GameManager : Singleton<GameManager> {
             GameObject newSplatterParticle = Instantiate(splatterParticle, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
             newSplatterParticle.SetActive(false);
             freeSplatterParticles.Push(newSplatterParticle);
+
+            GameObject newSplatterParticleGreen = Instantiate(splatterParticleGreen, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
+            newSplatterParticleGreen.SetActive(false);
+            freeSplatterParticlesGreen.Push(newSplatterParticleGreen);
+
+            GameObject newSplatterParticleBlue = Instantiate(splatterParticleBlue, transform.position, Quaternion.Euler(new Vector3(-90f, 0f, 0f)), particleParent);
+            newSplatterParticleBlue.SetActive(false);
+            freeSplatterParticlesBlue.Push(newSplatterParticleBlue);
 
             GameObject newLittleEnergy = Instantiate(littleEnergyParticle, transform.position, Quaternion.Euler(Vector3.zero), particleParent);
             newLittleEnergy.SetActive(false);
@@ -392,15 +406,38 @@ public class GameManager : Singleton<GameManager> {
         return pObj;
     }
 
-    public GameObject GetSplatterParticle(Vector3 pos)
+    public GameObject GetSplatterParticle(Vector3 pos, string color)
     {
-        GameObject pObj = freeSplatterParticles.Pop();
-        pObj.SetActive(true);
-        pObj.transform.position = pos;
-        ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
-        pSys.Play();
-        StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticles));
-        return pObj;
+        if(color == "Green")
+        {
+            GameObject pObj = freeSplatterParticlesGreen.Pop();
+            pObj.SetActive(true);
+            pObj.transform.position = pos;
+            ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
+            pSys.Play();
+            StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticlesGreen));
+            return pObj;
+        }
+        else if(color == "Blue")
+        {
+            GameObject pObj = freeSplatterParticlesBlue.Pop();
+            pObj.SetActive(true);
+            pObj.transform.position = pos;
+            ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
+            pSys.Play();
+            StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticlesBlue));
+            return pObj;
+        }
+        else
+        {
+            GameObject pObj = freeSplatterParticles.Pop();
+            pObj.SetActive(true);
+            pObj.transform.position = pos;
+            ParticleSystem pSys = pObj.GetComponent<ParticleSystem>();
+            pSys.Play();
+            StartCoroutine(GetParticleBack(pObj, pSys.main.duration, freeSplatterParticles));
+            return pObj;
+        }
     }
 
     IEnumerator GetParticleBack(GameObject ps, float seconds, Stack<GameObject> stackToPush)

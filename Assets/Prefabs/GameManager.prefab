@@ -500,6 +500,10 @@ MonoBehaviour:
     type: 2}
   splatterParticle: {fileID: 1863314629092068, guid: a287f757b1e4e8946ad2eeb01261c736,
     type: 2}
+  splatterParticleGreen: {fileID: 1147109014817272, guid: b582a251b742d3b4ea2d30c32b6c0a01,
+    type: 2}
+  splatterParticleBlue: {fileID: 1153179036809888, guid: cde6a938e1bf5c644a454cb64493c64e,
+    type: 2}
   littleEnergyParticle: {fileID: 1170121994551082, guid: 9fd7ea85805aaab4aa456918b70d561e,
     type: 2}
   isPSInput: 0

@@ -40,6 +40,8 @@ public class EnemyController : MonoBehaviour {
 
     private bool isWaiting = false;
 
+    [SerializeField] bool isGreenBlooded = false;
+
 	void Awake()
     {
         anim = GetComponent<Animator>();
@@ -168,7 +170,14 @@ public class EnemyController : MonoBehaviour {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
                 weakSpotCon.GainRage(energyStealAmount);
-                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
+                if(isGreenBlooded)
+                {
+                    GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Green");
+                }
+                else
+                {
+                    GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Red");
+                }
                 Destroy(agent);
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());

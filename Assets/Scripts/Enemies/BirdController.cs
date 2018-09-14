@@ -117,7 +117,7 @@ public class BirdController : MonoBehaviour {
         {
             if (col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
-                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
+                GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Blue");
                 StartCoroutine(PlayAtRandomPitch(aClips[0]));
                 Destroy(agent);
                 Destroy(gameObject, 1f);
