@@ -73,6 +73,9 @@ public class BaseHandController : MonoBehaviour {
 
     protected WeakSpotController weakSpot;
 
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip[] aClips;
+
     [SerializeField] int holdStickDownInputForFrames = 5;
 
     protected virtual void Awake()
@@ -86,11 +89,23 @@ public class BaseHandController : MonoBehaviour {
 
     protected virtual void Update()
     {
-        if (triggerInput > 0.1f && canSmash && !isInSpecialSmash)
+        if(!GameManager.Instance.IsPSInput)
         {
-            Smash();
-            padState = GamePad.GetState(PlayerIndex.One);
+            if (triggerInput != 0f && canSmash && !isInSpecialSmash)
+            {
+                Smash();
+                padState = GamePad.GetState(PlayerIndex.One);
+            }
         }
+        else
+        {
+            if (triggerInput > 0f && canSmash && !isInSpecialSmash)
+            {
+                Smash();
+                padState = GamePad.GetState(PlayerIndex.One);
+            }
+        }
+        
         if(!GameManager.Instance.IsPSInput && Input.GetButtonDown("LeftStickDown"))
         {
             isLeftStickDown = true;
@@ -170,6 +185,7 @@ public class BaseHandController : MonoBehaviour {
 
     IEnumerator SmashDown()
     {
+        aSource.PlayOneShot(aClips[0], 0.1f);
         canKill = true;
         smashPositionStart = transform.position;
         for (float t = 0f; t < smashDownDuration; t += Time.deltaTime)
@@ -181,6 +197,7 @@ public class BaseHandController : MonoBehaviour {
         transform.position = smashPositionStart + Vector3.down * smashTravelDistanceY;
         if(OnHandSmashDown != null)
         {
+            aSource.PlayOneShot(aClips[1]);
             OnHandSmashDown(transform.position);
         }
         // Reset hand position
@@ -218,6 +235,7 @@ public class BaseHandController : MonoBehaviour {
             if (OnHandSmashDown != null)
             {
                 OnHandSmashDown(transform.position);
+                aSource.PlayOneShot(aClips[1]);
             }
             GameManager.Instance.GetSmashParticle(transform.position + Vector3.down * 0.3f);
             StartCoroutine(VibrateController(smashGamePadRumbleDuration));
@@ -276,6 +294,7 @@ public class BaseHandController : MonoBehaviour {
     IEnumerator ResetAfterSmash(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        aSource.PlayOneShot(aClips[2], 0.2f);
         for (float t = 0f; t < resetTransformDuration; t += Time.deltaTime)
         {
             transform.position = new Vector3(transform.position.x, (smashPositionStart.y - normalSmashTravelDistanceY) + normalSmashTravelDistanceY * (t / resetTransformDuration), transform.position.z);

@@ -24,6 +24,10 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
     int hasEnergy = 0;
+    [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
+
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip[] aClips;
 
     private float distanceToDestination;
     private float distanceToSpawn;
@@ -44,14 +48,27 @@ public class EnemyController : MonoBehaviour {
 	}
 	
 	
-	void Update () {
-
-        //Debug.Log("spawn position: " + spawnPosition + "current position: " + transform.position);
-
+	void Update ()
+    {
+        if (GameManager.Instance.IsPaused)
+        {
+            if(agent)
+            {
+                agent.isStopped = true;
+            }
+            anim.speed = 0f;
+            return;
+        }
+        else if (agent)
+        {
+            if(agent.isStopped)
+            {
+                agent.isStopped = false;
+                anim.speed = 1f;
+            }
+        }
         distanceToDestination = Vector3.Distance(transform.position, weakSpot.transform.position);
         distanceToSpawn = Vector3.Distance(transform.position, spawnPosition);
-
-        //Debug.Log("Distance to Weakspot: " + distanceToDestination);
 
         if (toDestination == true)
         {
@@ -86,6 +103,11 @@ public class EnemyController : MonoBehaviour {
 
     }
 
+    public void PlayFootStep()
+    {
+        aSource.PlayOneShot(aClips[0]);
+    }
+
     private void StealEnergy()
     {
         hasEnergy = weakSpotCon.LoseEnergy(energyStealAmount);
@@ -104,7 +126,7 @@ public class EnemyController : MonoBehaviour {
 
     void TakeEnergy()
     {
-        GameManager.Instance.GetLittleEnergy(gameObject);
+        GameManager.Instance.GetLittleEnergy(gameObject, energyCarryOffset);
     }
 
     void ToWeakSpot()
@@ -130,12 +152,17 @@ public class EnemyController : MonoBehaviour {
         {
             if(col.gameObject.GetComponent<BaseHandController>().CanKill)
             {
+                aSource.PlayOneShot(aClips[1]);
                 if(hasEnergy > 0)
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
+                weakSpotCon.GainRage(energyStealAmount);
                 GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f);
-                Destroy(gameObject);
+                Destroy(agent);
+                Destroy(gameObject, 1f);
+                Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
+                Destroy(GetComponent<CapsuleCollider>());
             }
         }
     }

@@ -13,9 +13,24 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public bool IsPaused
+    {
+        get
+        {
+            return isPaused;
+        }
+        set
+        {
+            isPaused = value;
+        }
+    }
+
+    public System.Action OnGameStarted;
+
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
+    [SerializeField] CanvasGroup pauseMenu;
 
     [SerializeField] MonoBehaviour[] scriptsToEnableToPlay;
 
@@ -37,7 +52,7 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] GameObject environment;
     Animator environmentAnim;
 
-    //TODO maybe make highscore
+    bool isPaused = false;
 
 	// Use this for initialization
 	void Awake()
@@ -72,6 +87,77 @@ public class GameManager : Singleton<GameManager> {
         {
             script.enabled = false;
         }
+        pauseMenu.GetComponent<PauseMenuController>().OnContinue += Continue;
+    }
+
+    private void Update()
+    {
+        if(!GameManager.Instance.IsPSInput)
+        {
+            if (pauseMenu.alpha < 1f && Input.GetButtonDown("Pause"))
+            {
+                StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+                //Time.timeScale = 0f;
+                GameManager.Instance.IsPaused = true;
+            }
+            if (pauseMenu.alpha > 0f && Input.GetButtonDown("Pause"))
+            {
+                Continue();
+            }
+        }
+        else
+        {
+            if (pauseMenu.alpha < 1f && Input.GetButtonDown("PSPause"))
+            {
+                StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+                //Time.timeScale = 0f;
+                GameManager.Instance.IsPaused = true;
+            }
+            if (pauseMenu.alpha > 0f && Input.GetButtonDown("PSPause"))
+            {
+                Continue();
+            }
+        }
+    }
+
+    public void FadeOutSound(AudioSource aS, float duration)
+    {
+        StartCoroutine(FadeSoundOut(aS, duration));
+    }
+
+    IEnumerator FadeSoundOut(AudioSource aS, float duration)
+    {
+        float startVol = aS.volume;
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            aS.volume = startVol * (1 - (t / duration));
+            yield return new WaitForEndOfFrame();
+        }
+        aS.volume = 0f;
+        aS.Stop();
+    }
+
+    public void FadeInSound(AudioSource aS, float targetVol, float duration)
+    {
+        StartCoroutine(FadeSoundIn(aS, targetVol, duration));
+    }
+
+    IEnumerator FadeSoundIn(AudioSource aS, float targetVol, float duration)
+    {
+        aS.Play();
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            aS.volume = targetVol * (t / duration);
+            yield return new WaitForEndOfFrame();
+        }
+        aS.volume = targetVol;
+    }
+
+    void Continue()
+    {
+        Time.timeScale = 1f;
+        StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
+        GameManager.Instance.IsPaused = false;
     }
 
     public void PlayGame()
@@ -82,6 +168,10 @@ public class GameManager : Singleton<GameManager> {
         }
         StartCoroutine(FadeCanvas(mainMenu, 0f, 1f));
         StartCoroutine(FadeCanvas(gameplayUI, 1f, 1f, 1f));
+        if(OnGameStarted != null)
+        {
+            OnGameStarted();
+        }
     }
 
     public void Dead()
@@ -91,6 +181,10 @@ public class GameManager : Singleton<GameManager> {
         foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {
             script.enabled = false;
+        }
+        if(pauseMenu.alpha > 0f)
+        {
+            Continue();
         }
         Invoke("PlayEnvironmentBreakDown", 1f);
     }
@@ -112,7 +206,7 @@ public class GameManager : Singleton<GameManager> {
 
     IEnumerator FadeCanvas(CanvasGroup canvas, float fadeTo, float duration, float secondsToWait = 0f)
     {
-        yield return new WaitForSeconds(secondsToWait);
+        yield return new WaitForSecondsRealtime(secondsToWait);
         if(fadeTo > 0f)
         {
             canvas.gameObject.SetActive(true);
@@ -148,25 +242,29 @@ public class GameManager : Singleton<GameManager> {
         yield break;
     }
 
-    public GameObject GetLittleEnergy(GameObject objectToFollow)
+    public GameObject GetLittleEnergy(GameObject objectToFollow, Vector3 offset)
     {
         ParticleSystem ps = freeLittleEnergies.Pop().GetComponent<ParticleSystem>();
         ps.gameObject.SetActive(true);
         ps.Play();
         if(objectToFollow.GetComponent<EnemyController>())
         {
-            StartCoroutine(GetFollowingParticleSystemBack(2.5f, ps.gameObject, freeLittleEnergies, objectToFollow.GetComponent<EnemyController>(), WeakSpotController.Instance.transform.position));
+            StartCoroutine(GetFollowingParticleSystemBack(2.5f, ps.gameObject, freeLittleEnergies, objectToFollow.GetComponent<EnemyController>(), WeakSpotController.Instance.transform.position, offset));
+        }
+        else
+        {
+            StartCoroutine(GetFollowingParticleSystemBack(0.5f, ps.gameObject, freeLittleEnergies, objectToFollow, WeakSpotController.Instance.transform.position, offset));
         }
         return ps.gameObject;
     }
 
-    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, EnemyController enemyToFollow, Vector3 fadeTo)
+    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, EnemyController enemyToFollow, Vector3 fadeTo, Vector3 offset)
     {
         while(enemyToFollow.HasEnergy > 0)
         {
             if(enemyToFollow)
             {
-                ps.transform.position = enemyToFollow.gameObject.transform.position + Vector3.up * 1.1f;
+                ps.transform.position = enemyToFollow.gameObject.transform.position + offset;
             }
             else
             {
@@ -182,6 +280,27 @@ public class GameManager : Singleton<GameManager> {
                 ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
                 yield return new WaitForEndOfFrame();
             }
+        }
+        ps.SetActive(false);
+        stackToPush.Push(ps);
+    }
+
+    IEnumerator GetFollowingParticleSystemBack(float durationAfterDeath, GameObject ps, Stack<GameObject> stackToPush, GameObject objectToFollow, Vector3 fadeTo, Vector3 offset)
+    {
+        while (objectToFollow)
+        {
+            ps.transform.position = objectToFollow.gameObject.transform.position + offset;
+            if (objectToFollow.GetComponent<BirdController>().IsFinished)
+            {
+                break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        Vector3 startPos = ps.transform.position;
+        for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)
+        {
+            ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
+            yield return new WaitForEndOfFrame();
         }
         ps.SetActive(false);
         stackToPush.Push(ps);

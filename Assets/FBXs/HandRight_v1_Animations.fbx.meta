@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: d1b120842a2277b49a28fae9801d6d22
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: HandComplete
+    100002: //RootNode
+    100004: HandRightRig
+    100006: Index1
+    100008: Index2
+    100010: Index2_end
+    100012: Middle1
+    100014: Middle2
+    100016: Middle2_end
+    100018: Palm
+    100020: Palm_end
+    100022: Pinky1
+    100024: Pinky2
+    100026: Pinky2_end
+    100028: RockHandRight
+    100030: Root
+    100032: Thumb1
+    100034: Thumb2
+    100036: Thumb2_end
+    400000: HandComplete
+    400002: //RootNode
+    400004: HandRightRig
+    400006: Index1
+    400008: Index2
+    400010: Index2_end
+    400012: Middle1
+    400014: Middle2
+    400016: Middle2_end
+    400018: Palm
+    400020: Palm_end
+    400022: Pinky1
+    400024: Pinky2
+    400026: Pinky2_end
+    400028: RockHandRight
+    400030: Root
+    400032: Thumb1
+    400034: Thumb2
+    400036: Thumb2_end
+    2100000: ColorPaletteGradient
+    4300000: RockHandRight
+    7400000: HandRightRig|Action
+    7400002: HandRightRig|HandLeft_Clap
+    7400004: HandRightRig|HandLeft_FingerRoll
+    7400006: HandRightRig|HandLeft_Fist
+    7400008: HandRightRig|HandLeft_FistBump
+    7400010: HandRightRig|HandLeft_HighFive
+    7400012: HandRightRig|HandLeft_Ok
+    7400014: HandRightRig|HandLeft_Peace
+    7400016: HandRightRig|HandLeft_Pistol
+    7400018: HandRightRig|HandRight_Clap
+    7400020: HandRightRig|HandRight_FingerRoll
+    7400022: HandRightRig|HandRight_Fist
+    7400024: HandRightRig|HandRight_FistBump
+    7400026: HandRightRig|HandRight_HighFive
+    7400028: HandRightRig|HandRight_Ok
+    7400030: HandRightRig|HandRight_Peace
+    7400032: HandRightRig|HandRight_Pistol
+    9500000: //RootNode
+    13700000: RockHandRight
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
