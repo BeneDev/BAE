@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager> {
 
     public System.Action OnGameStarted;
     public System.Action OnResumeToMainMenu;
+    public System.Action<int> OnPlayerDied;
 
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
@@ -267,6 +268,10 @@ public class GameManager : Singleton<GameManager> {
     {
         StartCoroutine(FadeCanvas(endScreen, 1f, 1f));
         StartCoroutine(FadeCanvas(gameplayUI, 0f, 1f));
+        if(OnPlayerDied != null)
+        {
+            OnPlayerDied(WaveSpawner.Instance.NextWave);
+        }
         foreach (MonoBehaviour script in scriptsToEnableToPlay)
         {
             script.enabled = false;
