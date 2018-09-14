@@ -13,6 +13,12 @@ public class MainMenuController : MonoBehaviour {
     {
         highlightedButton.Select();
         aS = GetComponent<AudioSource>();
+        GameManager.Instance.OnResumeToMainMenu += OnResume;
+    }
+
+    void OnResume()
+    {
+        highlightedButton.Select();
     }
 
     public void Play()

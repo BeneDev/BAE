@@ -26,6 +26,7 @@ public class GameManager : Singleton<GameManager> {
     }
 
     public System.Action OnGameStarted;
+    public System.Action OnResumeToMainMenu;
 
     [Header("Canvases"), SerializeField] CanvasGroup mainMenu;
     [SerializeField] CanvasGroup gameplayUI;
@@ -121,6 +122,17 @@ public class GameManager : Singleton<GameManager> {
                 Continue();
             }
         }
+        if(Input.GetButtonDown("Cancel"))
+        {
+            if(pauseMenu.alpha > 0f)
+            {
+                Continue();
+            }
+            else if(optionsMenu.alpha > 0f)
+            {
+                FadeOptionsOut();
+            }
+        }
     }
 
     public void FadeOutSound(AudioSource aS, float duration)
@@ -182,6 +194,10 @@ public class GameManager : Singleton<GameManager> {
         if(optionsOutOfPauseMenu)
         {
             StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+        }
+        else if(OnResumeToMainMenu != null)
+        {
+            OnResumeToMainMenu();
         }
         StartCoroutine(FadeCanvas(optionsMenu, 0f, 1f));
     }
