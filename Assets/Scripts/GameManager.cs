@@ -251,6 +251,10 @@ public class GameManager : Singleton<GameManager> {
             OnResumeToMainMenu();
         }
         StartCoroutine(FadeCanvas(optionsMenu, 0f, 1f));
+        if(mainMenu.gameObject.activeSelf)
+        {
+            mainMenu.gameObject.GetComponent<MainMenuController>().OptionsOpened = false;
+        }
     }
 
     public void PlayGame()
