@@ -15,27 +15,12 @@ public class WaveSpawner : Singleton<WaveSpawner> {
             nextWave = value;
             if (OnWaveChanged != null)
             {
-                OnWaveChanged(nextWave + 1);
+                OnWaveChanged(nextWave);
             }
         }
     }
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
-
-    [System.Serializable]
-    public class Wave
-    {
-        public string name;
-        public EnemyToSpawn[] enemies;
-        public float spawnRate;
-    }
-
-    [System.Serializable] 
-    public struct EnemyToSpawn
-    {
-        public GameObject enemy;
-        public int count;
-    }
 
     public System.Action<int> OnWaveChanged;
     public System.Action OnWaveCleared;
@@ -45,9 +30,14 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     [SerializeField] AudioClip[] musicClips;
 
     Dictionary<string, int> musicDic = new Dictionary<string, int>();
+    
+    private int nextWave = 1;
+    [SerializeField] float nextWaveWeight = 5f;
+    [SerializeField] float weightGainPerWave = 3f;
+    [SerializeField] float weightUntilBigGuys = 10f;
 
-    public Wave[] waves;
-    private int nextWave = 0;
+    [SerializeField] GameObject[] enemies;
+    [SerializeField] GameObject bird;
 
     public Transform[] spawnPoints;
 
@@ -74,7 +64,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     {
         if(OnWaveChanged != null)
         {
-            OnWaveChanged(nextWave + 1);
+            OnWaveChanged(nextWave);
         }
     }
 
@@ -121,7 +111,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
                     soundSource.PlayOneShot(musicClips[musicDic["WaveStart"]]);
                     PlaySound(musicSource, musicClips[musicDic["Wave"]], true);
                 }
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                StartCoroutine(SpawnWave(nextWaveWeight));
             }
         }
         else
@@ -144,16 +134,8 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
 
-        if (nextWave + 1 > waves.Length - 1)
-        {
-            NextWave = 0;
-            Debug.Log("ALL WAVES COMPLETE! Looping...");
-            //can add wave-stat multiplier etc.
-        }
-        else
-        {
-            NextWave++;
-        }
+        NextWave++;
+        nextWaveWeight += weightGainPerWave;
     }
 
     //check if enemies are still alive
@@ -174,18 +156,23 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     }
 
     //spawn a wave
-    IEnumerator SpawnWave(Wave _wave)
+    IEnumerator SpawnWave(float waveWeight)
     {
-        Debug.Log("Spawning Wave: " + _wave.name);
+        Debug.Log("Spawning Wave: " + nextWave);
         state = SpawnState.SPAWNING;
 
-        for(int i = 0; i < _wave.enemies.Length; i++)
+        float currentWeight = 0f;
+
+        while(currentWeight < nextWaveWeight)
         {
-            for (int j = 0; j < _wave.enemies[i].count; j++)
-            {
-                SpawnEnemy(_wave.enemies[i].enemy);
-                yield return new WaitForSeconds(1f / _wave.spawnRate);
-            }
+            if(currentWeight > weightUntilBigGuys) { break; }
+            currentWeight = SpawnEnemy(enemies[0], currentWeight);
+            //TODO vary the amount of seconds waiting between spawns
+            yield return new WaitForSeconds(1f);
+        }
+        while(currentWeight < nextWaveWeight)
+        {
+            currentWeight = SpawnEnemy(enemies[Random.Range(0, 2)], currentWeight);
         }
 
         state = SpawnState.WAITING;
@@ -194,11 +181,12 @@ public class WaveSpawner : Singleton<WaveSpawner> {
     }
 
     //Spawn enemy
-    void SpawnEnemy(GameObject _enemy)
+    float SpawnEnemy(GameObject _enemy, float currentWeight)
     {
         Debug.Log("Spawning Enemy: " + _enemy.name);
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
+        return currentWeight + _enemy.GetComponent<EnemyController>().WaveWeight;
     }
 
 }

@@ -13,6 +13,14 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    public float WaveWeight
+    {
+        get
+        {
+            return waveWeight;
+        }
+    }
+
     GameObject weakSpot;
     WeakSpotController weakSpotCon;
 
@@ -23,6 +31,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float startWalkingDelay = 3f;
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
+    [Range(0.1f, 10f), SerializeField] float waveWeight = 1f;
     int hasEnergy = 0;
     [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
 

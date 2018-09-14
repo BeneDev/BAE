@@ -1783,6 +1783,7 @@ MonoBehaviour:
   startWalkingDelay: 1
   turnAroundDistance: 1.5
   energyStealAmount: 5
+  waveWeight: 1.5
   energyCarryOffset: {x: 0, y: 1.1, z: 0}
   aSource: {fileID: 82519141462105908}
   aClips:
@@ -1790,6 +1791,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e394fce9a5ee6af4ebdd8d3586c82a98, type: 3}
   minPitch: 0.516
   maxPitch: 1.13
+  isGreenBlooded: 0
 --- !u!136 &136139733025190490
 CapsuleCollider:
   m_ObjectHideFlags: 1
