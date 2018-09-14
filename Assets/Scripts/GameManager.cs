@@ -342,10 +342,10 @@ public class GameManager : Singleton<GameManager> {
             }
             yield return new WaitForEndOfFrame();
         }
-        Vector3 startPos = ps.transform.position;
+        Vector3 startScale = ps.transform.localScale;
         for (float t = 0f; t < durationAfterDeath; t += Time.deltaTime)
         {
-            ps.transform.position = startPos + (fadeTo - startPos) * (t / durationAfterDeath);
+            ps.transform.localScale = startScale - (startScale * (t / durationAfterDeath));
             yield return new WaitForEndOfFrame();
         }
         ps.SetActive(false);
