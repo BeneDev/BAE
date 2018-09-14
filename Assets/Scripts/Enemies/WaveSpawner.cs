@@ -49,6 +49,12 @@ public class WaveSpawner : Singleton<WaveSpawner> {
 
     private SpawnState state = SpawnState.COUNTING;
 
+    string[] handAnimTriggerNames = new string[7];
+    [SerializeField] Animator handLeftAnim;
+    [SerializeField] Animator handRightAnim;
+
+    bool canDoAnimation = false;
+
     void Awake()
     {
         if (spawnPoints.Length == 0)
@@ -59,6 +65,13 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         musicDic["WaveStart"] = 1;
         musicDic["WaveFinished"] = 2;
         waveCountdown = timeBetweenWaves;
+        handAnimTriggerNames[0] = "Clap";
+        handAnimTriggerNames[1] = "Ok";
+        handAnimTriggerNames[2] = "Highfive";
+        handAnimTriggerNames[3] = "Pistol";
+        handAnimTriggerNames[4] = "Fingerroll";
+        handAnimTriggerNames[5] = "Fistbump";
+        handAnimTriggerNames[6] = "Peace";
     }
 
     private void OnEnable()
@@ -96,6 +109,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
                 {
                     OnWaveCleared();
                 }
+                StartCoroutine(HandleHandAnimationEnabling());
                 GameManager.Instance.FadeOutSound(musicSource, 1f);
                 soundSource.PlayOneShot(musicClips[musicDic["WaveFinished"]]);
                 return;
@@ -105,7 +119,10 @@ public class WaveSpawner : Singleton<WaveSpawner> {
                 return;
             }
         }
-
+        if(canDoAnimation && Input.GetButtonDown("Submit"))
+        {
+            PlayHandAnimation();
+        }
         if (waveCountdown <= 0)
         {
             
@@ -124,6 +141,24 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         {
             waveCountdown -= Time.deltaTime;
         }
+    }
+
+    IEnumerator HandleHandAnimationEnabling()
+    {
+        canDoAnimation = true;
+        //TODO show player he can do animation
+        yield return new WaitForSeconds(timeBetweenWaves * 0.5f);
+        canDoAnimation = false;
+    }
+
+    void PlayHandAnimation()
+    {
+        string trigger = handAnimTriggerNames[Random.Range(0, 7)];
+        handLeftAnim.enabled = true;
+        handRightAnim.enabled = true;
+        handLeftAnim.SetTrigger(trigger);
+        handRightAnim.SetTrigger(trigger);
+        canDoAnimation = false;
     }
 
     public void IncreaseBirdSpawnChance(int mulitplier)

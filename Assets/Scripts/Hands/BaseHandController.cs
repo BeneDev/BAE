@@ -80,6 +80,8 @@ public class BaseHandController : MonoBehaviour {
 
     [SerializeField] int holdStickDownInputForFrames = 5;
 
+    Animator anim;
+
     protected virtual void Awake()
     {
         rBody = GetComponent<Rigidbody>();
@@ -87,6 +89,7 @@ public class BaseHandController : MonoBehaviour {
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot").GetComponent<WeakSpotController>();
         normalRot = transform.rotation;
         normalPos = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     protected virtual void Update()
@@ -153,6 +156,11 @@ public class BaseHandController : MonoBehaviour {
     void ResetLeftStick()
     {
         isLeftStickDown = false;
+    }
+
+    public void DisableAnimator()
+    {
+        anim.enabled = false;
     }
 
     //protected void RotateForFistBump()
