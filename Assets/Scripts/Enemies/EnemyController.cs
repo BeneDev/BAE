@@ -51,6 +51,9 @@ public class EnemyController : MonoBehaviour {
 
     [SerializeField] bool isGreenBlooded = false;
 
+    float toWeakSpotStartTime;
+    [SerializeField] float timeWalkingToWeakSpotUntilDead = 15f;
+
 	void Awake()
     {
         anim = GetComponent<Animator>();
@@ -58,6 +61,7 @@ public class EnemyController : MonoBehaviour {
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
+        toWeakSpotStartTime = Time.realtimeSinceStartup;
 	}
 	
 	
@@ -106,12 +110,18 @@ public class EnemyController : MonoBehaviour {
         if (toDestination == false && distanceToSpawn < turnAroundDistance)
         {
             toDestination = true;
+            toWeakSpotStartTime = Time.realtimeSinceStartup;
             if(anim)
             {
                 anim.SetTrigger("LoseEnergy");
             }
             weakSpotCon.EnergyLostForever(hasEnergy);
             hasEnergy = 0;
+        }
+
+        if(Time.realtimeSinceStartup > toWeakSpotStartTime + timeWalkingToWeakSpotUntilDead)
+        {
+            Destroy(gameObject);
         }
 
     }

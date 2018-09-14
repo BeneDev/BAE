@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WaveSpawner : Singleton<WaveSpawner> {
 
-    private int NextWave
+    public int NextWave
     {
         get
         {
             return nextWave;
         }
-        set
+        private set
         {
             nextWave = value;
             if (OnWaveChanged != null)
