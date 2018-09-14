@@ -29,7 +29,6 @@ public class MainMenuController : MonoBehaviour {
 
     public void Options()
     {
-        print("hey");
         GameManager.Instance.FadeOptionsIn();
     }
 

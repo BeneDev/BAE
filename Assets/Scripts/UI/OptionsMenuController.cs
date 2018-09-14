@@ -22,4 +22,24 @@ public class OptionsMenuController : MonoBehaviour {
         GameManager.Instance.FadeOptionsOut();
     }
 
+    public void OnPsInputChanged(bool isPSInput)
+    {
+        GameManager.Instance.IsPSInput = isPSInput;
+    }
+
+    public void OnMusicVolumeChanged(float newVolume)
+    {
+        AudioListener.volume = newVolume;
+    }
+
+    public void OnDeadzoneChanged(float Deadzone)
+    {
+        //TODO change the deadzones in input manager
+    }
+
+    public void OnControllerSensitivityChanged(float sensitivity)
+    {
+        //TODO change the sensibility of the control sticks
+    }
+
 }

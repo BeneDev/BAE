@@ -11,6 +11,10 @@ public class GameManager : Singleton<GameManager> {
         {
             return isPSInput;
         }
+        set
+        {
+            isPSInput = value;
+        }
     }
 
     public bool IsPaused
