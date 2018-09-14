@@ -121,7 +121,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         }
         if(canDoAnimation && Input.GetButtonDown("Submit"))
         {
-            PlayHandAnimation();
+            StartCoroutine(PlayHandAnimation());
         }
         if (waveCountdown <= 0)
         {
@@ -151,14 +151,17 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         canDoAnimation = false;
     }
 
-    void PlayHandAnimation()
+    IEnumerator PlayHandAnimation()
     {
+        StartCoroutine(handLeftAnim.gameObject.GetComponent<HandLeftController>().ToInitialPos());
+        StartCoroutine(handRightAnim.gameObject.GetComponent<HandRightController>().ToInitialPos());
+        canDoAnimation = false;
+        yield return new WaitForSeconds(0.25f);
         string trigger = handAnimTriggerNames[Random.Range(0, 7)];
         handLeftAnim.enabled = true;
         handRightAnim.enabled = true;
         handLeftAnim.SetTrigger(trigger);
         handRightAnim.SetTrigger(trigger);
-        canDoAnimation = false;
     }
 
     public void IncreaseBirdSpawnChance(int mulitplier)

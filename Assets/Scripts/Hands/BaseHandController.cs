@@ -193,6 +193,17 @@ public class BaseHandController : MonoBehaviour {
         StartCoroutine(SmashDown());
     }
 
+    public IEnumerator ToInitialPos()
+    {
+        Vector3 startPos = transform.position;
+        for (float t = 0f; t < 0.25f; t += Time.deltaTime)
+        {
+            transform.position = startPos + ((normalPos - startPos) * (t / 0.25f));
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = normalPos;
+    }
+
     IEnumerator SmashDown()
     {
         aSource.PlayOneShot(aClips[0], 0.1f);
