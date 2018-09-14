@@ -508,6 +508,7 @@ MonoBehaviour:
   aClips:
   - {fileID: 8300000, guid: 3c8ad0b5cb763f040a0e501f06b72144, type: 3}
   - {fileID: 8300000, guid: 3f25a75e02d0a69488d490f9c5243c30, type: 3}
+  - {fileID: 8300000, guid: dade5ce36f62c0e4390910bb12655768, type: 3}
 --- !u!114 &114575838918200446
 MonoBehaviour:
   m_ObjectHideFlags: 1

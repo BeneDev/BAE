@@ -64,6 +64,7 @@ public class GameManager : Singleton<GameManager> {
 
     [SerializeField] AudioSource aSource;
     [SerializeField] AudioClip[] aClips;
+    bool playedScrollSound = false;
 
     bool isPaused = false;
 
@@ -144,6 +145,22 @@ public class GameManager : Singleton<GameManager> {
                 FadeOptionsOut();
             }
         }
+        if(!playedScrollSound)
+        {
+            if(!scriptsToEnableToPlay[0].enabled || IsPaused)
+            {
+                if (Input.GetAxis("Vertical") > 0.3f || Input.GetAxis("Vertical") < -0.3f)
+                {
+                    aSource.PlayOneShot(aClips[2]);
+                    playedScrollSound = true;
+                }
+            }
+        }
+        if(playedScrollSound && Input.GetAxis("Vertical") < 0.2f && Input.GetAxis("Vertical") > -0.2f)
+        {
+            playedScrollSound = false;
+        }
+
     }
 
     public void FadeOutSound(AudioSource aS, float duration)
