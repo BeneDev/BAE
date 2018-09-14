@@ -30,7 +30,7 @@ public class PauseMenuController : MonoBehaviour {
 
     public void Options()
     {
-        //TODO open options menu
+        GameManager.Instance.FadeOptionsIn();
     }
 
     public void MainMenu()

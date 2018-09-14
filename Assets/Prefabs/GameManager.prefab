@@ -393,6 +393,7 @@ MonoBehaviour:
   gameplayUI: {fileID: 0}
   endScreen: {fileID: 0}
   pauseMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   scriptsToEnableToPlay:
   - {fileID: 114575838918200446}
   - {fileID: 0}

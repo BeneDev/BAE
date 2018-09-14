@@ -31,6 +31,7 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] CanvasGroup gameplayUI;
     [SerializeField] CanvasGroup endScreen;
     [SerializeField] CanvasGroup pauseMenu;
+    [SerializeField] CanvasGroup optionsMenu;
 
     [SerializeField] MonoBehaviour[] scriptsToEnableToPlay;
 
@@ -53,6 +54,8 @@ public class GameManager : Singleton<GameManager> {
     Animator environmentAnim;
 
     bool isPaused = false;
+
+    bool optionsOutOfPauseMenu = false;
 
 	// Use this for initialization
 	void Awake()
@@ -158,6 +161,29 @@ public class GameManager : Singleton<GameManager> {
         Time.timeScale = 1f;
         StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
         GameManager.Instance.IsPaused = false;
+    }
+
+    public void FadeOptionsIn()
+    {
+        StartCoroutine(FadeCanvas(optionsMenu, 1f, 1f));
+        if(pauseMenu.alpha > 0f)
+        {
+            StartCoroutine(FadeCanvas(pauseMenu, 0f, 1f));
+            optionsOutOfPauseMenu = true;
+        }
+        else
+        {
+            optionsOutOfPauseMenu = false;
+        }
+    }
+
+    public void FadeOptionsOut()
+    {
+        if(optionsOutOfPauseMenu)
+        {
+            StartCoroutine(FadeCanvas(pauseMenu, 1f, 1f));
+        }
+        StartCoroutine(FadeCanvas(optionsMenu, 0f, 1f));
     }
 
     public void PlayGame()

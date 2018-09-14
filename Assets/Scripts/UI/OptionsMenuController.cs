@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionsMenuController : MonoBehaviour {
 
-    //[SerializeField] 
+    [SerializeField] Toggle highlightedElement;
 
     private void OnEnable()
     {
@@ -13,12 +14,12 @@ public class OptionsMenuController : MonoBehaviour {
 
     void SelectFirstElement()
     {
-
+        highlightedElement.Select();
     }
 
     public void Back()
     {
-
+        GameManager.Instance.FadeOptionsOut();
     }
 
 }

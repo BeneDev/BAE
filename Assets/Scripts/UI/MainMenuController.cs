@@ -23,7 +23,8 @@ public class MainMenuController : MonoBehaviour {
 
     public void Options()
     {
-        //TODO open options menu
+        print("hey");
+        GameManager.Instance.FadeOptionsIn();
     }
 
     public void Quit()

@@ -623,6 +623,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1713191734}
   m_Script: {fileID: 11500000, guid: e1a79d50c7f01224293de70798133178, type: 3}
+--- !u!225 &1031169682 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 225944145880841506, guid: 9e28e3f496831fc4db5b7ba7fe5c1bed,
+    type: 2}
+  m_PrefabInternal: {fileID: 190251839}
 --- !u!1001 &1095808986
 Prefab:
   m_ObjectHideFlags: 0
@@ -880,6 +885,11 @@ Prefab:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 185130246}
+    - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
+        type: 2}
+      propertyPath: optionsMenu
+      value: 
+      objectReference: {fileID: 1031169682}
     - target: {fileID: 114137005427850536, guid: 086c73556a5bc2448952f82ce0b9f24d,
         type: 2}
       propertyPath: scriptsToEnableToPlay.Array.data[1]
