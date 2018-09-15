@@ -33,6 +33,14 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public bool IsDead
+    {
+        get
+        {
+            return isDead;
+        }
+    }
+
     public System.Action OnGameStarted;
     public System.Action OnResumeToMainMenu;
     public System.Action<int, int, int> OnPlayerDied;
@@ -79,6 +87,8 @@ public class GameManager : Singleton<GameManager> {
 
     int plebKills = 0;
     int bigGuyKills = 0;
+
+    bool isDead = false;
 
 	// Use this for initialization
 	void Awake()
@@ -295,6 +305,7 @@ public class GameManager : Singleton<GameManager> {
         {
             Continue();
         }
+        isDead = true;
         Invoke("PlayEnvironmentBreakDown", 1f);
     }
 
