@@ -58,6 +58,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] float slowedDownDuration = 1f;
     [Range(0, 1), SerializeField] float slowedDownSpeedMultiplier = 0.5f;
     [SerializeField] float getSlowedDownThreshold = 3.5f;
+    float normalSpeed;
 
     HandLeftController handLeft;
     HandRightController handRight;
@@ -73,6 +74,7 @@ public class EnemyController : MonoBehaviour {
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handRight.OnHandSmashDown += SlowDownFromShockWave;
         handLeft.OnHandSmashDown += SlowDownFromShockWave;
+        normalSpeed = agent.speed;
 	}
 
     private void OnDisable()
@@ -112,6 +114,7 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
+            toWeakSpotCounter = 0f;
             if(hasEnergy <= 0)
             {
                 StealEnergy();
@@ -158,8 +161,8 @@ public class EnemyController : MonoBehaviour {
 
     IEnumerator SlowDown(Vector3 pos)
     {
+        if(!agent) { yield break; }
         Vector3 toImpact = pos - transform.position;
-        float normalSpeed = agent.speed;
         yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
         agent.speed = normalSpeed * slowedDownSpeedMultiplier;
         anim.speed = slowedDownSpeedMultiplier;
@@ -225,7 +228,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
-                weakSpotCon.GainRage(energyStealAmount);
+                weakSpotCon.GainRage(energyStealAmount / 2);
                 if(isGreenBlooded)
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Green");

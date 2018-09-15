@@ -55,6 +55,7 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         energy = maxEnergy;
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handLeft.OnSpecialSmashStarted += ResetRageMeter;
+        InvokeRepeating("RecalculateEnergyOnEnemies", 5f, 1f);
 	}
 
     private void Start()
@@ -82,6 +83,16 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         }
     }
 
+    void RecalculateEnergyOnEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        energyOnEnemies = 0;
+        foreach (var enemy in enemies)
+        {
+            energyOnEnemies += enemy.GetComponent<EnemyController>().HasEnergy;
+        }
+    }
+
     public int LoseEnergy(int energyToSteal)
     {
         int stealAmount;
@@ -95,21 +106,19 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         }
         if(RageMeter < maxRage)
         {
-            RageMeter += stealAmount * 2;
+            RageMeter += stealAmount;
         }
         if(RageMeter > maxRage)
         {
             RageMeter = maxRage;
         }
         energy -= stealAmount;
-        energyOnEnemies += stealAmount;
         WaveSpawner.Instance.IncreaseBirdSpawnChance(2);
         return stealAmount;
     }
 
     public void EnergyLostForever(int energyLost)
     {
-        energyOnEnemies -= energyLost;
         WaveSpawner.Instance.IncreaseBirdSpawnChance(3);
     }
 
@@ -121,7 +130,6 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     public void RegainEnergy(int energyToRegain)
     {
         energy += energyToRegain;
-        energyOnEnemies -= energyToRegain;
     }
     public void GainEnergy(int energyToGain)
     {
