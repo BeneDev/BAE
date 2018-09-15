@@ -5371,6 +5371,7 @@ GameObject:
   - component: {fileID: 4109059698486012}
   - component: {fileID: 95200596743566970}
   - component: {fileID: 65725509372993890}
+  - component: {fileID: 136939871202543766}
   m_Layer: 0
   m_Name: Environmentv2
   m_TagString: Untagged
@@ -38480,6 +38481,19 @@ MonoBehaviour:
   driveBackDuration: 0.2
   resetTime: 2
   maxAmplitude: 0.25
+--- !u!136 &136939871202543766
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644099985787570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2110758
+  m_Height: 5.650696
+  m_Direction: 1
+  m_Center: {x: -0.07390368, y: 2.325348, z: 3.9869385}
 --- !u!137 &137788958623147262
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
