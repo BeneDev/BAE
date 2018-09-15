@@ -30,10 +30,8 @@ public class MainMenuController : MonoBehaviour {
         GameManager.Instance.FadeOutSound(aS, 1f);
     }
 
-    public void Options()
+    public void OpenOptionsInMainMenu()
     {
-        // THIS BUGS OUT AGAIN AND AGAIN
-        // Do i really need to change this file with comments to make the button work?!
         GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsIn();
     }
