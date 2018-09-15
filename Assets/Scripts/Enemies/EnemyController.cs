@@ -57,6 +57,10 @@ public class EnemyController : MonoBehaviour {
     [Tooltip("This should be the same as the one in Ground Tile Controller"), SerializeField] float waitAfterImpactMultiplier = 0.1f;
     [SerializeField] float slowedDownDuration = 1f;
     [Range(0, 1), SerializeField] float slowedDownSpeedMultiplier = 0.5f;
+    [SerializeField] float getSlowedDownThreshold = 3.5f;
+
+    HandLeftController handLeft;
+    HandRightController handRight;
 
 	void Awake()
     {
@@ -65,12 +69,19 @@ public class EnemyController : MonoBehaviour {
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
-        GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>().OnHandSmashDown += SlowDownFromShockWave;
-        GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>().OnHandSmashDown += SlowDownFromShockWave;
+        handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>();
+        handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
+        handRight.OnHandSmashDown += SlowDownFromShockWave;
+        handLeft.OnHandSmashDown += SlowDownFromShockWave;
 	}
-	
-	
-	void Update ()
+
+    private void OnDisable()
+    {
+        handRight.OnHandSmashDown -= SlowDownFromShockWave;
+        handLeft.OnHandSmashDown -= SlowDownFromShockWave;
+    }
+
+    void Update ()
     {
         if (GameManager.Instance.IsPaused)
         {
@@ -139,7 +150,10 @@ public class EnemyController : MonoBehaviour {
 
     void SlowDownFromShockWave(Vector3 impactPos)
     {
-        StartCoroutine(SlowDown(impactPos));
+        if((impactPos - transform.position).magnitude < getSlowedDownThreshold)
+        {
+            StartCoroutine(SlowDown(impactPos));
+        }
     }
 
     IEnumerator SlowDown(Vector3 pos)
