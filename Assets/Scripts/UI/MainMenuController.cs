@@ -32,6 +32,7 @@ public class MainMenuController : MonoBehaviour {
 
     public void Options()
     {
+        // THIS BUGS OUT AGAIN AND AGAIN
         GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsIn();
     }
