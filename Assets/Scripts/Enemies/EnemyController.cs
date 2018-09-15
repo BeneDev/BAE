@@ -148,8 +148,10 @@ public class EnemyController : MonoBehaviour {
         float normalSpeed = agent.speed;
         yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
         agent.speed = normalSpeed * slowedDownSpeedMultiplier;
+        anim.speed = slowedDownSpeedMultiplier;
         yield return new WaitForSeconds(slowedDownDuration);
         agent.speed = normalSpeed;
+        anim.speed = 1f;
     }
 
     private void StealEnergy()
