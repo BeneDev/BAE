@@ -1881,10 +1881,6 @@ MonoBehaviour:
   maxPitch: 1.62
   isGreenBlooded: 1
   timeWalkingToWeakSpotUntilDead: 15
-  waitAfterImpactMultiplier: 0.1
-  slowedDownDuration: 2
-  slowedDownSpeedMultiplier: 0.5
-  getSlowedDownThreshold: 3.5
 --- !u!136 &136111381559951294
 CapsuleCollider:
   m_ObjectHideFlags: 1

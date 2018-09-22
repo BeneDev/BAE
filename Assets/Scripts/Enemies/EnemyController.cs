@@ -54,15 +54,6 @@ public class EnemyController : MonoBehaviour {
     float toWeakSpotCounter = 0f;
     [SerializeField] float timeWalkingToWeakSpotUntilDead = 15f;
 
-    [Tooltip("This should be the same as the one in Ground Tile Controller"), SerializeField] float waitAfterImpactMultiplier = 0.1f;
-    [SerializeField] float slowedDownDuration = 1f;
-    [Range(0, 1), SerializeField] float slowedDownSpeedMultiplier = 0.5f;
-    [SerializeField] float getSlowedDownThreshold = 3.5f;
-    float normalSpeed;
-
-    HandLeftController handLeft;
-    HandRightController handRight;
-
 	void Awake()
     {
         anim = GetComponent<Animator>();
@@ -70,20 +61,10 @@ public class EnemyController : MonoBehaviour {
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
-        handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>();
-        handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
-        handRight.OnHandSmashDown += SlowDownFromShockWave;
-        handLeft.OnHandSmashDown += SlowDownFromShockWave;
-        normalSpeed = agent.speed;
 	}
-
-    private void OnDisable()
-    {
-        handRight.OnHandSmashDown -= SlowDownFromShockWave;
-        handLeft.OnHandSmashDown -= SlowDownFromShockWave;
-    }
-
-    void Update ()
+	
+	
+	void Update ()
     {
         if (GameManager.Instance.IsPaused)
         {
@@ -114,7 +95,6 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
-            toWeakSpotCounter = 0f;
             if(hasEnergy <= 0)
             {
                 StealEnergy();
@@ -149,26 +129,6 @@ public class EnemyController : MonoBehaviour {
     public void PlayFootStep()
     {
         aSource.PlayOneShot(aClips[0]);
-    }
-
-    void SlowDownFromShockWave(Vector3 impactPos)
-    {
-        if((impactPos - transform.position).magnitude < getSlowedDownThreshold)
-        {
-            StartCoroutine(SlowDown(impactPos));
-        }
-    }
-
-    IEnumerator SlowDown(Vector3 pos)
-    {
-        if(!agent) { yield break; }
-        Vector3 toImpact = pos - transform.position;
-        yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
-        agent.speed = normalSpeed * slowedDownSpeedMultiplier;
-        anim.speed = slowedDownSpeedMultiplier;
-        yield return new WaitForSeconds(slowedDownDuration);
-        agent.speed = normalSpeed;
-        anim.speed = 1f;
     }
 
     private void StealEnergy()
@@ -228,7 +188,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
-                weakSpotCon.GainRage(energyStealAmount / 2);
+                weakSpotCon.GainRage(energyStealAmount);
                 if(isGreenBlooded)
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Green");

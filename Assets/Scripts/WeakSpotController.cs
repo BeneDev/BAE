@@ -49,13 +49,14 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     HandLeftController handLeft;
 
+    bool isDead = false;
+
 	// Use this for initialization
 	void Awake()
     {
         energy = maxEnergy;
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handLeft.OnSpecialSmashStarted += ResetRageMeter;
-        InvokeRepeating("RecalculateEnergyOnEnemies", 5f, 1f);
 	}
 
     private void Start()
@@ -68,9 +69,10 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     private void Update()
     {
-        if (energy <= 0 && energyOnEnemies <= 0 && !GameManager.Instance.IsDead)
+        if (energy <= 0 && energyOnEnemies <= 0 && !isDead)
         {
             GameManager.Instance.Dead();
+            isDead = true;
         }
         if(energyEffect)
         {
@@ -80,16 +82,6 @@ public class WeakSpotController : Singleton<WeakSpotController> {
             {
                 energyEffect.transform.GetChild(i).transform.localScale = scale;
             }
-        }
-    }
-
-    void RecalculateEnergyOnEnemies()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        energyOnEnemies = 0;
-        foreach (var enemy in enemies)
-        {
-            energyOnEnemies += enemy.GetComponent<EnemyController>().HasEnergy;
         }
     }
 
@@ -106,19 +98,21 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         }
         if(RageMeter < maxRage)
         {
-            RageMeter += stealAmount;
+            RageMeter += stealAmount * 2;
         }
         if(RageMeter > maxRage)
         {
             RageMeter = maxRage;
         }
         energy -= stealAmount;
+        energyOnEnemies += stealAmount;
         WaveSpawner.Instance.IncreaseBirdSpawnChance(2);
         return stealAmount;
     }
 
     public void EnergyLostForever(int energyLost)
     {
+        energyOnEnemies -= energyLost;
         WaveSpawner.Instance.IncreaseBirdSpawnChance(3);
     }
 
@@ -130,6 +124,7 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     public void RegainEnergy(int energyToRegain)
     {
         energy += energyToRegain;
+        energyOnEnemies -= energyToRegain;
     }
     public void GainEnergy(int energyToGain)
     {
