@@ -58,7 +58,6 @@ public class OptionsMenuController : MonoBehaviour {
     // Make the game run in windowed mode or not, depending on the value
     public void OnWindowedToggleChanged(bool value)
     {
-        // TODO bug with the game not going into windowed mode again after being in fullscreen mode once
         Screen.fullScreen = !value;
     }
 

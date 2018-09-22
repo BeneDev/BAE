@@ -21,6 +21,18 @@ public class BaseHandController : MonoBehaviour {
         }
     }
 
+    public float ResetTime
+    {
+        get
+        {
+            return resetTime;
+        }
+        set
+        {
+            resetTime = value;
+        }
+    }
+
     public event System.Action<Vector3> OnHandSmashDown;
     public event System.Action OnSpecialSmashEnd;
     public event System.Action OnSpecialSmashStarted;
