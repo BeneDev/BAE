@@ -7,9 +7,23 @@ using UnityEngine.Events;
 
 public class MainMenuController : MonoBehaviour {
 
+    public bool OptionsOpened
+    {
+        get
+        {
+            return optionsOpened;
+        }
+        set
+        {
+            optionsOpened = value;
+        }
+    }
+
     [SerializeField] Button highlightedButton;
 
     AudioSource aS;
+
+    bool optionsOpened = false;
 
     private void Start()
     {
@@ -28,12 +42,17 @@ public class MainMenuController : MonoBehaviour {
         GameManager.Instance.PlayButtonClick();
         GameManager.Instance.PlayGame();
         GameManager.Instance.FadeOutSound(aS, 1f);
+        if(optionsOpened)
+        {
+            GameManager.Instance.FadeOptionsOut();
+        }
     }
 
-    public void Options()
+    public void OpenOptions()
     {
         GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsIn();
+        optionsOpened = true;
     }
 
     public void Quit()

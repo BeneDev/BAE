@@ -49,6 +49,8 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     HandLeftController handLeft;
 
+    bool isDead = false;
+
 	// Use this for initialization
 	void Awake()
     {
@@ -67,9 +69,10 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     private void Update()
     {
-        if (energy <= 0 && energyOnEnemies <= 0 && !GameManager.Instance.IsDead)
+        if (energy <= 0 && energyOnEnemies <= 0 && !isDead)
         {
             GameManager.Instance.Dead();
+            isDead = true;
         }
         if(energyEffect)
         {

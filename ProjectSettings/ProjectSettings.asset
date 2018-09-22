@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Riki & Bene
   productName: Tiaki
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -44,7 +44,7 @@ PlayerSettings:
     duration: 2
   - logo: {fileID: 21300000, guid: 93a598823cca53d4195914dd89d3f196, type: 3}
     duration: 3
-  - logo: {fileID: 21300000, guid: 272a0505c6a8cbe48924044f00ee30d3, type: 3}
+  - logo: {fileID: 21300000, guid: 4e06ce4466c67ad4baa02f80621f0751, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}

@@ -33,14 +33,6 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
-    public bool IsDead
-    {
-        get
-        {
-            return isDead;
-        }
-    }
-
     public System.Action OnGameStarted;
     public System.Action OnResumeToMainMenu;
     public System.Action<int, int, int> OnPlayerDied;
@@ -87,8 +79,6 @@ public class GameManager : Singleton<GameManager> {
 
     int plebKills = 0;
     int bigGuyKills = 0;
-
-    bool isDead = false;
 
 	// Use this for initialization
 	void Awake()
@@ -261,6 +251,10 @@ public class GameManager : Singleton<GameManager> {
             OnResumeToMainMenu();
         }
         StartCoroutine(FadeCanvas(optionsMenu, 0f, 1f));
+        if(mainMenu.gameObject.activeSelf)
+        {
+            mainMenu.gameObject.GetComponent<MainMenuController>().OptionsOpened = false;
+        }
     }
 
     public void PlayGame()
@@ -305,7 +299,6 @@ public class GameManager : Singleton<GameManager> {
         {
             Continue();
         }
-        isDead = true;
         Invoke("PlayEnvironmentBreakDown", 1f);
     }
 

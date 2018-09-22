@@ -54,10 +54,6 @@ public class EnemyController : MonoBehaviour {
     float toWeakSpotCounter = 0f;
     [SerializeField] float timeWalkingToWeakSpotUntilDead = 15f;
 
-    [Tooltip("This should be the same as the one in Ground Tile Controller"), SerializeField] float waitAfterImpactMultiplier = 0.1f;
-    [SerializeField] float slowedDownDuration = 1f;
-    [Range(0, 1), SerializeField] float slowedDownSpeedMultiplier = 0.5f;
-
 	void Awake()
     {
         anim = GetComponent<Animator>();
@@ -65,8 +61,6 @@ public class EnemyController : MonoBehaviour {
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
-        GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>().OnHandSmashDown += SlowDownFromShockWave;
-        GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>().OnHandSmashDown += SlowDownFromShockWave;
 	}
 	
 	
@@ -135,23 +129,6 @@ public class EnemyController : MonoBehaviour {
     public void PlayFootStep()
     {
         aSource.PlayOneShot(aClips[0]);
-    }
-
-    void SlowDownFromShockWave(Vector3 impactPos)
-    {
-        StartCoroutine(SlowDown(impactPos));
-    }
-
-    IEnumerator SlowDown(Vector3 pos)
-    {
-        Vector3 toImpact = pos - transform.position;
-        float normalSpeed = agent.speed;
-        yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
-        agent.speed = normalSpeed * slowedDownSpeedMultiplier;
-        anim.speed = slowedDownSpeedMultiplier;
-        yield return new WaitForSeconds(slowedDownDuration);
-        agent.speed = normalSpeed;
-        anim.speed = 1f;
     }
 
     private void StealEnergy()
