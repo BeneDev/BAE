@@ -48,7 +48,11 @@ public class MainMenuController : MonoBehaviour {
         }
     }
 
+<<<<<<< HEAD
     public void OpenOptions()
+=======
+    public void OpenOptionsInMainMenu()
+>>>>>>> 005364f279be6783b7f2c53713f320c1f3db45e5
     {
         GameManager.Instance.PlayButtonClick();
         GameManager.Instance.FadeOptionsIn();
