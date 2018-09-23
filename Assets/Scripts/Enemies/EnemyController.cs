@@ -28,6 +28,10 @@ public class EnemyController : MonoBehaviour {
 
     Vector3 spawnPosition;
 
+    [SerializeField] BasePowerup[] powerUpsToSpawn;
+    [SerializeField] float spawnRange = 2.5f;
+    [Range(0, 1), SerializeField] float dropChance = 0.3f;
+
     [SerializeField] float startWalkingDelay = 3f;
     [SerializeField] float turnAroundDistance = 1f;
     [SerializeField] int energyStealAmount = 3;
@@ -126,6 +130,14 @@ public class EnemyController : MonoBehaviour {
 
     }
 
+    void SpawnPowerUp(Vector3 offset)
+    {
+        if(powerUpsToSpawn.Length > 0)
+        {
+            Instantiate(powerUpsToSpawn[Random.Range(0, powerUpsToSpawn.Length)], (transform.position + (Vector3)(Random.insideUnitCircle * spawnRange)) + offset, Quaternion.identity);
+        }
+    }
+
     public void PlayFootStep()
     {
         aSource.PlayOneShot(aClips[0]);
@@ -196,6 +208,10 @@ public class EnemyController : MonoBehaviour {
                 else
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Red");
+                }
+                if(Random.value < dropChance)
+                {
+                    SpawnPowerUp(Vector3.up * 0.6f);
                 }
                 GameManager.Instance.IncreaseKills(isGreenBlooded);
                 Destroy(agent);

@@ -33,6 +33,19 @@ public class BaseHandController : MonoBehaviour {
         }
     }
 
+    public GameObject CurrentPowerup
+    {
+        get
+        {
+            return currentPowerup;
+        }
+        set
+        {
+            Destroy(currentPowerup);
+            currentPowerup = value;
+        }
+    }
+
     public event System.Action<Vector3> OnHandSmashDown;
     public event System.Action OnSpecialSmashEnd;
     public event System.Action OnSpecialSmashStarted;
@@ -94,6 +107,8 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] int holdStickDownInputForFrames = 5;
 
     protected Animator anim;
+
+    GameObject currentPowerup;
 
     protected virtual void Awake()
     {

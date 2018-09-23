@@ -1780,6 +1780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baf2d6ad00ed514fa2cfc470d711e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpsToSpawn:
+  - {fileID: 114407863450130626, guid: 53cdfa176614db24a9e4d17a929bf3ef, type: 2}
+  spawnRange: 1
+  dropChance: 0.25
   startWalkingDelay: 1
   turnAroundDistance: 1.5
   energyStealAmount: 5
@@ -1792,6 +1796,7 @@ MonoBehaviour:
   minPitch: 0.516
   maxPitch: 1.13
   isGreenBlooded: 0
+  timeWalkingToWeakSpotUntilDead: 15
 --- !u!136 &136139733025190490
 CapsuleCollider:
   m_ObjectHideFlags: 1
