@@ -21,44 +21,44 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    GameObject weakSpot;
-    WeakSpotController weakSpotCon;
+    protected GameObject weakSpot;
+    protected WeakSpotController weakSpotCon;
 
-    NavMeshAgent agent;
+    protected NavMeshAgent agent;
 
-    Vector3 spawnPosition;
+    protected Vector3 spawnPosition;
 
-    [SerializeField] BasePowerup[] powerUpsToSpawn;
-    [SerializeField] float spawnRange = 2.5f;
-    [Range(0, 1), SerializeField] float dropChance = 0.3f;
+    [SerializeField] protected BasePowerup[] powerUpsToSpawn;
+    [SerializeField] protected float spawnRange = 2.5f;
+    [Range(0, 1), SerializeField] protected float dropChance = 0.3f;
 
-    [SerializeField] float startWalkingDelay = 3f;
-    [SerializeField] float turnAroundDistance = 1f;
-    [SerializeField] int energyStealAmount = 3;
-    [Range(0.1f, 10f), SerializeField] float waveWeight = 1f;
-    int hasEnergy = 0;
-    [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
+    [SerializeField] protected float startWalkingDelay = 3f;
+    [SerializeField] protected float turnAroundDistance = 1f;
+    [SerializeField] protected int energyStealAmount = 3;
+    [Range(0.1f, 10f), SerializeField] protected float waveWeight = 1f;
+    protected int hasEnergy = 0;
+    [SerializeField] protected Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
 
-    [SerializeField] AudioSource aSource;
-    [SerializeField] AudioClip[] aClips;
-    [Range(0.5f, 2f), SerializeField] float minPitch;
-    [Range(1f, 3f), SerializeField] float maxPitch;
+    [SerializeField] protected AudioSource aSource;
+    [SerializeField] protected AudioClip[] aClips;
+    [Range(0.5f, 2f), SerializeField] protected float minPitch;
+    [Range(1f, 3f), SerializeField] protected float maxPitch;
 
-    private float distanceToDestination;
-    private float distanceToSpawn;
+    protected float distanceToDestination;
+    protected float distanceToSpawn;
 
-    private bool toDestination = true;
+    protected bool toDestination = true;
 
-    private Animator anim;
+    protected Animator anim;
 
-    private bool isWaiting = false;
+    protected bool isWaiting = false;
 
-    [SerializeField] bool isGreenBlooded = false;
+    [SerializeField] protected bool isGreenBlooded = false;
 
-    float toWeakSpotCounter = 0f;
-    [SerializeField] float timeWalkingToWeakSpotUntilDead = 15f;
+    protected float toWeakSpotCounter = 0f;
+    [SerializeField] protected float timeWalkingToWeakSpotUntilDead = 15f;
 
-	void Awake()
+	protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -68,7 +68,7 @@ public class EnemyController : MonoBehaviour {
 	}
 	
 	
-	void Update ()
+	protected virtual void Update ()
     {
         if (GameManager.Instance.IsPaused)
         {
@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour {
 
     }
 
-    void SpawnPowerUp(Vector3 offset)
+    protected void SpawnPowerUp(Vector3 offset)
     {
         if(powerUpsToSpawn.Length > 0)
         {
@@ -143,7 +143,7 @@ public class EnemyController : MonoBehaviour {
         aSource.PlayOneShot(aClips[0]);
     }
 
-    private void StealEnergy()
+    protected void StealEnergy()
     {
         hasEnergy = weakSpotCon.LoseEnergy(energyStealAmount);
         if (anim && hasEnergy > 0)
@@ -159,12 +159,12 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void TakeEnergy()
+    protected void TakeEnergy()
     {
         GameManager.Instance.GetLittleEnergy(gameObject, energyCarryOffset);
     }
 
-    void ToWeakSpot()
+    protected void ToWeakSpot()
     {
         if(agent)
         {
@@ -172,7 +172,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void ToSpawn()
+    protected void ToSpawn()
     {
         if(agent)
         {
@@ -180,7 +180,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    IEnumerator PlayAtRandomPitch(AudioClip clip)
+    protected IEnumerator PlayAtRandomPitch(AudioClip clip)
     {
         aSource.pitch = Random.Range(minPitch, maxPitch);
         aSource.PlayOneShot(clip);
@@ -189,7 +189,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     //check if Enemy is hit by Hand
-    void OnCollisionEnter(Collision col)
+    protected virtual void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.GetComponent<BaseHandController>())
         {
