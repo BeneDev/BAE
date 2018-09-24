@@ -57,20 +57,38 @@ public class EnemyController : MonoBehaviour {
 
     protected float toWeakSpotCounter = 0f;
     [SerializeField] protected float timeWalkingToWeakSpotUntilDead = 15f;
+
+    [Tooltip("This should be the same as the one in Ground Tile Controller"), SerializeField] protected float waitAfterImpactMultiplier = 0.1f;
+    [SerializeField] protected float slowedDownDuration = 1f;
+    [Range(0, 1), SerializeField] protected float slowedDownSpeedMultiplier = 0.5f;
+    [SerializeField] protected float getSlowedDownThreshold = 3.5f;
     protected float normalSpeed;
 
-	protected virtual void Awake()
+    protected HandLeftController handLeft;
+    protected HandRightController handRight;
+
+
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
+        handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>();
+        handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
+        handRight.OnHandSmashDown += SlowDownFromShockWave;
+        handLeft.OnHandSmashDown += SlowDownFromShockWave;
         normalSpeed = agent.speed;
-	}
-	
-	
-	protected virtual void Update ()
+    }
+
+    private void OnDisable()
+    {
+        handRight.OnHandSmashDown -= SlowDownFromShockWave;
+        handLeft.OnHandSmashDown -= SlowDownFromShockWave;
+    }
+
+    protected virtual void Update ()
     {
         if (GameManager.Instance.IsPaused)
         {
@@ -101,6 +119,7 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
+            toWeakSpotCounter = 0f;
             if(hasEnergy <= 0)
             {
                 StealEnergy();
@@ -130,6 +149,27 @@ public class EnemyController : MonoBehaviour {
             Destroy(gameObject);
         }
 
+    }
+
+    protected void SlowDownFromShockWave(Vector3 impactPos)
+    {
+        if ((impactPos - transform.position).magnitude < getSlowedDownThreshold)
+        {
+            StartCoroutine(SlowDown(impactPos));
+        }
+    }
+
+    protected IEnumerator SlowDown(Vector3 pos)
+    {
+        if (!agent) { yield break; }
+        anim.SetTrigger("Shock");
+        Vector3 toImpact = pos - transform.position;
+        yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
+        agent.speed = normalSpeed * slowedDownSpeedMultiplier;
+        anim.speed = slowedDownSpeedMultiplier;
+        yield return new WaitForSeconds(slowedDownDuration);
+        agent.speed = normalSpeed;
+        anim.speed = 1f;
     }
 
     protected void SpawnPowerUp(Vector3 offset)
@@ -202,7 +242,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
-                weakSpotCon.GainRage(energyStealAmount);
+                weakSpotCon.GainRage(energyStealAmount / 2);
                 if(isGreenBlooded)
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Green");

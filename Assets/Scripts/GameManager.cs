@@ -17,6 +17,14 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public bool IsDead
+    {
+        get
+        {
+            return isDead;
+        }
+    }
+
     public bool IsPaused
     {
         get
@@ -74,6 +82,7 @@ public class GameManager : Singleton<GameManager> {
     bool playedScrollSound = false;
 
     bool isPaused = false;
+    bool isDead = false;
 
     bool optionsOutOfPauseMenu = false;
 
@@ -299,6 +308,7 @@ public class GameManager : Singleton<GameManager> {
         {
             Continue();
         }
+        isDead = true;
         Invoke("PlayEnvironmentBreakDown", 1f);
     }
 
