@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f99fb17245c229249b1c740c8fc4ebe8
+guid: 9e1ac36a74e77ad4087ac3b46927cc05
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -22,36 +22,41 @@ ModelImporter:
     100032: pelvis.R
     100034: pelvis.R_end
     100036: Pistol
-    100038: Pistol_end
-    100040: Rifle
-    100042: Rifle_end
-    100044: Root
-    100046: shin.L
-    100048: shin.R
-    100050: shoulder.L
-    100052: shoulder.R
-    100054: //RootNode
-    100056: spine
-    100058: spine.001
-    100060: spine.002
-    100062: spine.003
-    100064: spine.005
-    100066: spine.006
-    100068: spine.006_end
-    100070: thigh.L
-    100072: thigh.R
-    100074: Thumb1.L
-    100076: Thumb1.L.001
-    100078: Thumb1.L.001_end
-    100080: Thumb1.R
-    100082: Thumb1.R.001
-    100084: Thumb1.R.001_end
-    100086: toe.L
-    100088: toe.L_end
-    100090: toe.R
-    100092: toe.R_end
-    100094: upper_arm.L
-    100096: upper_arm.R
+    100038: Pistol 1
+    100040: Pistol_end
+    100042: Rifle
+    100044: Rifle 1
+    100046: Rifle_end
+    100048: Rig_Soldier
+    100050: Root
+    100052: shin.L
+    100054: shin.R
+    100056: shoulder.L
+    100058: shoulder.R
+    100060: Soldier
+    100062: Soldier_Helmet
+    100064: //RootNode
+    100066: spine
+    100068: spine.001
+    100070: spine.002
+    100072: spine.003
+    100074: spine.005
+    100076: spine.006
+    100078: spine.006_end
+    100080: thigh.L
+    100082: thigh.R
+    100084: Thumb1.L
+    100086: Thumb1.L.001
+    100088: Thumb1.L.001_end
+    100090: Thumb1.R
+    100092: Thumb1.R.001
+    100094: Thumb1.R.001_end
+    100096: toe.L
+    100098: toe.L_end
+    100100: toe.R
+    100102: toe.R_end
+    100104: upper_arm.L
+    100106: upper_arm.R
     400000: foot.L
     400002: foot.R
     400004: forearm.L
@@ -71,38 +76,54 @@ ModelImporter:
     400032: pelvis.R
     400034: pelvis.R_end
     400036: Pistol
-    400038: Pistol_end
-    400040: Rifle
-    400042: Rifle_end
-    400044: Root
-    400046: shin.L
-    400048: shin.R
-    400050: shoulder.L
-    400052: shoulder.R
-    400054: //RootNode
-    400056: spine
-    400058: spine.001
-    400060: spine.002
-    400062: spine.003
-    400064: spine.005
-    400066: spine.006
-    400068: spine.006_end
-    400070: thigh.L
-    400072: thigh.R
-    400074: Thumb1.L
-    400076: Thumb1.L.001
-    400078: Thumb1.L.001_end
-    400080: Thumb1.R
-    400082: Thumb1.R.001
-    400084: Thumb1.R.001_end
-    400086: toe.L
-    400088: toe.L_end
-    400090: toe.R
-    400092: toe.R_end
-    400094: upper_arm.L
-    400096: upper_arm.R
+    400038: Pistol 1
+    400040: Pistol_end
+    400042: Rifle
+    400044: Rifle 1
+    400046: Rifle_end
+    400048: Rig_Soldier
+    400050: Root
+    400052: shin.L
+    400054: shin.R
+    400056: shoulder.L
+    400058: shoulder.R
+    400060: Soldier
+    400062: Soldier_Helmet
+    400064: //RootNode
+    400066: spine
+    400068: spine.001
+    400070: spine.002
+    400072: spine.003
+    400074: spine.005
+    400076: spine.006
+    400078: spine.006_end
+    400080: thigh.L
+    400082: thigh.R
+    400084: Thumb1.L
+    400086: Thumb1.L.001
+    400088: Thumb1.L.001_end
+    400090: Thumb1.R
+    400092: Thumb1.R.001
+    400094: Thumb1.R.001_end
+    400096: toe.L
+    400098: toe.L_end
+    400100: toe.R
+    400102: toe.R_end
+    400104: upper_arm.L
+    400106: upper_arm.R
+    2100000: Soldier
+    2300000: Pistol 1
+    2300002: Rifle 1
+    3300000: Pistol 1
+    3300002: Rifle 1
+    4300000: Rifle
+    4300002: Pistol
+    4300004: Soldier_Helmet
+    4300006: Soldier
     7400000: Rig_Soldier|Soldier_Carry
     9500000: //RootNode
+    13700000: Soldier
+    13700002: Soldier_Helmet
   externalObjects: {}
   materials:
     importMaterials: 1
