@@ -19,7 +19,7 @@ public class Knight : EnemyController {
         {
             base.Update();
         }
-        if(isInvincible)
+        if(isInvincible && agent)
         {
             agent.speed = normalSpeed * shieldUpSpeedMultiplier;
         }

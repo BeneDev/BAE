@@ -165,6 +165,7 @@ public class EnemyController : MonoBehaviour {
         anim.SetTrigger("Shock");
         Vector3 toImpact = pos - transform.position;
         yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
+        if(!agent) { yield break; }
         agent.speed = normalSpeed * slowedDownSpeedMultiplier;
         anim.speed = slowedDownSpeedMultiplier;
         yield return new WaitForSeconds(slowedDownDuration);
@@ -259,6 +260,7 @@ public class EnemyController : MonoBehaviour {
                 Destroy(agent);
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
+                Destroy(GetComponentInChildren<MeshRenderer>());
                 Destroy(GetComponent<CapsuleCollider>());
             }
         }
