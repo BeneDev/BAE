@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knight : MonoBehaviour {
+public class Knight : EnemyController {
 
 	// Use this for initialization
 	void Start () {
