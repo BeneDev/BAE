@@ -925,7 +925,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498736056975584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67879003, y: -0.018156648, z: 1.6038227}
+  m_LocalPosition: {x: -0.5188507, y: -0.017935276, z: 2.2379088}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4768072207619214}
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   slowedDownDuration: 1
   slowedDownSpeedMultiplier: 0.5
   getSlowedDownThreshold: 3.5
-  shieldUpSpeedMultiplier: 0.5
+  shieldUpSpeedMultiplier: 0.3
   shieldUpDuration: 2
   shieldUpCooldown: 5
 --- !u!136 &136862931470169486

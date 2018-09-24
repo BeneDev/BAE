@@ -15,7 +15,10 @@ public class Knight : EnemyController {
 
     protected override void Update()
     {
-        base.Update();
+        if(!isInvincible)
+        {
+            base.Update();
+        }
         if(isInvincible)
         {
             agent.speed = normalSpeed * shieldUpSpeedMultiplier;
@@ -26,22 +29,25 @@ public class Knight : EnemyController {
     {
         if ((impactPos - transform.position).magnitude < getSlowedDownThreshold && Time.realtimeSinceStartup > lastTimeShieldUp + shieldUpCooldown && !isInvincible)
         {
-            StartCoroutine(HoldShieldUp());
+            isInvincible = true;
+            StartCoroutine(HoldShieldUp(impactPos));
         }
     }
 
-    protected IEnumerator HoldShieldUp()
+    protected IEnumerator HoldShieldUp(Vector3 impactPos)
     {
         if (!agent) { yield break; }
-
+        Vector3 originalDestination = agent.destination;
+        Vector3 toImpact = impactPos - transform.position;
+        agent.SetDestination(transform.position - toImpact * 2f);
         anim.SetTrigger("Shock");
-        isInvincible = true;
         agent.speed = normalSpeed * shieldUpSpeedMultiplier;
         yield return new WaitForSeconds(shieldUpDuration);
         agent.speed = normalSpeed;
         anim.SetTrigger("ShieldDown");
-        isInvincible = false;
         lastTimeShieldUp = Time.realtimeSinceStartup;
+        isInvincible = false;
+        agent.SetDestination(originalDestination);
     }
 
     protected override void OnCollisionEnter(Collision col)
