@@ -9,6 +9,8 @@ public class Knight : EnemyController {
 
     bool isInvincible = false;
     [SerializeField] float shieldUpSpeedMultiplier = 0.5f;
+    [SerializeField] float shieldUpDuration = 2f;
+    [SerializeField] float shieldUpCooldown = 5f;
 
 	// Use this for initialization
 	void Start () {
