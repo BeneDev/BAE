@@ -72,14 +72,18 @@ public class Soldier : EnemyController {
 
     }
 
-    protected void DoDodgeRoll()
+    protected override void ReactToHandSmashNearby(Vector3 impactPos)
     {
-        StartCoroutine(DodgeRoll(dodgeDuration, dodgeSpeedMultiplier));
+        if ((impactPos - transform.position).magnitude < getSlowedDownThreshold)
+        {
+            StartCoroutine(DodgeRoll(dodgeDuration, dodgeSpeedMultiplier));
+        }
     }
 
     protected IEnumerator DodgeRoll(float rollDuration, float rollSpeedMultiplier)
     {
-        float normalSpeed = agent.speed;
+        if (!agent) { yield break; }
+        anim.SetTrigger("Shock");
         agent.speed = normalSpeed * rollSpeedMultiplier;
         yield return new WaitForSeconds(rollDuration);
         agent.speed = normalSpeed;

@@ -77,15 +77,15 @@ public class EnemyController : MonoBehaviour {
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
         handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>();
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
-        handRight.OnHandSmashDown += SlowDownFromShockWave;
-        handLeft.OnHandSmashDown += SlowDownFromShockWave;
+        handRight.OnHandSmashDown += ReactToHandSmashNearby;
+        handLeft.OnHandSmashDown += ReactToHandSmashNearby;
         normalSpeed = agent.speed;
     }
 
     private void OnDisable()
     {
-        handRight.OnHandSmashDown -= SlowDownFromShockWave;
-        handLeft.OnHandSmashDown -= SlowDownFromShockWave;
+        handRight.OnHandSmashDown -= ReactToHandSmashNearby;
+        handLeft.OnHandSmashDown -= ReactToHandSmashNearby;
     }
 
     protected virtual void Update ()
@@ -151,15 +151,15 @@ public class EnemyController : MonoBehaviour {
 
     }
 
-    protected void SlowDownFromShockWave(Vector3 impactPos)
+    protected virtual void ReactToHandSmashNearby(Vector3 impactPos)
     {
         if ((impactPos - transform.position).magnitude < getSlowedDownThreshold)
         {
-            StartCoroutine(SlowDown(impactPos));
+            StartCoroutine(React(impactPos));
         }
     }
 
-    protected IEnumerator SlowDown(Vector3 pos)
+    protected IEnumerator React(Vector3 pos)
     {
         if (!agent) { yield break; }
         anim.SetTrigger("Shock");

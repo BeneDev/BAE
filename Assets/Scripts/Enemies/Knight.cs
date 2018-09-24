@@ -11,11 +11,7 @@ public class Knight : EnemyController {
     [SerializeField] float shieldUpSpeedMultiplier = 0.5f;
     [SerializeField] float shieldUpDuration = 2f;
     [SerializeField] float shieldUpCooldown = 5f;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    float lastTimeShieldUp = 0f;
 
     protected override void Update()
     {
@@ -24,6 +20,27 @@ public class Knight : EnemyController {
         {
             agent.speed = normalSpeed * shieldUpSpeedMultiplier;
         }
+    }
+
+    protected override void ReactToHandSmashNearby(Vector3 impactPos)
+    {
+        if ((impactPos - transform.position).magnitude < getSlowedDownThreshold && Time.realtimeSinceStartup > lastTimeShieldUp + shieldUpCooldown && !isInvincible)
+        {
+            StartCoroutine(HoldShieldUp());
+        }
+    }
+
+    protected IEnumerator HoldShieldUp()
+    {
+        if (!agent) { yield break; }
+
+        anim.SetTrigger("Shock");
+        isInvincible = true;
+        agent.speed = normalSpeed * shieldUpSpeedMultiplier;
+        yield return new WaitForSeconds(shieldUpDuration);
+        agent.speed = normalSpeed;
+        isInvincible = false;
+        lastTimeShieldUp = Time.realtimeSinceStartup;
     }
 
     protected override void OnCollisionEnter(Collision col)
