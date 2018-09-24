@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpsToSpawn:
-  - {fileID: 0}
+  - {fileID: 114407863450130626, guid: 53cdfa176614db24a9e4d17a929bf3ef, type: 2}
   spawnRange: 1
   dropChance: 0.2
   startWalkingDelay: 1
@@ -1833,8 +1833,8 @@ MonoBehaviour:
   slowedDownDuration: 1
   slowedDownSpeedMultiplier: 0.5
   getSlowedDownThreshold: 3.5
-  dodgeDuration: 1
-  dodgeSpeedMultiplier: 3
+  dodgeDuration: 0.7
+  dodgeSpeedMultiplier: 2
 --- !u!136 &136228317937095526
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2021,7 +2021,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2
-  m_Speed: 3
+  m_Speed: 2
   m_Acceleration: 2000
   avoidancePriority: 50
   m_AngularSpeed: 50000
