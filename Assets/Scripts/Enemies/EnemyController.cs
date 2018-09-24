@@ -57,6 +57,7 @@ public class EnemyController : MonoBehaviour {
 
     protected float toWeakSpotCounter = 0f;
     [SerializeField] protected float timeWalkingToWeakSpotUntilDead = 15f;
+    protected float normalSpeed;
 
 	protected virtual void Awake()
     {
@@ -65,6 +66,7 @@ public class EnemyController : MonoBehaviour {
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
+        normalSpeed = agent.speed;
 	}
 	
 	

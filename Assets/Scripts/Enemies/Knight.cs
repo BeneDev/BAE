@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The knight can put up his shield, which makes him invincible, but slower.
+/// </summary>
 public class Knight : EnemyController {
+
+    bool isInvincible = false;
+    [SerializeField] float shieldUpSpeedMultiplier = 0.5f;
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    protected override void Update()
+    {
+        base.Update();
+        if(isInvincible)
+        {
+            agent.speed = normalSpeed * shieldUpSpeedMultiplier;
+        }
+    }
+
+    protected override void OnCollisionEnter(Collision col)
+    {
+        if(!isInvincible)
+        {
+            base.OnCollisionEnter(col);
+        }
+    }
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The soldier makes unpredictable rolls to evade the hands smashdowns
+/// </summary>
 public class Soldier : EnemyController {
 
     [SerializeField] float dodgeDuration = 1f;
