@@ -39,6 +39,7 @@ public class Knight : EnemyController {
         agent.speed = normalSpeed * shieldUpSpeedMultiplier;
         yield return new WaitForSeconds(shieldUpDuration);
         agent.speed = normalSpeed;
+        anim.SetTrigger("ShieldDown");
         isInvincible = false;
         lastTimeShieldUp = Time.realtimeSinceStartup;
     }

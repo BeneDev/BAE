@@ -234,7 +234,7 @@ public class WaveSpawner : Singleton<WaveSpawner> {
         }
         while(currentWeight < nextWaveWeight)
         {
-            currentWeight = SpawnEnemy(enemies[Random.Range(0, 2)], currentWeight);
+            currentWeight = SpawnEnemy(enemies[Random.Range(0, enemies.Length)], currentWeight);
         }
 
         state = SpawnState.WAITING;
