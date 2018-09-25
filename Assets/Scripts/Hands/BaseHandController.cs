@@ -46,6 +46,18 @@ public class BaseHandController : MonoBehaviour {
         }
     }
 
+    public float Speed
+    {
+        get
+        {
+            return moveSpeed;
+        }
+        set
+        {
+            moveSpeed = value;
+        }
+    }
+
     public event System.Action<Vector3> OnHandSmashDown;
     public event System.Action OnSpecialSmashEnd;
     public event System.Action OnSpecialSmashStarted;

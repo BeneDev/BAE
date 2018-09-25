@@ -14,7 +14,8 @@ public class BasePowerup : MonoBehaviour {
 
     [SerializeField] protected float duration = 5f;
     [SerializeField] protected float timeUntilActive = 1.5f;
-    [SerializeField] protected GameObject appearance;
+    protected MeshRenderer rend;
+    [SerializeField] protected GameObject particle;
 
     [Space]
     
@@ -33,6 +34,7 @@ public class BasePowerup : MonoBehaviour {
     private void Awake()
     {
         coll = GetComponent<SphereCollider>();
+        rend = GetComponent<MeshRenderer>();
         Invoke("EnableCollider", timeUntilActive);
         startPos = transform.position;
     }
@@ -62,8 +64,9 @@ public class BasePowerup : MonoBehaviour {
 
     protected virtual void Use()
     {
-        Destroy(appearance);
+        Destroy(rend);
         Destroy(coll);
+        Destroy(particle);
     }
 
     private void OnTriggerEnter(Collider other)
