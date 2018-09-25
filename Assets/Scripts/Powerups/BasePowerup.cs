@@ -29,6 +29,8 @@ public class BasePowerup : MonoBehaviour {
     
     protected SphereCollider coll;
 
+    [SerializeField] AudioSource powerupSound;
+
     [SerializeField] protected Sprite icon;
 
     private void Awake()
@@ -64,6 +66,10 @@ public class BasePowerup : MonoBehaviour {
 
     protected virtual void Use()
     {
+        if(!powerupSound.isPlaying)
+        {
+            powerupSound.Play();
+        }
         Destroy(rend);
         Destroy(coll);
         Destroy(particle);
