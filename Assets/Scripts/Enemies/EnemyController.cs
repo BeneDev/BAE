@@ -79,6 +79,7 @@ public class EnemyController : MonoBehaviour {
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handRight.OnHandSmashDown += ReactToHandSmashNearby;
         handLeft.OnHandSmashDown += ReactToHandSmashNearby;
+        CalculateSpeed();
         normalSpeed = agent.speed;
     }
 
@@ -149,6 +150,11 @@ public class EnemyController : MonoBehaviour {
             Destroy(gameObject);
         }
 
+    }
+
+    protected void CalculateSpeed()
+    {
+        agent.speed *= 1 + (WaveSpawner.Instance.NextWave * 0.05f);
     }
 
     protected virtual void ReactToHandSmashNearby(Vector3 impactPos)
