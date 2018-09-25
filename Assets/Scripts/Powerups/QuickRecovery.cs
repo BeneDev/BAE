@@ -36,10 +36,12 @@ public class QuickRecovery : BasePowerup {
 
     IEnumerator Go(BaseHandController targetHand)
     {
+        targetHand.ChangePowerup(icon);
         normalResetTime = targetHand.ResetTime;
         targetHand.ResetTime = normalResetTime * 0.3f;
         yield return new WaitForSeconds(duration);
         targetHand.ResetTime = normalResetTime;
+        targetHand.ChangePowerup();
         Destroy(gameObject);
     }
 }

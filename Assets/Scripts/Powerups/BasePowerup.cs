@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BasePowerup : MonoBehaviour {
 
+    public Sprite Icon
+    {
+        get
+        {
+            return icon;
+        }
+    }
+
     [SerializeField] protected float duration = 5f;
     [SerializeField] protected float timeUntilActive = 1.5f;
     [SerializeField] protected GameObject appearance;
@@ -19,6 +27,8 @@ public class BasePowerup : MonoBehaviour {
     protected HandRightController handRight;
     
     protected SphereCollider coll;
+
+    [SerializeField] protected Sprite icon;
 
     private void Awake()
     {

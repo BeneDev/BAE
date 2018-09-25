@@ -757,6 +757,8 @@ MonoBehaviour:
   minPitch: 0.647
   maxPitch: 1.51
   holdStickDownInputForFrames: 5
+  defaultPowerupSprite: {fileID: 21300000, guid: 11b23f3abb1ff3349adcd5b23b1b4ff3,
+    type: 3}
 --- !u!137 &137128670904213144
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
