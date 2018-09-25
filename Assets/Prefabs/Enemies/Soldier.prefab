@@ -1813,12 +1813,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpsToSpawn:
-  - {fileID: 114407863450130626, guid: 53cdfa176614db24a9e4d17a929bf3ef, type: 2}
+  - {fileID: 114265196638806792, guid: 81b75dfa2f3a3ce4d87fdb80fbe4eff7, type: 2}
   spawnRange: 1
   dropChance: 0.2
   startWalkingDelay: 1
   turnAroundDistance: 1.5
-  energyStealAmount: 3
+  energyStealAmount: 4
   waveWeight: 1.2
   energyCarryOffset: {x: 0, y: 1.1, z: 0}
   aSource: {fileID: 82198102226889226}
