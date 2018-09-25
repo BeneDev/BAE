@@ -4,25 +4,44 @@ using UnityEngine;
 
 public class QuickRecovery : BasePowerup {
 
+    float normalResetTime;
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        if(handLeft)
+        {
+            handLeft.ResetTime = normalResetTime;
+        }
+        else if(handRight)
+        {
+            handRight.ResetTime = normalResetTime;
+        }
+    }
+
     protected override void Use()
     {
         base.Use();
         if(handRight)
         {
+            handRight.CurrentPowerup = gameObject;
             StartCoroutine(Go(handRight));
         }
         else if(handLeft)
         {
+            handLeft.CurrentPowerup = gameObject;
             StartCoroutine(Go(handLeft));
         }
     }
 
     IEnumerator Go(BaseHandController targetHand)
     {
-        float normalResetTime = targetHand.ResetTime;
+        targetHand.ChangePowerup(icon);
+        normalResetTime = targetHand.ResetTime;
         targetHand.ResetTime = normalResetTime * 0.3f;
         yield return new WaitForSeconds(duration);
         targetHand.ResetTime = normalResetTime;
+        targetHand.ChangePowerup();
         Destroy(gameObject);
     }
 }

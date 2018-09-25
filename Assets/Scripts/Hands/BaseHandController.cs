@@ -33,9 +33,35 @@ public class BaseHandController : MonoBehaviour {
         }
     }
 
+    public GameObject CurrentPowerup
+    {
+        get
+        {
+            return currentPowerup;
+        }
+        set
+        {
+            Destroy(currentPowerup);
+            currentPowerup = value;
+        }
+    }
+
+    public float Speed
+    {
+        get
+        {
+            return moveSpeed;
+        }
+        set
+        {
+            moveSpeed = value;
+        }
+    }
+
     public event System.Action<Vector3> OnHandSmashDown;
     public event System.Action OnSpecialSmashEnd;
     public event System.Action OnSpecialSmashStarted;
+    public event System.Action<Sprite> OnPowerupChanged;
 
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float smashSpeed = 2f;
@@ -94,6 +120,9 @@ public class BaseHandController : MonoBehaviour {
     [SerializeField] int holdStickDownInputForFrames = 5;
 
     protected Animator anim;
+
+    GameObject currentPowerup;
+    [SerializeField] protected Sprite defaultPowerupSprite;
 
     protected virtual void Awake()
     {
@@ -242,6 +271,21 @@ public class BaseHandController : MonoBehaviour {
         camShake.shakeDuration = smashCamShakeDuration;
         yield return new WaitForSeconds(0.2f);
         canKill = false;
+    }
+
+    public void ChangePowerup(Sprite icon = null)
+    {
+        if(OnPowerupChanged != null)
+        {
+            if(icon)
+            {
+                OnPowerupChanged(icon);
+            }
+            else
+            {
+                OnPowerupChanged(defaultPowerupSprite);
+            }
+        }
     }
 
     IEnumerator PlayAtRandomPitch(AudioClip clip)

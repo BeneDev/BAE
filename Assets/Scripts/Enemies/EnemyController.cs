@@ -21,50 +21,75 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    GameObject weakSpot;
-    WeakSpotController weakSpotCon;
+    protected GameObject weakSpot;
+    protected WeakSpotController weakSpotCon;
 
-    NavMeshAgent agent;
+    protected NavMeshAgent agent;
 
-    Vector3 spawnPosition;
+    protected Vector3 spawnPosition;
 
-    [SerializeField] float startWalkingDelay = 3f;
-    [SerializeField] float turnAroundDistance = 1f;
-    [SerializeField] int energyStealAmount = 3;
-    [Range(0.1f, 10f), SerializeField] float waveWeight = 1f;
-    int hasEnergy = 0;
-    [SerializeField] Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
+    [SerializeField] protected BasePowerup[] powerUpsToSpawn;
+    [SerializeField] protected float spawnRange = 2.5f;
+    [Range(0, 1), SerializeField] protected float dropChance = 0.3f;
 
-    [SerializeField] AudioSource aSource;
-    [SerializeField] AudioClip[] aClips;
-    [Range(0.5f, 2f), SerializeField] float minPitch;
-    [Range(1f, 3f), SerializeField] float maxPitch;
+    [SerializeField] protected float startWalkingDelay = 3f;
+    [SerializeField] protected float turnAroundDistance = 1f;
+    [SerializeField] protected int energyStealAmount = 3;
+    [Range(0.1f, 10f), SerializeField] protected float waveWeight = 1f;
+    protected int hasEnergy = 0;
+    [SerializeField] protected Vector3 energyCarryOffset = new Vector3(0f, 1.1f, 0f);
 
-    private float distanceToDestination;
-    private float distanceToSpawn;
+    [SerializeField] protected AudioSource aSource;
+    [SerializeField] protected AudioClip[] aClips;
+    [Range(0.5f, 2f), SerializeField] protected float minPitch;
+    [Range(1f, 3f), SerializeField] protected float maxPitch;
 
-    private bool toDestination = true;
+    protected float distanceToDestination;
+    protected float distanceToSpawn;
 
-    private Animator anim;
+    protected bool toDestination = true;
 
-    private bool isWaiting = false;
+    protected Animator anim;
 
-    [SerializeField] bool isGreenBlooded = false;
+    protected bool isWaiting = false;
 
-    float toWeakSpotCounter = 0f;
-    [SerializeField] float timeWalkingToWeakSpotUntilDead = 15f;
+    [SerializeField] protected bool isGreenBlooded = false;
 
-	void Awake()
+    protected float toWeakSpotCounter = 0f;
+    [SerializeField] protected float timeWalkingToWeakSpotUntilDead = 15f;
+
+    [Tooltip("This should be the same as the one in Ground Tile Controller"), SerializeField] protected float waitAfterImpactMultiplier = 0.1f;
+    [SerializeField] protected float slowedDownDuration = 1f;
+    [Range(0, 1), SerializeField] protected float slowedDownSpeedMultiplier = 0.5f;
+    [SerializeField] protected float getSlowedDownThreshold = 3.5f;
+    protected float normalSpeed;
+
+    protected HandLeftController handLeft;
+    protected HandRightController handRight;
+
+
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         spawnPosition = transform.position;
         weakSpot = GameObject.FindGameObjectWithTag("WeakSpot");
         weakSpotCon = weakSpot.GetComponent<WeakSpotController>();
-	}
-	
-	
-	void Update ()
+        handRight = GameObject.FindGameObjectWithTag("HandRight").GetComponent<HandRightController>();
+        handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
+        handRight.OnHandSmashDown += ReactToHandSmashNearby;
+        handLeft.OnHandSmashDown += ReactToHandSmashNearby;
+        CalculateSpeed();
+        normalSpeed = agent.speed;
+    }
+
+    private void OnDisable()
+    {
+        handRight.OnHandSmashDown -= ReactToHandSmashNearby;
+        handLeft.OnHandSmashDown -= ReactToHandSmashNearby;
+    }
+
+    protected virtual void Update ()
     {
         if (GameManager.Instance.IsPaused)
         {
@@ -95,6 +120,7 @@ public class EnemyController : MonoBehaviour {
         if(distanceToDestination < turnAroundDistance)
         {
             toDestination = false;
+            toWeakSpotCounter = 0f;
             if(hasEnergy <= 0)
             {
                 StealEnergy();
@@ -126,12 +152,47 @@ public class EnemyController : MonoBehaviour {
 
     }
 
+    protected void CalculateSpeed()
+    {
+        agent.speed *= 1 + (WaveSpawner.Instance.NextWave * 0.05f);
+    }
+
+    protected virtual void ReactToHandSmashNearby(Vector3 impactPos)
+    {
+        if ((impactPos - transform.position).magnitude < getSlowedDownThreshold)
+        {
+            StartCoroutine(React(impactPos));
+        }
+    }
+
+    protected IEnumerator React(Vector3 pos)
+    {
+        if (!agent) { yield break; }
+        anim.SetTrigger("Shock");
+        Vector3 toImpact = pos - transform.position;
+        yield return new WaitForSeconds(toImpact.magnitude * waitAfterImpactMultiplier);
+        if(!agent) { yield break; }
+        agent.speed = normalSpeed * slowedDownSpeedMultiplier;
+        anim.speed = slowedDownSpeedMultiplier;
+        yield return new WaitForSeconds(slowedDownDuration);
+        agent.speed = normalSpeed;
+        anim.speed = 1f;
+    }
+
+    protected void SpawnPowerUp(Vector3 offset)
+    {
+        if(powerUpsToSpawn.Length > 0)
+        {
+            Instantiate(powerUpsToSpawn[Random.Range(0, powerUpsToSpawn.Length)], (transform.position + (Vector3)(Random.insideUnitCircle * spawnRange)) + offset, Quaternion.identity);
+        }
+    }
+
     public void PlayFootStep()
     {
         aSource.PlayOneShot(aClips[0]);
     }
 
-    private void StealEnergy()
+    protected void StealEnergy()
     {
         hasEnergy = weakSpotCon.LoseEnergy(energyStealAmount);
         if (anim && hasEnergy > 0)
@@ -147,12 +208,12 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void TakeEnergy()
+    protected void TakeEnergy()
     {
         GameManager.Instance.GetLittleEnergy(gameObject, energyCarryOffset);
     }
 
-    void ToWeakSpot()
+    protected void ToWeakSpot()
     {
         if(agent)
         {
@@ -160,7 +221,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void ToSpawn()
+    protected void ToSpawn()
     {
         if(agent)
         {
@@ -168,7 +229,7 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    IEnumerator PlayAtRandomPitch(AudioClip clip)
+    protected IEnumerator PlayAtRandomPitch(AudioClip clip)
     {
         aSource.pitch = Random.Range(minPitch, maxPitch);
         aSource.PlayOneShot(clip);
@@ -177,7 +238,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     //check if Enemy is hit by Hand
-    void OnCollisionEnter(Collision col)
+    protected virtual void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.GetComponent<BaseHandController>())
         {
@@ -188,7 +249,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     weakSpotCon.RegainEnergy(hasEnergy);
                 }
-                weakSpotCon.GainRage(energyStealAmount);
+                weakSpotCon.GainRage(energyStealAmount / 2);
                 if(isGreenBlooded)
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Green");
@@ -197,10 +258,15 @@ public class EnemyController : MonoBehaviour {
                 {
                     GameManager.Instance.GetSplatterParticle(transform.position + Vector3.up * 0.2f, "Red");
                 }
+                if(Random.value < dropChance)
+                {
+                    SpawnPowerUp(Vector3.up * 0.6f);
+                }
                 GameManager.Instance.IncreaseKills(isGreenBlooded);
                 Destroy(agent);
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());
+                Destroy(GetComponentInChildren<MeshRenderer>());
                 Destroy(GetComponent<CapsuleCollider>());
             }
         }
