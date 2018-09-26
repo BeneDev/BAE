@@ -51,7 +51,8 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     HandLeftController handLeft;
 
     [SerializeField] PostProcessingProfile postProfile;
-    float normalSaturation;
+
+    [SerializeField] float normalSaturation = 1.25f;
     
 
 	// Use this for initialization
@@ -60,8 +61,10 @@ public class WeakSpotController : Singleton<WeakSpotController> {
         energy = maxEnergy;
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handLeft.OnSpecialSmashStarted += ResetRageMeter;
-        normalSaturation = postProfile.colorGrading.settings.basic.saturation;
-	}
+        var colorGrading = postProfile.colorGrading.settings;
+        colorGrading.basic.saturation = normalSaturation;
+        postProfile.colorGrading.settings = colorGrading;
+    }
 
     private void Start()
     {
