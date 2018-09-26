@@ -67,6 +67,7 @@ public class EnemyController : MonoBehaviour {
     protected HandLeftController handLeft;
     protected HandRightController handRight;
 
+    [SerializeField] int enemyKind;
 
     protected virtual void Awake()
     {
@@ -262,7 +263,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     SpawnPowerUp(Vector3.up * 0.6f);
                 }
-                GameManager.Instance.IncreaseKills(isGreenBlooded);
+                GameManager.Instance.IncreaseKills(enemyKind);
                 Destroy(agent);
                 Destroy(gameObject, 1f);
                 Destroy(GetComponentInChildren<SkinnedMeshRenderer>());

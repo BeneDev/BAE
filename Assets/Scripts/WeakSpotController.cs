@@ -76,6 +76,7 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     private void Update()
     {
+        RecalculateEnergyOnEnemies();
         if (energy <= 0 && energyOnEnemies <= 0 && !GameManager.Instance.IsDead)
         {
             GameManager.Instance.Dead();
@@ -140,6 +141,12 @@ public class WeakSpotController : Singleton<WeakSpotController> {
     public void GainRage(int rageToGain)
     {
         RageMeter += rageToGain;
+        if (energy > maxEnergy * 0.3333f)
+        {
+            var colorGrading = postProfile.colorGrading.settings;
+            colorGrading.basic.saturation = normalSaturation;
+            postProfile.colorGrading.settings = colorGrading;
+        }
     }
 
     public void RegainEnergy(int energyToRegain)

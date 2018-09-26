@@ -1919,6 +1919,7 @@ MonoBehaviour:
   slowedDownDuration: 1
   slowedDownSpeedMultiplier: 0.5
   getSlowedDownThreshold: 3.5
+  enemyKind: 1
   shieldUpSpeedMultiplier: 0.3
   shieldUpDuration: 2
   shieldUpCooldown: 5

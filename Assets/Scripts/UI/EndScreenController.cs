@@ -23,12 +23,12 @@ public class EndScreenController : MonoBehaviour {
         highlightedButton.Select();
     }
 
-    void SetEndScreenTexts(int waveCount, int plebKills, int bigGuyKills)
+    void SetEndScreenTexts(int waveCount, int cavemanKills, int knightKills, int soldierKills)
     {
         aS.Play();
         Invoke("SelectButton", 1f);
         waveCountText.text = "You made it to Wave " + waveCount + "!";
-        killCountText.text = "Getting there, you killed " + plebKills + " Plebs and " + bigGuyKills + " Big Guys.";
+        killCountText.text = "Getting there, you killed " + cavemanKills + " Cavemans, " + knightKills + " Knights and " + soldierKills + " Soldiers.";
     }
 
     public void PlayAgain()

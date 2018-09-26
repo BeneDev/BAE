@@ -1834,6 +1834,7 @@ MonoBehaviour:
   slowedDownDuration: 1
   slowedDownSpeedMultiplier: 0.5
   getSlowedDownThreshold: 3.5
+  enemyKind: 2
   dodgeDuration: 0.7
   dodgeSpeedMultiplier: 2
 --- !u!136 &136228317937095526
