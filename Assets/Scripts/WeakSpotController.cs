@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class WeakSpotController : Singleton<WeakSpotController> {
 
@@ -49,12 +50,17 @@ public class WeakSpotController : Singleton<WeakSpotController> {
 
     HandLeftController handLeft;
 
+    [SerializeField] PostProcessingProfile postProfile;
+    float normalSaturation;
+    
+
 	// Use this for initialization
 	void Awake()
     {
         energy = maxEnergy;
         handLeft = GameObject.FindGameObjectWithTag("HandLeft").GetComponent<HandLeftController>();
         handLeft.OnSpecialSmashStarted += ResetRageMeter;
+        normalSaturation = postProfile.colorGrading.settings.basic.saturation;
 	}
 
     private void Start()
@@ -112,6 +118,13 @@ public class WeakSpotController : Singleton<WeakSpotController> {
             RageMeter = maxRage;
         }
         energy -= stealAmount;
+        // Change post processing saturation when low energy
+        if(energy <= maxEnergy * 0.3333f)
+        {
+            var colorGrading = postProfile.colorGrading.settings;
+            colorGrading.basic.saturation = normalSaturation * (energy / (maxEnergy * 0.333333f));
+            postProfile.colorGrading.settings = colorGrading;
+        }
         WaveSpawner.Instance.IncreaseBirdSpawnChance(2);
         return stealAmount;
     }

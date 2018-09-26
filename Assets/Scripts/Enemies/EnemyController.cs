@@ -183,7 +183,7 @@ public class EnemyController : MonoBehaviour {
     {
         if(powerUpsToSpawn.Length > 0)
         {
-            Instantiate(powerUpsToSpawn[Random.Range(0, powerUpsToSpawn.Length)], (transform.position + (Vector3)(Random.insideUnitCircle * spawnRange)) + offset, Quaternion.identity);
+            Instantiate(powerUpsToSpawn[Random.Range(0, powerUpsToSpawn.Length)], (transform.position + (Vector3)(Random.insideUnitCircle * spawnRange)) + offset, Quaternion.Euler(new Vector3(-62f, 180f, 180f)));
         }
     }
 

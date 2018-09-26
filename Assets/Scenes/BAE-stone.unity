@@ -534,6 +534,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1379860810284570, guid: 121f9c7cdb5100d468cec5e9f8ba47c5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121f9c7cdb5100d468cec5e9f8ba47c5, type: 2}
   m_IsPrefabAsset: 0
@@ -823,6 +827,12 @@ Prefab:
       propertyPath: maxEnergy
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 114372675605897902, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
+        type: 2}
+      propertyPath: postProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ba67726cf7d0f842b572e7ff32174ef,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b6af0d2ac571941ab5ccc574c08a6f, type: 2}
   m_IsPrefabAsset: 0
@@ -1140,6 +1150,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915948642452502, guid: ed49d02eef0567b4b9905f4f40b7e8ce, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed49d02eef0567b4b9905f4f40b7e8ce, type: 2}
