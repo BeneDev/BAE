@@ -825,7 +825,7 @@ Prefab:
     - target: {fileID: 114372675605897902, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
         type: 2}
       propertyPath: maxEnergy
-      value: 3
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114372675605897902, guid: 70b6af0d2ac571941ab5ccc574c08a6f,
         type: 2}
